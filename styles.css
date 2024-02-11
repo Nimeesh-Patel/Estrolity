@@ -1,0 +1,222 @@
+/* styles.css */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+/* Reset some basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a basic font for the whole page */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background: #ffffff; /* Pure white background for a clean look */
+}
+
+/* Add this to styles.css */
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5em; /* Adjusted for uniformity */
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 1.8em; /* Adjusted for readability */
+    color: #666;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto 40px; /* Centers the text and adds space below */
+    text-align: center;
+}
+
+
+/* Container class for managing width and padding */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+header {
+    color: #333;
+    padding: 40px 0;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    height: 50px; /* Adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bolder;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #d2b4de; /* A soft purple for hover state */
+}
+
+/* Welcome Section */
+.welcome-section {
+    background: url('header-bg.jpg') no-repeat center center/cover; /* Replace with actual image path */
+    color: #333;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.welcome-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 7em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 2.5em;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto 60px; /* Centers the text and adds space below */
+}
+
+/* Unified Section Styling */
+
+section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #fff; /* White or use #f8f8f8 for slight off-white */
+}
+
+
+/* Quiz Section Styling */
+.quiz-section {
+    
+    background-color: #fff; /* Very light grey for a soft look */
+}
+
+/* Update .quiz-button class and apply similar styling to other buttons as well */
+
+.quiz-button, .explore-button, .video-button, .start-quiz-button {
+    font-size: 1.3em;
+    padding: 15px 60px;
+    background-color: #4b3f72; /* Mystical purple */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    display: inline-block; /* To center the button */
+    margin: 20px 0; /* Extra spacing */
+}
+
+.quiz-button:hover, .explore-button:hover, .video-button:hover, .start-quiz-button:hover {
+    background-color: #3a2d56; /* A darker purple for hover state */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Form Improvements */
+input[type="date"] {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    padding: 10px;
+    border: 2px solid #d2b4de; /* Soft purple border */
+    border-radius: 5px; /* Slightly rounded corners for elegance */
+    display: block; /* Ensure it occupies its own line */
+    width: 100%; /* Full-width to match container size */
+    box-sizing: border-box; /* Border included in width */
+    margin-bottom: 20px; /* Spacing below the input */
+    cursor: pointer;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #4b3f72; /* Darker purple when focused */
+}
+
+/* Button Enhancements */
+input[type="submit"] {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: #fff;
+    background-color: #4b3f72; /* Mystical purple */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block; /* Center button */
+    width: auto; /* Auto-width based on content */
+}
+
+input[type="submit"]:hover {
+    background-color: #3a2d56; /* Darker purple on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+
+/*Login Styling*/
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.login-button {
+    background-color: #4b3f72; /* Consistent button color */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.assist-links a {
+    color: #d2b4de;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.assist-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
