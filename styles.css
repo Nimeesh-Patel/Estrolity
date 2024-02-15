@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
 
@@ -10,51 +8,38 @@
     box-sizing: border-box;
 }
 
-/* Apply a basic font for the whole page */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    background: #ffffff; /* Pure white background for a clean look */
+    background-color: #000; /* Background color for body, ensures canvas contrast */
 }
 
-/* Add this to styles.css */
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 5em; /* Adjusted for uniformity */
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
+/* Starfield Canvas */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Stay behind all other page content */
 }
 
-p {
-    font-size: 1.8em; /* Adjusted for readability */
-    color: #666;
-    max-width: 800px; /* Adjust as needed */
-    margin: 0 auto 40px; /* Centers the text and adds space below */
-    text-align: center;
-}
-
-
-/* Container class for managing width and padding */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
+/* Header Styling */
 header {
     color: #333;
-    padding: 40px 0;
+    padding: 20px 0;
+    z-index: 10; /* Ensure header content is above the starfield */
     position: relative;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 header img {
-    height: 50px; /* Adjust as needed */
+    height: 50px;
 }
 
 nav ul {
@@ -70,142 +55,56 @@ nav ul li {
 nav ul li a {
     color: #333;
     text-decoration: none;
-    font-weight: bolder;
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #d2b4de; /* A soft purple for hover state */
+    color: #d2b4de; /* Soft purple for hover state */
 }
 
-/* Welcome Section */
-.welcome-section {
-    background: url('header-bg.jpg') no-repeat center center/cover; /* Replace with actual image path */
-    color: #333;
-    padding: 120px 0;
-    text-align: center;
-}
-
-.welcome-section h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 7em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.welcome-section p {
-    font-size: 2.5em;
-    color: #666;
-    max-width: 650px;
-    margin: 0 auto 60px; /* Centers the text and adds space below */
-}
-
-/* Unified Section Styling */
-
+/* Section Styling */
 section {
     padding: 80px 0;
     text-align: center;
-    background-color: #fff; /* White or use #f8f8f8 for slight off-white */
 }
 
-
-/* Quiz Section Styling */
-.quiz-section {
-    
-    background-color: #fff; /* Very light grey for a soft look */
+.welcome-section, .demo-section, .quiz-section, .results-section {
+    position: relative; /* Needed for proper stacking context */
+    z-index: 2; /* Ensure section content is above the starfield */
+    color: #fff; /* Adjust text color for better contrast against the dark background */
 }
 
-/* Update .quiz-button class and apply similar styling to other buttons as well */
-
-.quiz-button, .explore-button, .video-button, .start-quiz-button {
-    font-size: 1.3em;
-    padding: 15px 60px;
-    background-color: #4b3f72; /* Mystical purple */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 700;
-    display: inline-block; /* To center the button */
-    margin: 20px 0; /* Extra spacing */
-}
-
-.quiz-button:hover, .explore-button:hover, .video-button:hover, .start-quiz-button:hover {
-    background-color: #3a2d56; /* A darker purple for hover state */
-    transform: scale(1.05); /* Slight grow effect */
-}
-
-/* Form Improvements */
-input[type="date"] {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.2em;
-    padding: 10px;
-    border: 2px solid #d2b4de; /* Soft purple border */
-    border-radius: 5px; /* Slightly rounded corners for elegance */
-    display: block; /* Ensure it occupies its own line */
-    width: 100%; /* Full-width to match container size */
-    box-sizing: border-box; /* Border included in width */
-    margin-bottom: 20px; /* Spacing below the input */
-    cursor: pointer;
-}
-
-input[type="date"]:focus {
-    outline: none;
-    border-color: #4b3f72; /* Darker purple when focused */
-}
-
-/* Button Enhancements */
-input[type="submit"] {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1.3em;
-    color: #fff;
-    background-color: #4b3f72; /* Mystical purple */
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px; /* Slightly rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    display: inline-block; /* Center button */
-    width: auto; /* Auto-width based on content */
-}
-
-input[type="submit"]:hover {
-    background-color: #3a2d56; /* Darker purple on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-
-/*Login Styling*/
-.login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
-.form-group {
+/* Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #fff; /* White color for headings for contrast */
     margin-bottom: 20px;
 }
 
-.login-button {
-    background-color: #4b3f72; /* Consistent button color */
+p {
+    font-size: 1.25rem;
+    color: #ccc; /* Lighter text color for paragraphs for readability */
+    max-width: 800px;
+    margin: 0 auto; /* Center text blocks */
+}
+
+/* Button Styling */
+.btn {
+    background-color: #4b3f72; /* Mystical purple */
     color: #fff;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
-    width: 100%;
     font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.assist-links a {
-    color: #d2b4de;
-    text-decoration: none;
-    font-size: 0.9em;
+.btn:hover {
+    background-color: #3a2d56; /* Darker purple on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
-.assist-links a:hover {
-    text-decoration: underline;
-}
-
 
 /* Footer Styling */
 footer {
@@ -214,9 +113,12 @@ footer {
     text-align: center;
     padding: 40px 0;
     font-size: 0.9em;
+    z-index: 10; /* Ensure footer content is above the starfield */
+    position: relative;
 }
 
 footer p {
     margin: 0;
 }
+
 

@@ -4,81 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astrology and Personality Traits</title>
-    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-
-    <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <img src="logo1ed.png" alt="Astrology Logo" id="logo">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="video-demo.html">Demo</a></li>
-                    <li><a href="quiz-intro.html">Quiz</a></li>
-                    <li><a href="#results">Results</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
-    
-    <main>
-        <section id="home" class="welcome-section">
-            <div class="container">
-                <h1>Welcome to Estolity</h1>
-                <p>Your personal guide to the stars and self-discovery.</p>
-                <a href="date-selector.html">
-                    <button class="explore-button">Explore Now</button>
-                </a>
-            </div>
+
+    <canvas id="starfield"></canvas> <!-- Moved outside for full-page background -->
+
+    <main class="container">
+        <section id="home" class="welcome-section text-center py-5">
+            <h1>Welcome to Estolity</h1>
+            <p>Your personal guide to the stars and self-discovery.</p>
+            <a href="date-selector.html" class="btn btn-primary">Explore Now</a>
         </section>
         
-        <section id="demo" class="demo-section">
-            <div class="container">
-                <h1>See Estolity in Action</h1>
-                <p>Watch our video demonstration.</p>
-                <a href="video-demo.html">
-                    <button class="video-button">Watch Now</button>
-                </a>
-            </div>
+        <section id="demo" class="text-center py-5">
+            <h1>See Estolity in Action</h1>
+            <p>Watch our video demonstration.</p>
+            <a href="video-demo.html" class="btn btn-secondary">Watch Now</a>
         </section>
         
-        <section id="quiz" class="quiz-section">
-            <div class="container">
-                <h1>Discover Yourself</h1>
-                <p>Take our comprehensive behavior quiz and uncover the traits that define you.</p>
-                <a href="quiz-intro.html">
-                    <button class="quiz-button">Start Quiz</button>
-                </a>
-            </div>
+        <section id="quiz" class="text-center py-5">
+            <h1>Discover Yourself</h1>
+            <p>Take our comprehensive behavior quiz and uncover the traits that define you.</p>
+            <a href="quiz-intro.html" class="btn btn-success">Start Quiz</a>
         </section>
         
-        <section id="results" class="results-section">
-            <div class="container">
-                <h1>Your Personalized Insight</h1>
-                <p>After completing the quiz, view your detailed astrological profile and see how it correlates with your behavior patterns.</p>
-                <!-- Placeholder for results graphics -->
-                <div class="results-placeholder">Results Preview</div>
-            </div>
+        <section id="results" class="text-center py-5">
+            <h1>Your Personalized Insight</h1>
+            <p>After completing the quiz, view your detailed astrological profile and see how it correlates with your behavior patterns.</p>
         </section>
-        
-        <!-- Additional sections can be added here -->
-        
     </main>
     
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
-            <!-- Placeholder for additional footer content -->
-        </div>
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
     </footer>
     
-    <!-- Link to JavaScript file -->
-    <!-- <script src="script.js"></script> -->
+    <script src="js/script.js"></script>
 </body>
 </html>
 
