@@ -14,14 +14,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let mouseX = window.innerWidth / 2; // Center by default
     let mouseY = window.innerHeight / 2; // Center by default
 
-    const stars = 300; // Increased density of stars
+    const stars = 1000; // Increased density of stars
     const starArray = [];
+
+    // random value assigment
 
     for (let i = 0; i < stars; i++) {
         starArray.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 2,
+            size: Math.random() * 1.5,
             speed: Math.random() * 0.5 + 0.5,
             opacity: Math.random()
         });
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let dx = star.x - mouseX;
             let dy = star.y - mouseY;
             let distance = Math.sqrt(dx * dx + dy * dy);
-            let forceDirection = distance < 100 ? -1 : 1; // Influence radius of 100px
+            let forceDirection = distance < 50 ? -1 : 1; // Influence radius of the mouse
 
             // Move stars based on mouse position
             star.x += (dx / distance) * star.speed * forceDirection;
