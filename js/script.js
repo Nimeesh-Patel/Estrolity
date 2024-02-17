@@ -69,23 +69,77 @@ document.addEventListener("DOMContentLoaded", function() {
     drawStars();
 });
 
-document.addEventListener('mousemove', (e) => {
-    const cursor = document.getElementById('customCursor');
-    const x = e.clientX;
-    const y = e.clientY;
-    cursor.style.left = x + 'px';
-    cursor.style.top = y + 'px';
-});
+// document.addEventListener('mousemove', (e) => {
+//     const cursor = document.getElementById('customCursor');
+//     const x = e.clientX;
+//     const y = e.clientY;
+//     cursor.style.left = x + 'px';
+//     cursor.style.top = y + 'px';
+// });
 
-// Example of changing cursor on hover over links or buttons
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        document.getElementById('customCursor').style.transform = 'translate(-50%, -50%) scale(2)'; // Enlarge cursor
+// // // Example of changing cursor on hover over links or buttons
+// document.querySelectorAll('a, button').forEach(el => {
+//     el.addEventListener('mouseenter', () => {
+//         document.getElementById('customCursor').style.transform = 'translate(-50%, -50%) scale(2)'; // Enlarge cursor
+//     });
+//     el.addEventListener('mouseleave', () => {
+//         document.getElementById('customCursor').style.transform = 'translate(-50%, -50%) scale(1)'; // Reset cursor size
+//     });
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const customCursor = document.getElementById('customCursor');
+
+//     document.addEventListener('mousemove', e => {
+//         // Update the position of the custom cursor container
+//         customCursor.style.left = e.clientX + 'px';
+//         customCursor.style.top = e.clientY + 'px';
+//     });
+
+//     document.addEventListener('mousedown', () => {
+//         // Enlarge the cursor on click
+//         customCursor.style.transform = 'translate(-50%, -50%) scale(2)';
+//     });
+
+//     document.addEventListener('mouseup', () => {
+//         // Return to normal size
+//         customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
+//     });
+
+//     // Add logic for hovering over clickable elements if needed
+//     const clickableElements = document.querySelectorAll('a, button, [onclick], input, textarea');
+//     clickableElements.forEach(el => {
+//         el.addEventListener('mouseover', () => customCursor.classList.add('hover'));
+//         el.addEventListener('mouseout', () => customCursor.classList.remove('hover'));
+//     });
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const customCursor = document.getElementById('customCursor');
+    
+
+    // Move custom cursor based on real cursor's position
+    document.addEventListener('mousemove', (e) => {
+        customCursor.style.left = `${e.clientX}px`;
+        customCursor.style.top = `${e.clientY}px`;
     });
-    el.addEventListener('mouseleave', () => {
-        document.getElementById('customCursor').style.transform = 'translate(-50%, -50%) scale(1)'; // Reset cursor size
+
+    // Enlarge the custom cursor on mousedown and return to normal size on mouseup
+    document.addEventListener('mousedown', () => {
+        customCursor.style.transform = 'translate(-50%, -50%) scale(2)';
+    });
+
+    document.addEventListener('mouseup', () => {
+        customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    // Change cursor appearance on hover over clickable elements
+    document.querySelectorAll('a, button, [onclick], input, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            customCursor.style.transform = 'translate(-50%, -50%) scale(2)'; // Enlarge cursor
+        });
+        el.addEventListener('mouseleave', () => {
+            customCursor.style.transform = 'translate(-50%, -50%) scale(1)'; // Reset cursor size
+        });
     });
 });
-
-
-

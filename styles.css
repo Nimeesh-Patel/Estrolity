@@ -36,15 +36,29 @@ body {
 
 #customCursor {
     position: fixed;
-    pointer-events: none; /* Ignore the cursor when interacting with other elements */
+    pointer-events: none;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: #ffffff; /* Example: red circle */
-    transform: translate(-50%, -50%); /* Center the cursor */
-    transition: transform 0.2s, width 0.2s, height 0.2s; /* Smooth movement and hover effect */
-    z-index: 10000; /* Ensure it's above everything else */
+    background: #ffffff;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s, width 0.2s, height 0.2s;
+    z-index: 10000;
     mix-blend-mode: difference;
+    display: flex; /* Ensure it can use flexbox properties */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+}
+
+#cursorDot {
+    position: absolute; /* Changed from fixed to absolute */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000000;
+    transition: transform 0.9s, width 0.2s, height 0.2s;
+    /* Removed the transform and transition properties that were misaligning it */
+    z-index: 1; /* Z-index is relative to the parent now, so it just needs to be above the background */
 }
 
 
