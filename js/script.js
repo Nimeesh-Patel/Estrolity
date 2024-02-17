@@ -114,32 +114,75 @@ document.addEventListener("DOMContentLoaded", function() {
 //     });
 // });
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     const cursorDot = document.getElementById('cursorDot');
+//     const cursorCircle = document.getElementById('cursorCircle');
+
+//     document.addEventListener('mousemove', (e) => {
+//         const x = `${e.clientX}px`;
+//         const y = `${e.clientY}px`;
+//         cursorDot.style.left = x;
+//         cursorDot.style.top = y;
+//         cursorCircle.style.left = x;
+//         cursorCircle.style.top = y;
+//     });
+
+//     const scaleCursorCircle = (scale) => {
+//         cursorCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+//     };
+
+//     document.addEventListener('mousedown', () => scaleCursorCircle(2));
+//     document.addEventListener('mouseup', () => scaleCursorCircle(1));
+//     document.querySelectorAll('a, button, [onclick], input, textarea').forEach(el => {
+//         el.addEventListener('mouseenter', () => scaleCursorCircle(2));
+//         el.addEventListener('mouseleave', () => scaleCursorCircle(1));
+//     });
+// });
 document.addEventListener('DOMContentLoaded', () => {
-    const customCursor = document.getElementById('customCursor');
-    
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorCircle = document.getElementById('cursorCircle');
 
-    // Move custom cursor based on real cursor's position
+    let mouseX = 0, mouseY = 0; // Target positions
+    let circleX = 0, circleY = 0; // Current positions of the cursorCircle
+    const speed = 0.1; // Control the lag effect, lower value = more lag
+
     document.addEventListener('mousemove', (e) => {
-        customCursor.style.left = `${e.clientX}px`;
-        customCursor.style.top = `${e.clientY}px`;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+        // No immediate update for cursorCircle here
     });
 
-    // Enlarge the custom cursor on mousedown and return to normal size on mouseup
-    document.addEventListener('mousedown', () => {
-        customCursor.style.transform = 'translate(-50%, -50%) scale(2)';
-    });
+    function animate() {
+        // Calculate the distance to the target position
+        const dx = mouseX - circleX;
+        const dy = mouseY - circleY;
 
-    document.addEventListener('mouseup', () => {
-        customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
-    });
+        // Update the circle position fractionally closer to the target position
+        circleX += dx * speed;
+        circleY += dy * speed;
 
-    // Change cursor appearance on hover over clickable elements
+        // Apply the updated position to cursorCircle
+        cursorCircle.style.left = `${circleX}px`;
+        cursorCircle.style.top = `${circleY}px`;
+
+        requestAnimationFrame(animate); // Continue the animation loop
+    }
+
+    animate(); // Start the animation loop
+
+    // Scale functions as previously defined
+    const scaleCursorCircle = (scale) => {
+        cursorCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    };
+
+    document.addEventListener('mousedown', () => scaleCursorCircle(2));
+    document.addEventListener('mouseup', () => scaleCursorCircle(1));
     document.querySelectorAll('a, button, [onclick], input, textarea').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            customCursor.style.transform = 'translate(-50%, -50%) scale(2)'; // Enlarge cursor
-        });
-        el.addEventListener('mouseleave', () => {
-            customCursor.style.transform = 'translate(-50%, -50%) scale(1)'; // Reset cursor size
-        });
+        el.addEventListener('mouseenter', () => scaleCursorCircle(2));
+        el.addEventListener('mouseleave', () => scaleCursorCircle(1));
     });
 });
+
+
