@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let mouseX = window.innerWidth / 2; // Center by default
     let mouseY = window.innerHeight / 2; // Center by default
 
-    const stars = 1000; // Increased density of stars
+    const stars = 1500; // Increased density of stars
     const starArray = [];
 
     // random value assigment
@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
         starArray.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 1.5,
-            speed: Math.random() * 0.5 + 0.5,
+            size: Math.random() * 2,
+            speed: Math.random() * 1.5 + 0.5,
             opacity: Math.random()
         });
     }
@@ -69,6 +69,23 @@ document.addEventListener("DOMContentLoaded", function() {
     drawStars();
 });
 
+document.addEventListener('mousemove', (e) => {
+    const cursor = document.getElementById('customCursor');
+    const x = e.clientX;
+    const y = e.clientY;
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+});
+
+// Example of changing cursor on hover over links or buttons
+document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        document.getElementById('customCursor').style.transform = 'translate(-50%, -50%) scale(2)'; // Enlarge cursor
+    });
+    el.addEventListener('mouseleave', () => {
+        document.getElementById('customCursor').style.transform = 'translate(-50%, -50%) scale(1)'; // Reset cursor size
+    });
+});
 
 
 
