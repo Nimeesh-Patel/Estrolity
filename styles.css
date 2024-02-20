@@ -58,7 +58,6 @@ body {
     transition: transform 0.2s; /* Smooth transition for scaling */
 }
 
-
 body {
     cursor: none;
 }
@@ -179,7 +178,7 @@ section {
     height: 300px;
     border-radius: 20px;
     line-height: 1.5;
-    border: 1px solid white; /* Updated */
+    /* border: 1px solid white; */
     color: white;
     text-align: center;
     background-color: rgb(43, 43, 43);
