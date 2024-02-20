@@ -124,5 +124,3 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseleave', () => scaleCursorCircle(1));
     });
 });
-
-
