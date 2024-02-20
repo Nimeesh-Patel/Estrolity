@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Listen for mouse down and up events to adjust the speed factor
     document.addEventListener('mousedown', function() {
-        speedFactor = 0.01; // Increase speed when mouse is clicked
+        speedFactor = 0.02; // Increase speed when mouse is clicked
     });
 
     document.addEventListener('mouseup', function() {
