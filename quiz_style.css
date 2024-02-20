@@ -47,7 +47,7 @@
     text-align: center;
   }
   @media (max-width: 991px) {
-    .div-3 {
+  .div-3 {
       white-space: initial;
       padding: 0 20px;
     }
@@ -110,101 +110,32 @@
       margin-top: 40px;
     }
   }
-  .div-9 {
+  .div-answer {
     border-radius: 9px;
     border: 1px solid #b5b5b5;
     background-color: #211831;
     align-self: center;
-    margin-top: 36px;
+    margin-top: 10 px;
     width: 358px;
     max-width: 100%;
     justify-content: center;
     align-items: start;
     white-space: nowrap;
     padding: 12px 60px 12px 17px;
-    font: 24px Inter, sans-serif;
+    font: 18px Inter, sans-serif;
   }
   @media (max-width: 991px) {
-    .div-9 {
+    .div-answer {
       white-space: initial;
       padding-right: 20px;
     }
   }
   
-.div-9:hover {
+.div-answer:hover {
   background-color: #11ff00; /* Darker purple on hover */
   transform: translateY(-2px); /* Slight lift effect */
   animation-delay: 1s;
 }
-  .div-10 {
-    border-radius: 9px;
-    border: 1px solid #b5b5b5;
-    background-color: #211831;
-    align-self: center;
-    margin-top: 19px;
-    width: 358px;
-    max-width: 100%;
-    justify-content: center;
-    align-items: start;
-    padding: 11px 60px 11px 17px;
-    font: 24px Inter, sans-serif;
-  }
-  @media (max-width: 991px) {
-    .div-10 {
-      padding-right: 20px;
-    }
-  }
-  .div-10:hover {
-    background-color: #11ff00; /* Darker purple on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    animation-delay: 1s;
-  }
-  .div-11 {
-    border-radius: 9px;
-    border: 1px solid #b5b5b5;
-    background-color: #211831;
-    align-self: center;
-    margin-top: 12px;
-    width: 358px;
-    max-width: 100%;
-    justify-content: center;
-    align-items: start;
-    padding: 12px 60px 12px 17px;
-    font: 24px Inter, sans-serif;
-  }
-  @media (max-width: 991px) {
-    .div-11 {
-      padding-right: 20px;
-    }
-  }
-  .div-11:hover {
-    background-color: #11ff00; /* Darker purple on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    animation-delay: 1s;
-  }
-  .div-12 {
-    border-radius: 9px;
-    border: 1px solid #b5b5b5;
-    background-color: #211831;
-    align-self: center;
-    margin-top: 14px;
-    width: 358px;
-    max-width: 100%;
-    justify-content: center;
-    align-items: start;
-    padding: 12px 60px 12px 20px;
-    font: 24px Inter, sans-serif;
-  }
-  @media (max-width: 991px) {
-    .div-12 {
-      padding-right: 20px;
-    }
-  }
-  .div-12:hover {
-    background-color: #11ff00; /* Darker purple on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    animation-delay: 1s;
-  }
   .div-13 {
     background-color: #cd1994;
     margin-top: 12px;
