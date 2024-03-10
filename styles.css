@@ -249,6 +249,7 @@ p {
     cursor: pointer;
     font-size: 1.2em;
     transition: background-color 0.3s, transform 0.3s;
+    padding: 15px 20px;
 }
 
 .btn:hover {

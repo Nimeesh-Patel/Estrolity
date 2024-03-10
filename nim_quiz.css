@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
@@ -10,7 +16,7 @@ body {
     margin-top: 150px;
     background: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -159,7 +165,6 @@ body {
 }
 
 .h3, h3 {
-    margin-bottom: 30px;
     font-size: 25.2px;
     text-align: center;
     color: #576071;
@@ -169,4 +174,22 @@ body {
 .h4, h4 {
     font-size: 22px;
     font-weight: bold;
+}
+
+.btn {
+    background-color: #4b3f72; /* Mystical purple */
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 30px;
+    width: 150px;
+}
+
+.btn:hover {
+    background-color: #3a2d56; /* Darker purple on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    color: #fff;
 }
