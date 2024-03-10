@@ -6,6 +6,7 @@
     <title>Registration Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="validation.js"></script>
 </head>
 <body>
     <header>
@@ -35,7 +36,7 @@
     <div id="cursorCircle"></div>
     <div class="registration-container">
         <h2 style="color: #ccc;">Register</h2>
-        <form action="/submit-registration" method="POST"> <!-- Update action with your backend endpoint -->
+        <form action="register.php" method="POST"> <!-- Update action with your backend endpoint -->
             <div class="form-group">
                 <label for="username">Email Address:</label>
                 <input type="text" id="username" name="username" required>
@@ -79,16 +80,13 @@
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
+                
             </div>
-                <button type="submit" class="btn">Register</button>
-                <div class="assist-links">
-                    <a href="login.html"  style="margin-left: 300px;">Already have an account?</a>
-                </div>
-            </div>
-            
+            <button type="submit" class="btn">Register</button>
         </form>
         
     </div>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
