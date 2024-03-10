@@ -5,7 +5,7 @@ body {
 }
 
 .quiz-container {
-    max-width: 600px;
+    max-width: 1000px;
     margin: auto;
     background: #fff;
     padding: 20px;
@@ -29,15 +29,16 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border-color: #41ce9a;
+    border-color: #32a574;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 0 10px;
 }
 
 
 .option-circle-1:hover {
-    background-color: #41ce9a;
+    background-color: #32a574;
 }
 
 .option-circle-2{
@@ -46,16 +47,17 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border-color: #41ce9a;
+    border-color: #32a574;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 12px;
+    margin-right: 10px;
 }
 
 
 .option-circle-2:hover {
-    background-color: #41ce9a;
+    background-color: #32a574;
 }
 
 .option-circle-3{
@@ -64,16 +66,17 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border-color: #41ce9a;
+    border-color: #32a574;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
+    margin-right: 10px;
 }
 
 
 .option-circle-3:hover {
-    background-color: #41ce9a;
+    background-color: #32a574;
 }
 
 .option-circle-4{
@@ -86,6 +89,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
+    margin-right: 10px;
 }
 
 
@@ -103,6 +107,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 12px;
+    margin-right: 10px;
 }
 
 
@@ -119,6 +124,7 @@ body {
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-right: 10px;
 }
 
 

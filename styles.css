@@ -111,6 +111,8 @@ section {
     color: #fff; /* Adjust text color for better contrast against the dark background */
 }
 
+/* Cards Styling */
+
 .cards-wrapper {
     display: flex;
     flex-direction: column;
@@ -119,7 +121,7 @@ section {
 
 .cards-container {
     display: inline-flex;
-    width: 600px;
+    width: 500px;
     height: 300px;
     border-radius: 20px;
     line-height: 1.5;
