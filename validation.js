@@ -10,16 +10,16 @@ function formValidation() {
     var passid = document.getElementById('password');
     var confirmPassword = document.getElementById('confirmPassword');
 
-    if (userid_validation(uid, 1, Infinity)) {
-        if (passid_validation(passid, 1, Infinity)) {
+    if (ValidateEmail(uid)) {
+        if (userid_validation(uid, 1, Infinity)) {
             if (allLetter(firstName)) {
                 if (allLetter1(lastName)) {
                     if (allLetter2(placeOfBirth)){
                         if (allnumeric(contact)) {
-                            if (ValidateEmail(uid)) {
+                            if (passid_validation(passid, 1, Infinity)) {
                                 if(confirm_pass(confirmPassword, passid)){
-                                    window.location.reload();
-                                    return true;
+                                        window.location.reload();
+                                        return true;
                                 }
                             }
                         }
@@ -96,13 +96,19 @@ function allLetter2(uname) {
 }
 
 
-function allnumeric(uzip) {
+function allnumeric(ucontact) {
     var numbers = /^[0-9]+$/;
-    if (uzip.value.match(numbers)) {
+    var contact_len = ucontact.value.length;
+    if (ucontact.value.match(numbers)) {
+        if (contact_len != 10) {
+            alert("Contact should have 10 numbers!");
+            ucontact.focus();
+            return false;
+        }
         return true;
     } else {
         alert('Contact Number must have numeric characters only');
-        uzip.focus();
+        ucontact.focus();
         return false;
     }
 }
