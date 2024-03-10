@@ -216,7 +216,7 @@ select {
 
 /* Container for the registration form to align with the overall design */
 .registration-container {
-    max-width: 6px;
+    max-width: 600px;
     padding: 20px;
     margin: 40px auto; /* Center the container with more vertical space */
     background-color: rgb(43, 43, 43); /* Harmonize with cards */
