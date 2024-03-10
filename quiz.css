@@ -8,8 +8,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
+    line-height: 1.6;
 }
-
 .quiz-container {
     max-width: 1000px;
     margin: auto;
@@ -130,4 +130,16 @@ body {
 .option-circle-1, .option-circle-2, .option-circle-3,
 .option-circle-4, .option-circle-5, .option-circle-6 {
     display: none;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #eee;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #4caf50;
+    transition: width 0.4s ease-in-out;
 }
