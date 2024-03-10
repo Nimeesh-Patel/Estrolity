@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="nim_quiz.css">
+    <link rel="stylesheet" href="quiz.css">
 </head>
 
 <body>
@@ -31,8 +31,8 @@
             </div>
         </nav>
     </header>
-    
-    <div class="quiz-container">
+
+    <!-- <div class="quiz-container">
         <div class="question">
             <h3 style="margin-bottom: 30px; margin-top: 10px;">How do you feel about social interactions?</h3>
             <div class="options">
@@ -47,10 +47,35 @@
             </div>
         </div>
         <hr>
-        <div class="d-flex justify-content-between" style="margin: 0 100px;">
-            <a href="quiz_6.html" class="btn btn-previous">Previous</a>
-            <a href="quiz_8.html" class="btn btn-next">Next</a>
+        <a href="quiz_1.html" class="btn btn-previous" style="margin-left: 100px;">Previous question</a>
+        <a href="quiz_1.html" class="btn btn-next" style="margin-left: 700px;">Next question</a> -->
+        <div class="quiz-container">
+            <form action="quiz.php" method="post">
+                <div class="question">
+                    <h3 style="margin-bottom: 30px; margin-top: 10px;">How do you feel about social interactions?</h3>
+                    <div class="options">
+                        <h4 style="margin-top: 20px; color: #32a574;">Agree</h4>
+                        <input type="radio" id="option1" name="socialInteraction" value="1" class="option-circle-1">
+                        <label for="option1"></label>
+                        <input type="radio" id="option2" name="socialInteraction" value="2" class="option-circle-2">
+                        <label for="option2"></label>
+                        <input type="radio" id="option3" name="socialInteraction" value="3" class="option-circle-3">
+                        <label for="option3"></label>
+                        <input type="radio" id="option4" name="socialInteraction" value="4" class="option-circle-4">
+                        <label for="option4"></label>
+                        <input type="radio" id="option5" name="socialInteraction" value="5" class="option-circle-5">
+                        <label for="option5"></label>
+                        <input type="radio" id="option6" name="socialInteraction" value="6" class="option-circle-6">
+                        <label for="option6"></label>
+                        <h4 style="margin-top: 20px; color: #4b3f72;">Disagree</h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between" style="margin: 0 100px;">
+                    <button type="submit" class="btn btn-previous" href="quiz_6.html">Previous</button>
+                    <button type="submit" class="btn btn-next" href="quiz_8.html">Next</button>
+            </form>
+            <!-- Repeat for other questions -->
         </div>
-    </div>
 </body>
 </html>
