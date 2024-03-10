@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+        <div class="quiz-container">
+            <form action="quiz.php" method="post">
+                <div class="question">
+                    <h3 style="margin-bottom: 30px; margin-top: 10px;">How do you feel about social interactions?</h3>
+                    <div class="options">
+                        <h4 style="margin-top: 20px; color: #32a574;">Agree</h4>
+                        <input type="radio" id="option1" name="socialInteraction" value="1" class="option-circle-1">
+                        <label for="option1"></label>
+                        <input type="radio" id="option2" name="socialInteraction" value="2" class="option-circle-2">
+                        <label for="option2"></label>
+                        <input type="radio" id="option3" name="socialInteraction" value="3" class="option-circle-3">
+                        <label for="option3"></label>
+                        <input type="radio" id="option4" name="socialInteraction" value="4" class="option-circle-4">
+                        <label for="option4"></label>
+                        <input type="radio" id="option5" name="socialInteraction" value="5" class="option-circle-5">
+                        <label for="option5"></label>
+                        <input type="radio" id="option6" name="socialInteraction" value="6" class="option-circle-6">
+                        <label for="option6"></label>
+                        <h4 style="margin-top: 20px; color: #4b3f72;">Disagree</h4>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between" style="margin: 0 100px;">
+                    <button type="submit" class="btn btn-previous" href="quiz_3.html">Previous</button>
+                    <button type="submit" class="btn btn-next" href="quiz_4.html">Next</button>
+            </form>
+            <!-- Repeat for other questions -->
+        </div>
+</body>
+</html>
