@@ -1,20 +1,20 @@
 function formValidation() {
-    var uid = document.register.username;
-    var firstName = document.register.firstName;
-    var lastName = document.register.lastName;
-    var placeOfBirth = document.register.placeOfBirth;
-    var birthDate = document.register.birthDate;
-    var age = document.register.age;
-    var gender = document.register.gender;
-    var contact = document.register.contact;
-    var passid = document.register.password;
-    var confirmPassword = document.register.confirmPassword;
+    var uid = document.getElementById('username');
+    var firstName = document.getElementById('firstName');
+    var lastName = document.getElementById('lastName');
+    var placeOfBirth = document.getElementById('placeOfBirth');
+    var birthDate = document.getElementById('birthDate');
+    var age = document.getElementById('age');
+    var gender = document.getElementById('gender');
+    var contact = document.getElementById('contact');
+    var passid = document.getElementById('password');
+    var confirmPassword = document.getElementById('confirmPassword');
 
     if (userid_validation(uid, 1, Infinity)) {
         if (passid_validation(passid, 1, Infinity)) {
             if (allLetter(firstName)) {
-                if (allLetter(lastName)) {
-                    if (allLetter(placeOfBirth)){
+                if (allLetter1(lastName)) {
+                    if (allLetter2(placeOfBirth)){
                         if (allnumeric(contact)) {
                             if (ValidateEmail(uid)) {
                                 if(confirm_pass(confirmPassword, passid)){
@@ -67,7 +67,29 @@ function allLetter(uname) {
     if (uname.value.match(letters)) {
         return true;
     } else {
-        alert('Username must have alphabet characters only');
+        alert('First Name must have alphabet characters only');
+        uname.focus();
+        return false;
+    }
+}
+
+function allLetter1(uname) {
+    var letters = /^[A-Za-z]+$/;
+    if (uname.value.match(letters)) {
+        return true;
+    } else {
+        alert('Last Name must have alphabet characters only');
+        uname.focus();
+        return false;
+    }
+}
+
+function allLetter2(uname) {
+    var letters = /^[A-Za-z]+$/;
+    if (uname.value.match(letters)) {
+        return true;
+    } else {
+        alert('Place of birth must have alphabet characters only');
         uname.focus();
         return false;
     }
@@ -79,7 +101,7 @@ function allnumeric(uzip) {
     if (uzip.value.match(numbers)) {
         return true;
     } else {
-        alert('ZIP code must have numeric characters only');
+        alert('Contact Number must have numeric characters only');
         uzip.focus();
         return false;
     }
