@@ -1,14 +1,14 @@
 function formValidation() {
     var uid = document.register.username;
     var firstName = document.register.firstName;
-    var lastName = document.registration.lastName;
-    var placeOfBirth = document.registration.placeOfBirth;
-    var birthDate = document.registration.birthDate;
-    var age = document.registration.age;
-    var gender = document.registration.gender;
-    var contact = document.registration.contact;
-    var passid = document.registration.password;
-    var confirmPassword = document.registration.confirmPassword;
+    var lastName = document.register.lastName;
+    var placeOfBirth = document.register.placeOfBirth;
+    var birthDate = document.register.birthDate;
+    var age = document.register.age;
+    var gender = document.register.gender;
+    var contact = document.register.contact;
+    var passid = document.register.password;
+    var confirmPassword = document.register.confirmPassword;
 
     if (userid_validation(uid, 1, Infinity)) {
         if (passid_validation(passid, 1, Infinity)) {
