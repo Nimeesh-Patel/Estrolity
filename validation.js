@@ -15,11 +15,13 @@ function formValidation() {
             if (allLetter(firstName)) {
                 if (allLetter1(lastName)) {
                     if (allLetter2(placeOfBirth)){
-                        if (allnumeric(contact)) {
-                            if (passid_validation(passid, 1, Infinity)) {
-                                if(confirm_pass(confirmPassword, passid)){
-                                        window.location.reload();
-                                        return true;
+                        if (ageCheck(age)) {
+                            if (contactCheck(contact)) {
+                                if (passid_validation(passid, 1, Infinity)) {
+                                    if(confirm_pass(confirmPassword, passid)){
+                                            window.location.reload();
+                                            return true;
+                                    }
                                 }
                             }
                         }
@@ -95,8 +97,7 @@ function allLetter2(uname) {
     }
 }
 
-
-function allnumeric(ucontact) {
+function contactCheck(ucontact) {
     var numbers = /^[0-9]+$/;
     var contact_len = ucontact.value.length;
     if (ucontact.value.match(numbers)) {
@@ -111,6 +112,14 @@ function allnumeric(ucontact) {
         ucontact.focus();
         return false;
     }
+}
+
+function ageCheck(age) {
+    if (age < 0) {
+        alert('Age should be positive number!');
+        return false;
+    }
+    return true;
 }
 
 function ValidateEmail(uemail) {
