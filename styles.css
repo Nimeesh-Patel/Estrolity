@@ -144,8 +144,17 @@ section {
     background-color: #38314f;
 }
 
-/* Form Css */
 /* Form Styling */
+select {
+    background-color: #000000; /* Green background */
+    color: white; /* White text color */
+    padding: 10px; /* Some padding */
+    width: 200px; /* Specific width if needed */
+    border: none; /* Remove border */
+    font-size: 16px; /* Increase font size */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -169,8 +178,9 @@ section {
     border-radius: 5px;
     border: 1px solid #333; /* Subtle border */
     background-color: rgba(255, 255, 255, 0.1); /* Slight transparency */
-    color: #fff; /* White text color for contrast */
+    color: #ffffff; /* White text color for contrast */
     outline: none; /* Remove default focus outline */
+    
 }
 
 .form-group input[type="text"]:focus,
@@ -185,7 +195,7 @@ section {
 .form-group button[type="submit"],
 .form-group input[type="submit"] {
     background-color: #4b3f72; /* Mystical purple */
-    color: #fff;
+    color: #ffffff;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
