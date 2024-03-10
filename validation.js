@@ -114,13 +114,16 @@ function contactCheck(ucontact) {
     }
 }
 
-function ageCheck(age) {
-    if (age < 0) {
-        alert('Age should be positive number!');
+function ageCheck(ageField) {
+    var ageValue = parseInt(ageField.value); // Convert the value to integer for comparison
+    if (ageValue <= 0 || isNaN(ageValue)) { // Check if age is a positive number and is a number
+        alert('Age should be a positive number!');
+        ageField.focus();
         return false;
     }
     return true;
 }
+
 
 function ValidateEmail(uemail) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
