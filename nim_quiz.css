@@ -36,11 +36,6 @@ body {
     margin: 0 10px;
 }
 
-
-.option-circle-1:hover {
-    background-color: #32a574;
-}
-
 .option-circle-2{
     border: 0.5;
     border-style: solid;;
@@ -51,7 +46,7 @@ body {
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 12px;
+    margin-top: 15px;
     margin-right: 10px;
 }
 
@@ -70,7 +65,7 @@ body {
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-right: 10px;
 }
 
@@ -79,16 +74,30 @@ body {
     background-color: #32a574;
 }
 
+.option-circle-1:focus,
+.option-circle-1:active,
+.option-circle-1:hover,
+.option-circle-2:focus,
+.option-circle-2:active,
+.option-circle-2:hover,
+.option-circle-3:focus,
+.option-circle-3:active,
+.option-circle-3:hover{
+    background-color: #32a574;
+    border-color: #32a574;
+}
+
 .option-circle-4{
     border: 0.5;
     border-style: solid;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border-color: #4b3f72;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px;
+    margin-top: 25px;
     margin-right: 10px;
 }
 
@@ -103,10 +112,11 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    border-color: #4b3f72;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 12px;
+    margin-top: 15px;
     margin-right: 10px;
 }
 
@@ -121,13 +131,26 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    border-color: #4b3f72;
     background-color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-right: 10px;
 }
 
-
 .option-circle-6:hover {
     background-color: #4b3f72;
+}
+
+.option-circle-4:focus,
+.option-circle-4:active,
+.option-circle-4:hover,
+.option-circle-5:focus,
+.option-circle-5:active,
+.option-circle-5:hover,
+.option-circle-6:focus,
+.option-circle-6:active,
+.option-circle-6:hover{
+    background-color: #4b3f72;
+    border-color: #4b3f72;
 }
