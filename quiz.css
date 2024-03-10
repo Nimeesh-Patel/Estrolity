@@ -131,3 +131,15 @@ body {
 .option-circle-4, .option-circle-5, .option-circle-6 {
     display: none;
 }
+
+.progress-container {
+    width: 100%;
+    background-color: #eee;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #4caf50;
+    transition: width 0.4s ease-in-out;
+}
