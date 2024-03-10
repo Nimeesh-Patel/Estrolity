@@ -30,7 +30,6 @@ body {
     height: 100px;
     border-radius: 50%;
     border-color: #41ce9a;
-    
     background-color: #ccc;
     cursor: pointer;
     transition: background-color 0.3s;
