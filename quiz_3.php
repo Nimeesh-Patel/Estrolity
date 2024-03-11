@@ -6,6 +6,6 @@ if(isset($_POST['socialInteraction3'])) {
 }
 
 // Redirect to next quiz page
-header('Location: quiz_4.php');
+header('Location: quiz_4.html');
 exit();
 ?>

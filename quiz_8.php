@@ -10,7 +10,7 @@ if (isset($_POST['socialInteraction8'])) {
     $servername = "localhost";
     $username = "root"; // Adjust as per your database username
     $password = ""; // Adjust as per your database password
-    $dbname = "quiz_data"; // Database name where you want to store quiz results
+    $dbname = "project"; // Database name where you want to store quiz results
 
     // Create database connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,6 +38,7 @@ if (isset($_POST['socialInteraction8'])) {
     // Execute the prepared statement
     if ($stmt->execute()) {
         // Redirect to results page or show a message
+        
         header("Location: results.html"); // Adjust as per your results page
         exit();
     } else {
