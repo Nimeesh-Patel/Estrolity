@@ -128,13 +128,30 @@ section {
     height: 300px;
     border-radius: 20px;
     line-height: 1.5;
-    /* border: 1px solid white; */
     color: white;
     text-align: center;
     background-color: rgb(43, 43, 43);
     padding: 15px;
     margin: 10px;
     margin-bottom: 40px;
+    /* transition: width 1s cubic-bezier(0.84, 0, 0.08, 0.99); */
+    transition: width 0.3s ease;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    overflow: hidden; /* Hide content outside the container */
+}
+
+.cards-content {
+    opacity: 0; /* Content is initially invisible */
+    transition: opacity 1s cubic-bezier(0.84, 0, 0.08, 0.99); /* Smooth transition for opacity */
+}
+
+.cards-container:hover .cards-content {
+    opacity: 1; /* Content becomes visible on hover */
+}
+
+.cards-container:hover {
+    width: 1000px; /* Width increases on hover */
 }
 
 .cards-container:nth-child(odd) {

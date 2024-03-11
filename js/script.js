@@ -208,10 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         cursorCircle.style.left = `${circleX}px`;
         cursorCircle.style.top = `${circleY}px`;
-
-
         requestAnimationFrame(animate);
-        
 
     }
 
@@ -222,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (showSvg) {
             cursorCircle.style.display = 'none';
             cursorSvg.style.display = 'block';
-            cursorDot.style.transform = 'scale(25)';
+            cursorDot.style.transform = 'scale(20)';
             
              // Enlarge dot
         } else {
