@@ -42,7 +42,7 @@ session_start();
 $host = "localhost"; // Database host name or IP
 $user = "root"; // Database username
 $password = ""; // Database password
-$database = "quiz_data"; // Database name
+$database = "project"; // Database name
 
 // Create database connection
 $conn = new mysqli($host, $user, $password, $database);
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
             // Redirect to results page or display results
-            header("Location: results.php"); // Assuming you have a results.php
+            // header("Location: results.php"); // Assuming you have a results.php
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
