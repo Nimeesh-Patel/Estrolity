@@ -127,7 +127,8 @@ $stmt->bind_param("iiiiiiii", $question1, $question2, $question3, $question4, $q
 // Execute the statement
 if ($stmt->execute()) {
     // echo "New record created successfully";
-    
+    header("Location: quiz_2.html");
+         exit();
 } else {
     echo "Error: " . $stmt->error;
 }

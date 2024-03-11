@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if(isset($_POST['socialInteraction1'])) {
-    $_SESSION['socialInteraction1'] = $_POST['socialInteraction1'];
+if(isset($_POST['socialInteraction5'])) {
+    $_SESSION['socialInteraction5'] = $_POST['socialInteraction5'];
 }
 
 // Redirect to next quiz page
-header('Location: quiz_2.php');
+header('Location: quiz_6.php');
 exit();
 ?>
