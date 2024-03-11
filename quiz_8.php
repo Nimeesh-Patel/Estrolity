@@ -1,35 +1,45 @@
 <?php
-session_start();
+session_start(); // Ensure session start at the beginning of the script
 
-if(isset($_POST['socialInteraction8'])) {
+// Assuming the form data is sent as 'socialInteraction8'
+if (isset($_POST['socialInteraction8'])) {
+    // Store the last quiz answer in session variable
     $_SESSION['socialInteraction8'] = $_POST['socialInteraction8'];
     
-    // Now you have all answers stored in session, proceed to insert into the database
+    // Define database connection parameters
     $servername = "localhost";
-    $username = "root"; // Your DB username
-    $password = ""; // Your DB password
-    $dbname = "project";
+    $username = "root"; // Adjust as per your database username
+    $password = ""; // Adjust as per your database password
+    $dbname = "quiz_data"; // Database name where you want to store quiz results
 
-    // Create connection
+    // Create database connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
+    // Check database connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Prepare the INSERT statement
+    // Prepare INSERT query to save quiz results
     $stmt = $conn->prepare("INSERT INTO quiz_info (question1, question2, question3, question4, question5, question6, question7, question8) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-    // Bind parameters from session
-    $stmt->bind_param("iiiiiiii", $_SESSION['socialInteraction1'], $_SESSION['socialInteraction2'], $_SESSION['socialInteraction3'], $_SESSION['socialInteraction4'], $_SESSION['socialInteraction5'], $_SESSION['socialInteraction6'], $_SESSION['socialInteraction7'], $_SESSION['socialInteraction8']);
+    // Bind parameters from session variables
+    $stmt->bind_param("iiiiiiii", 
+        $_SESSION['socialInteraction1'], 
+        $_SESSION['socialInteraction2'], 
+        $_SESSION['socialInteraction3'], 
+        $_SESSION['socialInteraction4'], 
+        $_SESSION['socialInteraction5'], 
+        $_SESSION['socialInteraction6'], 
+        $_SESSION['socialInteraction7'], 
+        $_SESSION['socialInteraction8']
+    );
 
-    // Execute the statement
+    // Execute the prepared statement
     if ($stmt->execute()) {
-        echo "New record created successfully";
-        // Consider clearing the session data related to the quiz after successful submission
-        session_unset(); 
-        session_destroy();
+        // Redirect to results page or show a message
+        header("Location: results.html"); // Adjust as per your results page
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -37,5 +47,10 @@ if(isset($_POST['socialInteraction8'])) {
     // Close statement and connection
     $stmt->close();
     $conn->close();
+
+    // Optionally, clear session variables after storing data
+    session_unset();
+    session_destroy();
 }
 ?>
+
