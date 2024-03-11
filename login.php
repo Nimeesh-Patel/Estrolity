@@ -21,23 +21,34 @@ $stmt->bind_param("s", $E_mail_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    // Fetch the row
-    $row = $result->fetch_assoc();
-    // Check if the password matches
-    $compare=$row['PASSWORD'];
-    if (password_verify($PASSWORD, $compare)) {
-        // Password matches, login successful
-        echo "<h1><center>Login Successful</center></h1>";
-    } else {
-        // Password does not match, login failed
-        echo "<h1><center>Login Failed</center></h1>";
-    }
-    
+$loginQuery = "SELECT * FROM datatable WHERE email='$E_mail_id' and pass='$PASSWORD'";
+$authRes = mysqli_query($conn, $loginQuery);
+$row = mysqli_fetch_array($authRes, MYSQLI_ASSOC);
+$count = mysqli_num_rows($authRes);
+
+if($count == 1) {
+    echo "<h1> LOGIN Successful</h1>";
 } else {
-    // Email does not exist
-    echo "<h1><center>Email does not exist</center></h1>";
+    echo "<h1> Invalid Credentials</h1>";
 }
+
+// if ($result->num_rows > 0) {
+//     // Fetch the row
+//     $row = $result->fetch_assoc();
+//     // Check if the password matches
+//     $compare=$row['PASSWORD'];
+//     if (password_verify($PASSWORD, $compare)) {
+//         // Password matches, login successful
+//         echo "<h1><center>Login Successful</center></h1>";
+//     } else {
+//         // Password does not match, login failed
+//         echo "<h1><center>Login Failed</center></h1>";
+//     }
+    
+// } else {
+//     // Email does not exist
+//     echo "<h1><center>Email does not exist</center></h1>";
+// }
 
 $stmt->close();
 $conn->close();
