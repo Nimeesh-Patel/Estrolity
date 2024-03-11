@@ -81,42 +81,61 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', () => {
     const cursorDot = document.getElementById('cursorDot');
     const cursorCircle = document.getElementById('cursorCircle');
+    const cursorSvg = document.getElementById('cursorSvg'); // Ensure you have this SVG inside your cursorCircle or elsewhere in HTML
+    const cardsContainers = document.querySelectorAll('.cards-container'); // Select all containers
 
-    let mouseX = 0, mouseY = 0; // Target positions
-    let circleX = 0, circleY = 0; // Current positions of the cursorCircle
-    const speed = 0.1; // Control the lag effect, lower value = more lag
+    let mouseX = 0, mouseY = 0; // Mouse position
+    let circleX = 0, circleY = 0; // Cursor circle position
+    const speed = 0.1; // Movement speed of the cursor circle
 
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         cursorDot.style.left = `${mouseX}px`;
         cursorDot.style.top = `${mouseY}px`;
-        // No immediate update for cursorCircle here
     });
 
     function animate() {
-        // Calculate the distance to the target position
         const dx = mouseX - circleX;
         const dy = mouseY - circleY;
 
-        // Update the circle position fractionally closer to the target position
         circleX += dx * speed;
         circleY += dy * speed;
 
-        // Apply the updated position to cursorCircle
         cursorCircle.style.left = `${circleX}px`;
         cursorCircle.style.top = `${circleY}px`;
+        requestAnimationFrame(animate);
 
-        requestAnimationFrame(animate); // Continue the animation loop
     }
 
-    animate(); // Start the animation loop
+    animate();
 
-    // Scale functions as previously defined
-    const scaleCursorCircle = (scale) => {
+    // Adjust cursor appearance for hover over cards and interactive elements
+    const adjustCursorForCards = (showSvg) => {
+        if (showSvg) {
+            cursorCircle.style.display = 'none';
+            cursorSvg.style.display = 'block';
+            cursorDot.style.transform = 'scale(20)';
+            
+             // Enlarge dot
+        } else {
+            cursorCircle.style.display = 'block';
+            cursorSvg.style.display = 'none';
+            cursorDot.style.transform = `translate(-50%, -50%) scale(1)`; // Reset dot size
+        }
+    };
+
+        const scaleCursorCircle = (scale) => {
         cursorCircle.style.transform = `translate(-50%, -50%) scale(${scale})`;
     };
 
+    // Apply hover effects to all cards
+    cardsContainers.forEach(container => {
+        container.addEventListener('mouseenter', () => adjustCursorForCards(true));
+        container.addEventListener('mouseleave', () => adjustCursorForCards(false));
+    });
+
+    // Interactive elements hover effect
     document.addEventListener('mousedown', () => scaleCursorCircle(2));
     document.addEventListener('mouseup', () => scaleCursorCircle(1));
     document.querySelectorAll('a, button, [onclick], input, textarea').forEach(el => {

@@ -47,6 +47,7 @@ body {
     border-radius: 50%;
     background: #ffffff; /* Custom color */
     z-index: 10001; /* Ensures dot is above the circle */
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 #cursorCircle {
@@ -119,20 +120,70 @@ section {
     align-items: flex-start; /* Default alignment */
 }
 
-.cards-container {
+/* .cards-container {
     display: inline-flex;
     width: 500px;
     height: 300px;
     border-radius: 20px;
     line-height: 1.5;
-    /* border: 1px solid white; */
     color: white;
     text-align: center;
     background-color: rgb(43, 43, 43);
     padding: 15px;
     margin: 10px;
     margin-bottom: 40px;
+    transition: width 0.3s ease;
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
 }
+
+.cards-content {
+    opacity: 0; 
+    transition: opacity 1s cubic-bezier(0.84, 0, 0.08, 0.99); 
+}
+
+.cards-container:hover .cards-content {
+    opacity: 1; 
+}
+
+.cards-container:hover {
+    width: 1000px;
+} */
+
+.cards-container {
+    display: inline-flex;
+    width: 500px;
+    height: 300px;
+    border-radius: 20px;
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+    background-color: rgb(43, 43, 43);
+    padding: 15px;
+    margin: 10px;
+    margin-bottom: 40px;
+    /* transition: width 1s cubic-bezier(0.84, 0, 0.08, 0.99); */
+    transition: width 0.3s ease;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    overflow: hidden; /* Hide content outside the container */
+}
+
+.cards-content {
+    opacity: 0; /* Content is initially invisible */
+    transition: opacity 1s cubic-bezier(0.84, 0, 0.08, 0.99); /* Smooth transition for opacity */
+}
+
+.cards-container:hover .cards-content{
+    opacity: 1; /* Content becomes visible on hover */
+}
+
+.cards-container:hover {
+    width: 1000px; /* Width increases on hover */
+}
+
+
 
 .cards-container:nth-child(odd) {
     align-self: flex-start; /* Align odd cards to the left */
@@ -249,12 +300,16 @@ p {
     cursor: pointer;
     font-size: 1.2em;
     transition: background-color 0.3s, transform 0.3s;
+    padding: 15px 20px;
 }
 
 .btn:hover {
     background-color: #3a2d56; /* Darker purple on hover */
     transform: translateY(-2px); /* Slight lift effect */
 }
+
+/* Quiz Styling */
+
 
 /* Footer Styling */
 footer {

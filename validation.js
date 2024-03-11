@@ -1,0 +1,137 @@
+function formValidation() {
+    var uid = document.getElementById('username');
+    var firstName = document.getElementById('firstName');
+    var lastName = document.getElementById('lastName');
+    var placeOfBirth = document.getElementById('placeOfBirth');
+    var birthDate = document.getElementById('birthDate');
+    var age = document.getElementById('age');
+    var gender = document.getElementById('gender');
+    var contact = document.getElementById('contact');
+    var passid = document.getElementById('password');
+    var confirmPassword = document.getElementById('confirmPassword');
+
+    if (ValidateEmail(uid)) {
+        if (userid_validation(uid, 1, Infinity)) {
+            if (allLetter(firstName)) {
+                if (allLetter1(lastName)) {
+                    if (allLetter2(placeOfBirth)){
+                        if (ageCheck(age)) {
+                            if (contactCheck(contact)) {
+                                if (passid_validation(passid, 1, Infinity)) {
+                                    if(confirm_pass(confirmPassword, passid)){
+                                            window.location.reload();
+                                            return true;
+                                    }
+                                }
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+    }
+    return false;
+}
+
+
+function userid_validation(uid, mx, my) {
+    var uid_len = uid.value.length;
+    if (uid_len == 0 || uid_len >= my || uid_len < mx) {
+        alert("User Id should not be empty / length be between " + mx + " to " + my);
+        uid.focus();
+        return false;
+    }
+    return true;
+}
+
+function passid_validation(passid, mx, my) {
+    var passid_len = passid.value.length;
+    if (passid_len == 0 || passid_len >= my || passid_len < mx) {
+        alert("Password should not be empty / length be between " + mx + " to " + my);
+        passid.focus();
+        return false;
+    }
+    return true;
+}
+
+function confirm_pass(confirmPassword, passid) {
+    var confirmPasswordValue = confirmPassword.value;
+    var passidValue = passid.value;
+    if (confirmPasswordValue !== passidValue) {
+        alert('Passwords do not match');
+        return false;
+    }
+    return true;
+}
+
+function allLetter(uname) {
+    var letters = /^[A-Za-z]+$/;
+    if (uname.value.match(letters)) {
+        return true;
+    } else {
+        alert('First Name must have alphabet characters only');
+        uname.focus();
+        return false;
+    }
+}
+
+function allLetter1(uname) {
+    var letters = /^[A-Za-z]+$/;
+    if (uname.value.match(letters)) {
+        return true;
+    } else {
+        alert('Last Name must have alphabet characters only');
+        uname.focus();
+        return false;
+    }
+}
+
+function allLetter2(uname) {
+    var letters = /^[A-Za-z]+$/;
+    if (uname.value.match(letters)) {
+        return true;
+    } else {
+        alert('Place of birth must have alphabet characters only');
+        uname.focus();
+        return false;
+    }
+}
+
+function contactCheck(ucontact) {
+    var numbers = /^[0-9]+$/;
+    var contact_len = ucontact.value.length;
+    if (ucontact.value.match(numbers)) {
+        if (contact_len != 10) {
+            alert("Contact should have 10 numbers!");
+            ucontact.focus();
+            return false;
+        }
+        return true;
+    } else {
+        alert('Contact Number must have numeric characters only');
+        ucontact.focus();
+        return false;
+    }
+}
+
+function ageCheck(ageField) {
+    var ageValue = parseInt(ageField.value); // Convert the value to integer for comparison
+    if (ageValue <= 0 || isNaN(ageValue)) { // Check if age is a positive number and is a number
+        alert('Age should be a positive number!');
+        ageField.focus();
+        return false;
+    }
+    return true;
+}
+
+
+function ValidateEmail(uemail) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (uemail.value.match(mailformat)) {
+        return true;
+    } else {
+        alert("You have entered an invalid email address!");
+        uemail.focus();
+        return false;
+    }
+}
