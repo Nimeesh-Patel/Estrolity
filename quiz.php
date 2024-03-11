@@ -98,7 +98,7 @@
 $servername = "localhost";
 $username = "root"; // Your DB username
 $password = ""; // Your DB password
-$dbname = "quiz_data";
+$dbname = "project";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -109,24 +109,25 @@ if ($conn->connect_error) {
 }
 
 // Assuming the form data is sent as individual questions
-$question1 = isset($_POST['question1']) ? $_POST['question1'] : 0;
-$question2 = isset($_POST['question2']) ? $_POST['question2'] : 0;
-$question3 = isset($_POST['question3']) ? $_POST['question3'] : 0;
-$question4 = isset($_POST['question4']) ? $_POST['question4'] : 0;
-$question5 = isset($_POST['question5']) ? $_POST['question5'] : 0;
-$question6 = isset($_POST['question6']) ? $_POST['question6'] : 0;
-$question7 = isset($_POST['question7']) ? $_POST['question7'] : 0;
-$question8 = isset($_POST['question8']) ? $_POST['question8'] : 0;
+$question1 = isset($_POST['socialInteraction1']) ? $_POST['socialInteraction1'] : 0;
+$question2 = isset($_POST['socialInteraction2']) ? $_POST['socialInteraction2'] : 0;
+$question3 = isset($_POST['socialInteraction3']) ? $_POST['socialInteraction3'] : 0;
+$question4 = isset($_POST['socialInteraction4']) ? $_POST['socialInteraction4'] : 0;
+$question5 = isset($_POST['socialInteraction5']) ? $_POST['socialInteraction5'] : 0;
+$question6 = isset($_POST['socialInteraction6']) ? $_POST['socialInteraction6'] : 0;
+$question7 = isset($_POST['socialInteraction7']) ? $_POST['socialInteraction7'] : 0;
+$question8 = isset($_POST['socialInteraction8']) ? $_POST['socialInteraction8'] : 0;
 
 // Prepare the INSERT statement
-$stmt = $conn->prepare("INSERT INTO quiz_results (question1, question2, question3, question4, question5, question6, question7, question8) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO quiz_info (question1, question2, question3, question4, question5, question6, question7, question8) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 // Bind parameters
 $stmt->bind_param("iiiiiiii", $question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8);
 
 // Execute the statement
 if ($stmt->execute()) {
-    echo "New record created successfully";
+    // echo "New record created successfully";
+    
 } else {
     echo "Error: " . $stmt->error;
 }
