@@ -31,6 +31,7 @@ if ($result->num_rows > 0) {
     } else {
         echo "<script>alert('Incorrect password');window.location.href='login.html';</script>";
     }
+    
 } else {
     echo "<script>alert('Email does not exist');window.location.href='login.html';</script>";
 }
