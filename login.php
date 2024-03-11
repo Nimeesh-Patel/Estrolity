@@ -33,6 +33,7 @@ if ($result->num_rows > 0) {
         // Password does not match, login failed
         echo "<h1><center>Login Failed</center></h1>";
     }
+    
 } else {
     // Email does not exist
     echo "<h1><center>Email does not exist</center></h1>";
