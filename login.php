@@ -1,6 +1,7 @@
 <?php
 $E_mail_id = $_POST["username"];
 $PASSWORD = $_POST["password"];
+$hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
 
 $servername = "localhost";
 $db_username = "root";
@@ -25,15 +26,16 @@ if ($result->num_rows > 0) {
     // Fetch the row
     $row = $result->fetch_assoc();
     // Check if the password matches
-    $compare=$row['PASSWORD'];
-    if (password_verify($PASSWORD, $compare)) {
+
+    echo $row['pass'];
+    echo $PASSWORD;
+    if (password_verify($hash, $row['pass'])) {
         // Password matches, login successful
         echo "<h1><center>Login Successful</center></h1>";
     } else {
         // Password does not match, login failed
         echo "<h1><center>Login Failed</center></h1>";
     }
-    
 } else {
     // Email does not exist
     echo "<h1><center>Email does not exist</center></h1>";
@@ -42,3 +44,5 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 ?>
+
+
