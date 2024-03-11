@@ -53,4 +53,3 @@ if (isset($_POST['socialInteraction8'])) {
     session_destroy();
 }
 ?>
-
