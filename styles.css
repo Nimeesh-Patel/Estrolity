@@ -175,16 +175,8 @@ section {
     transition: opacity 1s cubic-bezier(0.84, 0, 0.08, 0.99); /* Smooth transition for opacity */
 }
 
-.cards-image {
-    opacity: 0; /* Content is initially invisible */
-    transition: opacity 1s cubic-bezier(0.84, 0, 0.08, 0.99); /* Smooth transition for opacity */
-    height: 100%;
-}
-
-.cards-container:hover .cards-content,
-.cards-container:hover .cards-image {
+.cards-container:hover .cards-content{
     opacity: 1; /* Content becomes visible on hover */
-    height: 100%;
 }
 
 .cards-container:hover {
