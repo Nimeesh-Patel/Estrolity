@@ -47,6 +47,7 @@ body {
     border-radius: 50%;
     background: #ffffff; /* Custom color */
     z-index: 10001; /* Ensures dot is above the circle */
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 #cursorCircle {
@@ -57,6 +58,8 @@ body {
     z-index: 10000;
     transition: transform 0.2s; /* Smooth transition for scaling */
 }
+
+
 
 body {
     cursor: none;
