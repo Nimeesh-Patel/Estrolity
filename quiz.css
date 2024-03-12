@@ -147,3 +147,36 @@ body {
 
 
 
+
+
+
+  /* Media query for smartphones */
+  @media (max-width: 480px) {
+    .cards-container {
+      padding: 5px; /* Further reduce padding */
+    }
+  
+    /* Further adjustments for very small screens */
+    h1 {
+      font-size: 2rem; /* Even smaller heading */
+    }
+  
+    .registration-container, .quiz-container, .welcome-section, .demo-section, .quiz-section, .results-section {
+      padding: 10px; /* Less padding around sections */
+    }
+  
+    /* Adjust navigation styling for mobile */
+    nav ul {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    nav ul li a {
+      font-size: 0.8rem; /* Reduce font size */
+    }
+  
+    /* Make buttons easier to tap on small screens */
+    .btn {
+      padding: 12px 18px; /* Increase padding for larger touch target */
+    }
+  }

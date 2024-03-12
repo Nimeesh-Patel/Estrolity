@@ -1,150 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrology and Personality Traits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styless.css">
+    <style>
+        
+        #map {
+            height: 200px;
+            margin-bottom: 40px; 
+        }
+        #registerBtn {
+            position: relative;
+            z-index:0; 
+            margin-bottom: 85px; 
+            background-color: #4b3f72; 
+            color: #fff; 
+            padding: 10px 20px; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1.2em; 
+            border-radius: 5px; 
+            transition: background-color 0.3s, transform 0.3s; 
+        }
+        #registerBtn:hover {
+            background-color: #3a2d56; 
+            transform: translateY(-2px); 
+        }
+        #map-container {
+            position: relative;
+            z-index: 0; 
+        }
+        .container {
+            max-width:2000px; /* Adjust as needed */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 
-html {
-  box-sizing: border-box;
-}
+        h1, h2 {
+            color: #fff; /* White text color */
+        }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+        p {
+            color: #ccc; /* Light gray text color */
+        }
 
-.column {
-  float: left;
-  width: 33.3%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
+        .credit-box {
+            background-color: #4b3f72;
+            color: #fff;
+            padding: 5px 7px;
+            border-radius: 2px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-}
+        .credit-box:hover {
+            background-color: #3a2d56;
+            transform: translateY(-2px);
+        }
 
-.about-section {
-  padding: 50px;
-  text-align: center;
-  background-color: #474e5d;
-  color: white;
-}
+        .credit-name {
+            margin-bottom: 5px;
+            font-size: 1.5em;
+        }
 
-.container {
-  padding: 0 16px;
-}
-
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.title {
-  color: grey;
-}
-
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-</style>
+        .credit-role {
+            margin: 0;
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo1ed.png" alt="Astrology Logo" height="50">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
-                    <li class="nav-item"><a class="nav-link" href="re">Results</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="about-us" class="text-center py-5" style="background-color: #111;">
+            <div class="container" style="color: #fff;">
+                <h1 style="font-size: 2.5rem;">About Astrolity</h1>
+                <p>Welcome to Astrolity, your personal guide to the stars and self-discovery. At Astrolity, we believe that astrology can offer valuable insights into our personalities, behaviors, and relationships. Our mission is to provide you with accurate and personalized astrological guidance that helps you navigate through life's challenges and discover your true potential.</p>
+                <p>Whether you're curious about your zodiac sign's personality traits, seeking guidance on love and relationships, or exploring your career path, Astrolity is here to support you on your journey of self-discovery.</p>
+                <p>Join us as we explore the mysteries of the universe and uncover the hidden truths written in the stars.</p>
+                <p>Email: contact@estrolity.com</p>
+                <p>Phone: +1234567890</p>
+                <h2>Credits</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="credit-box">
+                    <h3>Nimmesh Patel</h3>
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="credit-box">
+                    <h3>Abhinav Nair</h3>
+                    <p>Lead Designer</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="credit-box">
+                    <h3>Asmi Panchal</h3>
+                    <p>Content Writer</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="credit-box">
+                    <h3>Shabarinath R</h3>
+                    <p>Marketing Specialist</p>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
+            </div>
+        </section>
 
-<div class="about-section">
-  <h1>About Us Page</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
-</div>
-
-<h2 style="text-align:center">Our Team</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
-      <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
-
+        <section id="map" class="text-center py-5">
+            <div class="container">
+                <h2>Find Astrologers Near You</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5335.346267147229!2d73.12702887291931!3d18.990638267367153!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1710169178416!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <button id="registerBtn" class="btn btn-primary">Register as Astrologer</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Function to handle the click event of the "Register as Astrologer" button
+        document.getElementById('registerBtn').addEventListener('click', function() {
+            // Replace the URL with the registration page URL for astrologers
+            window.location.href = 'register_astro.html';
+        });
+    </script>
 </body>
 </html>
