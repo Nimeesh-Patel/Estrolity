@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astrology and Personality Traits</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="styless.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
-        
-        #map {
-            height: 200px;
-            margin-bottom: 40px; 
-        }
         #registerBtn {
             position: relative;
             z-index:0; 
@@ -28,10 +25,6 @@
         #registerBtn:hover {
             background-color: #3a2d56; 
             transform: translateY(-2px); 
-        }
-        #map-container {
-            position: relative;
-            z-index: 0; 
         }
         .container {
             max-width:2000px; /* Adjust as needed */
@@ -70,6 +63,25 @@
             margin: 0;
             font-size: 1.1em;
         }
+        #map { /* Specify the dimensions of the map */
+        height:600px;
+        width: 1350px;
+        margin: 30px;
+        }
+         body{
+            background-color: black;
+            text-align: center;
+        }
+        div{
+            text-align: center;
+            padding: 20px;
+        }
+        text{
+           height: 50px;
+           font-size: 42px;
+           font-family: sans-serif; 
+           color: white;     
+        }
     </style>
 </head>
 <body>
@@ -97,17 +109,8 @@
     </header>
 
     <main class="container">
-        
-        <section id="map" class="text-center py-5">
-            <div class="container">
-                <h2>Find Astrologers Near You</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5335.346267147229!2d73.12702887291931!3d18.990638267367153!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1710169178416!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <button id="registerBtn" class="btn btn-primary">Register as Astrologer</button>
-            </div>
-        </section>
-
+        <h1 style="font-size: 2.5rem;">Astrologers Near You</h1>
+        <div id="map" style="width: 1000px; height: 500px; align-items: center; margin-left: 250px; z-index: -1;"></div>
         <section id="about-us" class="text-center py-5" style="background-color: #111;">
             <div class="container" style="color: #fff;">
                 <h1 style="font-size: 2.5rem;">About Astrolity</h1>
@@ -117,32 +120,32 @@
                 <p>Email: contact@estrolity.com</p>
                 <p>Phone: +1234567890</p>
                 <h2>Credits</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="credit-box">
-                    <h3>Nimmesh Patel</h3>
-                    <p>Lead Developer</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="credit-box">
+                        <h3>Nimmesh Patel</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="credit-box">
+                        <h3>Abhinav Nair</h3>
+                        <p>Lead Designer</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="credit-box">
+                        <h3>Asmi Panchal</h3>
+                        <p>Content Writer</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="credit-box">
+                        <h3>Shabarinath R</h3>
+                        <p>Astrology Specialist</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="credit-box">
-                    <h3>Abhinav Nair</h3>
-                    <p>Lead Designer</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="credit-box">
-                    <h3>Asmi Panchal</h3>
-                    <p>Content Writer</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="credit-box">
-                    <h3>Shabarinath R</h3>
-                    <p>Marketing Specialist</p>
-                </div>
-            </div>
-        </div>
             </div>
         </section>
     </main>
@@ -152,10 +155,22 @@
     </footer>
     
     <script>
-        // Function to handle the click event of the "Register as Astrologer" button
-        document.getElementById('registerBtn').addEventListener('click', function() {
-            // Replace the URL with the registration page URL for astrologers
-            window.location.href = 'register_astro.html';
+        var map = L.map('map').setView([19.0760, 72.8777], 10);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var markers = [
+            { name: 'Mumbai', coords: [19.0760, 72.8777] },
+            { name: 'Navi Mumbai', coords: [19.0330, 73.0297] },
+            { name: 'Panvel', coords: [18.9886, 73.1100] },
+            { name: 'CSMT', coords: [18.9401, 72.8350] },
+            { name: 'Thane', coords: [19.2183, 72.9781] }
+        ];
+
+        markers.forEach(function(marker) {
+            L.marker(marker.coords).addTo(map).bindPopup(marker.name);
         });
     </script>
 </body>
