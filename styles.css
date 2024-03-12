@@ -202,7 +202,7 @@ select {
     color: #ccc; /* Lighter color for readability */
     font-size: 1rem;
 }
-
+.form-group textarea,
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group input[type="password"],
@@ -218,7 +218,7 @@ select {
     outline: none; /* Remove default focus outline */
     
 }
-
+.form-group textarea:focus,
 .form-group input[type="text"]:focus,
 .form-group input[type="number"]:focus,
 .form-group input[type="password"]:focus,
