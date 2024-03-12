@@ -6,7 +6,7 @@ $feedback=$_POST["feedback"];
 $servername="localhost";
 $username= "root" ;
 $password="";
-$database="feedback";
+$database="project";
 
 $conn=mysqli_connect($servername,$username,$password,$database);
 if(!$conn){
@@ -14,7 +14,7 @@ if(!$conn){
     }
 $sql="insert into feedback values('$email','$choice','$feedback')";
 if(mysqli_query($conn,$sql)){
-    echo " record Inserted successfully ";
+    echo "<script>alert('Feedback Submitted'); window.location.href='feedback.html';</script>";
 }
 else{
     echo "error :",mysqli_error($conn);

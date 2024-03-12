@@ -33,24 +33,6 @@ if($count == 1) {
     echo "<script>alert('Password Invalid'); window.location.href='login.html';</script>";
 }
 
-// if ($result->num_rows > 0) {
-//     // Fetch the row
-//     $row = $result->fetch_assoc();
-//     // Check if the password matches
-//     $compare=$row['PASSWORD'];
-//     if (password_verify($PASSWORD, $compare)) {
-//         // Password matches, login successful
-//         echo "<h1><center>Login Successful</center></h1>";
-//     } else {
-//         // Password does not match, login failed
-//         echo "<h1><center>Login Failed</center></h1>";
-//     }
-    
-// } else {
-//     // Email does not exist
-//     echo "<h1><center>Email does not exist</center></h1>";
-// }
-
 $stmt->close();
 $conn->close();
 ?>
