@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    const stars = 2000; // Number of stars, adjust density here
+    const stars = 2000; 
     const starArray = [];
-    let speedFactor = 0.005; // Normal speed
+    let speedFactor = 0.005;
 
     let mouseX = 0;
     let mouseY = 0;
