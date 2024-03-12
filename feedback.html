@@ -6,6 +6,7 @@
     <title>Login - Astrology and Personality Traits</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="feedback.js"></script>
 </head>
 <body>
     
@@ -39,7 +40,7 @@
         <section class="login-section">
             <div class="container">
                 <h1>Feedback</h1>
-                <form id="loginForm" action="feedback.php" method="POST">
+                <form id="loginForm" action="feedback.php" method="POST" onsubmit="return formValidation()">
                     <div style="text-align: center;align-items: centre;" class="form-group">
                         <label for="username">Email:</label>
                         <input style="width: 700px;" type="text" id="email" name="email" required>
