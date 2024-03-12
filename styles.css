@@ -120,37 +120,6 @@ section {
     align-items: flex-start; /* Default alignment */
 }
 
-/* .cards-container {
-    display: inline-flex;
-    width: 500px;
-    height: 300px;
-    border-radius: 20px;
-    line-height: 1.5;
-    color: white;
-    text-align: center;
-    background-color: rgb(43, 43, 43);
-    padding: 15px;
-    margin: 10px;
-    margin-bottom: 40px;
-    transition: width 0.3s ease;
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden; 
-}
-
-.cards-content {
-    opacity: 0; 
-    transition: opacity 1s cubic-bezier(0.84, 0, 0.08, 0.99); 
-}
-
-.cards-container:hover .cards-content {
-    opacity: 1; 
-}
-
-.cards-container:hover {
-    width: 1000px;
-} */
-
 .cards-container {
     display: inline-flex;
     width: 500px;
@@ -182,8 +151,6 @@ section {
 .cards-container:hover {
     width: 1000px; /* Width increases on hover */
 }
-
-
 
 .cards-container:nth-child(odd) {
     align-self: flex-start; /* Align odd cards to the left */
@@ -308,8 +275,6 @@ p {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
-/* Quiz Styling */
-
 
 /* Footer Styling */
 footer {
@@ -326,4 +291,62 @@ footer p {
     margin: 0;
 }
 
+/* Base styles above */
 
+/* Media query for tablets */
+@media (max-width: 768px) {
+    .cards-container {
+      width: 100%; /* Full width on smaller screens */
+      margin: 0; /* Reset margins */
+      padding: 10px; /* Adjust padding */
+    }
+  
+    /* Adjust font sizes and other styles as needed for smaller screens */
+    h1 {
+      font-size: 2.5rem; /* Smaller heading */
+    }
+  
+    p, .form-group label, .form-group input, .form-group button, .form-group select {
+      font-size: 0.9rem; /* Smaller text */
+    }
+  
+    nav ul {
+      flex-direction: column; /* Stack nav items vertically */
+      margin: 0;
+    }
+  
+    nav ul li {
+      margin-bottom: 10px; /* Add some space between items */
+    }
+  }
+  
+  /* Media query for smartphones */
+  @media (max-width: 480px) {
+    .cards-container {
+      padding: 5px; /* Further reduce padding */
+    }
+  
+    /* Further adjustments for very small screens */
+    h1 {
+      font-size: 2rem; /* Even smaller heading */
+    }
+  
+    .registration-container, .quiz-container, .welcome-section, .demo-section, .quiz-section, .results-section {
+      padding: 10px; /* Less padding around sections */
+    }
+  
+    /* Adjust navigation styling for mobile */
+    nav ul {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    nav ul li a {
+      font-size: 0.8rem; /* Reduce font size */
+    }
+  
+    /* Make buttons easier to tap on small screens */
+    .btn {
+      padding: 12px 18px; /* Increase padding for larger touch target */
+    }
+  }
