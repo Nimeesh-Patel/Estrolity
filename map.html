@@ -1,37 +1,64 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>Leaflet sample</title>
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-   </head>
-   <body>
-      <div id="map" style="width: 900px; height: 580px"></div>
-      <script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaflet Map with Multiple Markers</title>
+  <!-- Include Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Include Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    #map { /* Specify the dimensions of the map */
+      height:600px;
+      width: 1350px;
+      margin: 30px;
+    }
+    body{
+            background-color: black;
+            text-align: center;
+        }
+    div{
+            text-align: center;
+            padding: 20px;
+        }
+    text{
+           height: 50px;
+           font-size: 42px;
+           font-family: sans-serif; 
+           color: white;
         
-         var mapOptions = {
-            center: [18.9902, 73.1277],
-            zoom: 10
-         }
-         
-         var map = new L.map('map', mapOptions);
-         
-         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-         
-         map.addLayer(layer);
 
-         var customIcon = L.icon({
-            iconUrl: 'logo1ed.png', 
-            iconSize: [38, 38],
-            iconAnchor: [22, 94], 
-            popupAnchor: [-3, -76] 
-         });
-    
-         var marker = L.marker([18.943743322729823, 72.8225022265421], {icon: customIcon});
-         
-         marker.addTo(map);
-      </script>
-   </body>
+        }
+  </style>
+</head>
+<body>
+<div>
+<text>Astrologer Near You</text>
+</div>
+<!-- Create a div element to hold the map -->
+<div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([19.0760, 72.8777], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var markers = [
+      { name: 'Mumbai', coords: [19.0760, 72.8777] },
+      { name: 'Navi Mumbai', coords: [19.0330, 73.0297] },
+      { name: 'Panvel', coords: [18.9886, 73.1100] },
+      { name: 'CSMT', coords: [18.9401, 72.8350] },
+      { name: 'Thane', coords: [19.2183, 72.9781] }
+    ];
+
+    markers.forEach(function(marker) {
+      L.marker(marker.coords).addTo(map).bindPopup(marker.name);
+    });
+  </script>
+
+
+</body>
 </html>
-
-
