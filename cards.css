@@ -14,7 +14,8 @@ body{
 .container{
 
     display: inline-block;
-    width: 320px;
+    width: calc(100% - 20px); /* Adjusted width for responsiveness */
+    max-width: 320px; 
     height:400px;
     border-radius: 20px;
     line-height: 1.5;
@@ -53,4 +54,22 @@ body{
 .btn:hover {
    background-color: #3a2d56; /* Darker purple on hover */
    transform: translateY(-2px); /* Slight lift effect */
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+    .container {
+        max-width: calc(50% - 20px); 
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1024px) {
+    .container {
+        max-width: calc(33.33% - 20px); 
+    }
 }

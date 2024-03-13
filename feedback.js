@@ -10,8 +10,6 @@ function formValidation() {
     }
     return false;
 }
-
-
 function userid_validation(uid, mx, my) {
     var uid_len = uid.value.trim().length; // trim() removes leading and trailing spaces
     if (uid_len === 0) {
@@ -25,8 +23,6 @@ function userid_validation(uid, mx, my) {
     }
     return true;
 }
-
-
 
 function ValidateEmail(uemail) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
