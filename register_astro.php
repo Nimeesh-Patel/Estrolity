@@ -7,6 +7,10 @@ $experience = $_POST["experience"];
 $contact = $_POST["contact"];
 $address = $_POST["address"];
 $password = $_POST["password"];
+
+
+
+
 $servername="localhost";
 $username= "root" ;
 $password="";
