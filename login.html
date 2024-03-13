@@ -8,9 +8,37 @@
     <link rel="stylesheet" href="styles.css">
     
     <script src="login_validation.js"></script>
+    <link rel="stylesheet" href=
+    "https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity=
+    "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+            crossorigin="anonymous">
+    <style>
+        .btn {
+            background-color: #4b3f72;
+            color: #fff;
+            padding: 12px 17px;
+            border: none;
+            border-radius: 1em;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: #3a2d56;
+            transform: translateY(-2px);
+        }
+        .welcome-section{
+            padding-top: 200px;
+            padding-bottom: 300px;
+        }
 
+        #image.inline {
+            color: #ccc;
+        }
+    </style>
 </head>
-<body>
+<body onload="generate()">
     
     <div id="cursorDot"></div>
     <div id="cursorCircle"></div>
@@ -52,11 +80,34 @@
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="login-button" value="submit">Log In</button>
+                    
+                    <!-- <button type="submit" class="btn" value="submit">Log In</button> -->
+                    <div onload="generate()">
+                        <div id="user-input" class="inline">
+                            <input type="text"
+                                   id="submit"
+                                   placeholder="Captcha code" />
+                        </div>
+                     
+                        <div class="inline" onclick="generate()">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                     
+                        <div id="image"
+                             class="inline"
+                             selectable="False">
+                        </div>
+                        <input class="btn" type="submit"
+                               id="btn"
+                               onclick="printmsg()" style="color: #ccc;" />
+                     
+                        <p id="key"></p>
+                    </div>
                     <div class="assist-links">
                         <a href="forgot-password.html">Forgot Password?</a> |
                         <a href="register.html">Create Account</a>
                     </div>
+                    
                 </form>
             </div>
         </section>
