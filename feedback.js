@@ -10,8 +10,6 @@ function formValidation() {
     }
     return false;
 }
-
-
 function userid_validation(uid, mx, my) {
     var uid_len = uid.value.length;
     if (uid_len == 0 || uid_len >= my || uid_len < mx) {
@@ -21,8 +19,6 @@ function userid_validation(uid, mx, my) {
     }
     return true;
 }
-
-
 function ValidateEmail(uemail) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (uemail.value.match(mailformat)) {
