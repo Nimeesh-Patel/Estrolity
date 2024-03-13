@@ -14,19 +14,15 @@ $username = "root";
 $password = "";
 $database = "project";
 
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
 
-// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Check if email already exists
 $sql_check_email = "SELECT * FROM datatable WHERE E_mail_id = '$E_mail_id'";
 $result_check_email = mysqli_query($conn, $sql_check_email);
 
-// Assuming $Date_of_birth is in 'YYYY-MM-DD' format
 $birthDate = date_create_from_format('Y-m-d', $Date_of_birth);
 $birthMonth = $birthDate->format('m');
 $birthDay = $birthDate->format('d');
@@ -60,12 +56,9 @@ if (($birthMonth == 3 && $birthDay >= 21) || ($birthMonth == 4 && $birthDay <= 1
 }
 
 if (mysqli_num_rows($result_check_email) > 0) {
-    // Email already exists, redirect back with error
     echo "<script>alert('Email already exists. Please use a different email.'); window.location.href='register.html';</script>";
 } else {
-    // Email does not exist, proceed with inserting record
     $sql = "INSERT INTO datatable (E_mail_id, First_Name, Last_Name, Date_of_birth, Age, Place_of_birth, Gender, pass, zodiac_sign) VALUES ('$E_mail_id', '$First_Name', '$Last_Name', '$Date_of_birth', '$Age', '$Place_of_birth', '$Gender', '$PASSWORD', '$zodiacSign')";
-
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Record inserted successfully'); window.location.href='register.html';</script>";
     } else {
