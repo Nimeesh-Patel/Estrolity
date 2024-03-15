@@ -7,9 +7,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="feedback2.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: -1; /* Place iframe behind other content */
+        }
+        /* Add additional styles for your content */
+    </style>
+    </style>
 </head>
 <body>
-    
+    <iframe src="canvas.html"></iframe>
     <div id="cursorDot"></div>
     <div id="cursorCircle"></div>
 
@@ -61,8 +78,7 @@
                         <textarea style="width: 700px;height: 170px;" type="text" id="feedback" name="feedback" contenteditable="true" required>
                         </textarea>
                     </div>
-                    <button style="margin: 20px;width: 140px;border-radius: 5px;height: 32px;" type="submit" value="submit">Canvas</button>
-                    <a href="canvas.html">canvas</a>
+                    <button style="margin: 20px;width: 140px;border-radius: 5px;height: 32px;" type="submit" value="submit">Submit</button>
                     <div class="assist-links">
                         <a href="index.html">Back to Home</a> |
                     </div>
