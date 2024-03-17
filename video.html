@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Demonstration - Astrology and Personality Traits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <canvas id="starfield"></canvas>
+    <div id="cursorDot"></div>
+    <div id="cursorCircle"></div>
+
+    <main class="video-demo-container">
+        <section class="intro-text" style="padding: 0px;">
+            <div class="container">
+                <h1>What is Numerology?</h1>
+                <p>Now the mystical relation between numbers and astrology.<p>
+            </div>
+        </section>
+        
+        <section class="video-section">
+            <div class="video-frame">
+                <video controls style="width: 100%; height: auto;">
+                    <source src="num.mp4" type="video/mp4">
+                    <track label="English" kind="subtitles" srclang="en" src="ademo.vtt" default>
+                </video>
+            </div>            
+            <div>
+                <audio controls style="margin-top: 10px;">
+                    <source src="audioDemo.mp4">
+                </audio>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="container">
+                <a href="register.html" class="btn btn-primary">Start Your Journery</a>
+            </div>
+        </section>
+        
+        <!-- Additional Resources -->
+        <section class="additional-resources">
+            <div class="container">
+                <!-- Links to further reading or related articles -->
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
+            <!-- Placeholder for additional footer content -->
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

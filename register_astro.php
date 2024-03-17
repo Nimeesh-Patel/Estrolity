@@ -1,38 +1,31 @@
 <?php
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $name = $_POST['name'];
-    $dob = $_POST['dob'];
-    $address = $_POST['address'];
-    $contact = $_POST['contact'];
-    
-    // Database connection
-    $servername = "localhost";
-    $username = "MySQL80"; // Replace with your MySQL username
-    $password = "bhavya26122011"; // Replace with your MySQL password
-    $dbname = "astrologers"; // Replace with your database name
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+$E_mail_id = $_POST["email"];
+$First_Name = $_POST["firstName"];
+$Last_Name = $_POST["lastName"];
+$qualification = $_POST["qualification"];
+$experience = $_POST["experience"];
+$contact = $_POST["contact"];
+$address = $_POST["address"];
+$password = $_POST["password"];
+
+
+
+
+$servername="localhost";
+$username= "root" ;
+$password="";
+$database="project";
+
+$conn=mysqli_connect($servername,$username,$password,$database);
+if(!$conn){
+    die("Connection failed :".mysqli_connect_error());
     }
-    
-    // Prepare and bind SQL statement
-    $stmt = $conn->prepare("INSERT INTO astrologers (name, dob, address, contact) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $dob, $address, $contact);
-    
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-    
-    // Close statement and connection
-    $stmt->close();
-    $conn->close();
+$sql="insert into feedback values('$email','$choice','$feedback')";
+if(mysqli_query($conn,$sql)){
+    echo "<script>alert('Feedback Submitted'); window.location.href='feedback.html';</script>";
 }
+else{
+    echo "error :",mysqli_error($conn);
+}
+mysqli_close($conn);
 ?>
