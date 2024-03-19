@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
     // canvas setup
     //   const textInput = document.getElementById('textInput');
-      const canvas = document.getElementById('canvas1');
+      const canvas = document.getElementById('textCanvas');
       const ctx = canvas.getContext('2d', {
         willReadFrequently: true
       });
@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
             this.angle = 0;
             this.distance = 0;
             this.friction = Math.random() * 0.6 + 0.15;
-            this.ease = Math.random() * 0.05 + 0.005;
+            this.ease = Math.random() * 0.1 + 0.005;
         }
         update(){
             this.dx = this.effect.mouse.x - this.x;
@@ -137,7 +137,7 @@ window.addEventListener('load', function() {
                             }
                         } else {
                             // Lower chance of adding a particle in the interior
-                            if (Math.random() > 0.9) { // Adjust this threshold as needed
+                            if (Math.random() > 0.85) { // Adjust this threshold as needed
                                 this.addParticle(x, y, pixels, index);
                             }
                         }
