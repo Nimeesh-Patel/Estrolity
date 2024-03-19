@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
 
     <style>
         .btn {
@@ -53,6 +55,7 @@
         </nav>
     </header>
     <canvas id="starfield"></canvas>
+    
     <div id="cursorDot">
         <img src="cursorSvg.svg" id="cursorSvg" style="width: 100%; height: 100%; display: none; padding: 1.5px 1.5px;">
         <img src="glassSvg.svg" id="glassSvg" style="width: 100%; height: 100%; display: none; padding: 1.5px 1.5px;">
@@ -62,6 +65,10 @@
 
     <main class="container">
         <section id="home" class="welcome-section">
+            <!-- into the cosmos -->
+            <canvas id="canvas1"></canvas>
+            <input type="text" id="textInput" placeholder="Type something..." value='Type something...'>
+            <!-- end -->
             <h1 style="font-family: 'Krooner', sans-serif; font-size: 6rem; color: #fff; margin-bottom: 20px;">Welcome to Estrolity</h1>
             <p style="font-size: 1.25rem; color: #ccc; max-width: 800px; margin: 0 auto; margin-bottom: 15px; ">Your personal guide to the stars and self-discovery.</p>
             <a href="register.html" class="btn btn-primary" style="margin-top: 20px;">Explore Now</a>
@@ -143,6 +150,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/text.js"></script>
 </body>
 </html>
 

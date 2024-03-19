@@ -24,6 +24,43 @@ body {
     background-color: #000; 
 }
 
+
+/* cosmos css */
+/* #canvas1 {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    font-family: 'Bangers', cursive;
+    background: black;
+    opacity: 1;
+
+} */
+#canvas1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 700px;
+    z-index: 1;
+    font-family: 'Bangers', cursive;
+    mix-blend-mode: multiply;
+   
+
+}
+/* input {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    margin: 10px;
+    width: calc(100%);
+    background-color: none;
+} */
+/* end */
+
 .video-frame {
     max-width: 40%; /* or any other size */
     margin: auto; /* center the video if the container is full width */

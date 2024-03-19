@@ -180,3 +180,7 @@ function findZodiacSign() {
 
     document.getElementById('zodiacSign').innerText = `Your zodiac sign is: ${zodiacSign}`;
 }
+
+// cosmos css
+
+
