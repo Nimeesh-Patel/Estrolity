@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (showSvg) {
             cursorCircle.style.display = 'none';
             cursorSvg.style.display = 'block';
-            cursorDot.style.transform = 'scale(20)';
+            cursorDot.style.transform = 'scale(10)';
             
              // Enlarge dot
         } else {
