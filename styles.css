@@ -44,6 +44,7 @@ body {
     opacity: 1;
 
 } */
+
 #canvas1 {
     position: fixed;
     top: 0;
@@ -52,9 +53,7 @@ body {
     height: 700px;
     z-index: 1;
     font-family: 'Bangers', cursive;
-    mix-blend-mode: multiply;
-   
-
+    mix-blend-mode: multiply;   
 }
 
 .video-frame {
