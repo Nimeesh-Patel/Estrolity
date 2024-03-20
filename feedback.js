@@ -1,4 +1,4 @@
-function validateEmail() {
+function validateEmail(){
     var email = document.getElementById("email").value;
     var emailError = document.getElementById("emailError");
     emailError.innerHTML = "";
@@ -24,7 +24,7 @@ function validateFeedback() {
 }
 
 
-function validateRadio() {
+function validateRadio(){
     var choiceError = document.getElementById("choiceError");
     choiceError.innerHTML = "";
     var yesChecked = document.getElementById("yes").checked;
@@ -37,7 +37,7 @@ function validateRadio() {
 }
 
 
-function validateEmailFormat(email) {
+function validateEmailFormat(email){
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
