@@ -57,8 +57,9 @@ session_start();
                             echo <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                         }
                         else {
-                            <?php echo $_SESSION['First_Name'] ?>
+                            echo $_SESSION['First_Name']
                         }
+                        ?>
                         // <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                     </ul>
                 </div>
