@@ -39,7 +39,7 @@ if (isset($_POST['socialInteraction8'])) {
     if ($stmt->execute()) {
         // Redirect to results page or show a message
         
-        header("Location: results.html"); // Adjust as per your results page
+        header("Location: zodiacResult.php"); // Adjust as per your results page
         exit();
     } else {
         echo "Error: " . $stmt->error;
