@@ -11,23 +11,8 @@
     <script src="https://pixijs.download/release/pixi.min.js"></script>
 
     <style>
-        .btn {
-            background-color: #4b3f72;
-            color: #fff;
-            padding: 12px 17px;
-            border: none;
-            border-radius: 1em;
-            cursor: pointer;
-            font-size: 1.2em;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .btn:hover {
-            background-color: #3a2d56;
-            transform: translateY(-2px);
-        }
-        .welcome-section{
-            padding-top: 200px;
-            padding-bottom: 300px;
+        * {
+            cursor: default !important;
         }
     </style>
 </head>

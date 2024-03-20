@@ -108,5 +108,6 @@ session_start();
     </footer>
     
     <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
 </body>
 </html>
