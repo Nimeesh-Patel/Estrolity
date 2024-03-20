@@ -20,20 +20,36 @@ function validateEmailFormat(email) {
     return re.test(email);
 }
 
-function allLetter() {
+function allLettersFisrtName() {
     var firstName = document.getElementById('firstName');
     var letters = /^[A-Za-z]+$/;
-    var firstNameError = document.getElementById("emailError");
+    var firstNameError = document.getElementById("firstNameError");
     firstNameError.innerHTML = "";
     if (firstName.value.match(letters)) {
         return true;
     } else {
-        alert('First Name must have alphabet characters only');
+        // alert('First Name must have alphabet characters only');
         // firstName.focus();
         firstNameError.innerHTML = "First Name should be all alphabets only!";
         return false;
     }
 }
+
+function allLettersLastName() {
+    var lastName = document.getElementById('lastName');
+    var letters = /^[A-Za-z]+$/;
+    var lastNameError = document.getElementById("lastNameError");
+    lastNameError.innerHTML = "";
+    if (lastName.value.match(letters)) {
+        return true;
+    } else {
+        // alert('First Name must have alphabet characters only');
+        // firstName.focus();
+        lastNameError.innerHTML = "Last Name should be all alphabets only!";
+        return false;
+    }
+}
+
 
 // function formValidation() {
 //     var firstName = document.getElementById('user-input');
