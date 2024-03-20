@@ -60,12 +60,12 @@ session_start();
                             echo $_SESSION['First_Name']
                         }
                         ?>
-                        // <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
                     </ul>
                 </div>
-                // <a class="navbar-brand" href="index.html">
-                //     <?php echo $_SESSION['First_Name'] ?>
-                // </a>
+                    <!-- <a class="navbar-brand" href="index.html">
+                       <?php echo $_SESSION['First_Name'] ?>
+                    </a> -->
             </div>
         </nav>
     </header>
