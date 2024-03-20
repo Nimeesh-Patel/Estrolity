@@ -1,4 +1,4 @@
-function validateEmail() {
+function validateEmail(){
     var email = document.getElementById("email").value;
     var emailError = document.getElementById("emailError");
     emailError.innerHTML = "";
@@ -29,7 +29,7 @@ function validateFeedback() {
 }
 
 
-function validateRadio() {
+function validateRadio(){
     var choiceError = document.getElementById("choiceError");
     choiceError.innerHTML = "";
     var yesChecked = document.getElementById("yes").checked;
