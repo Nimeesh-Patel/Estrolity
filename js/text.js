@@ -174,7 +174,8 @@ window.addEventListener('load', function() {
       }
       
       let effect = new Effect(ctx, canvas.width, canvas.height);
-      effect.wrapText("Capricon"); //Change the text here
+      var sessionVariable = document.getElementById("sessionVariable").textContent;
+      effect.wrapText(sessionVariable ); //Change the text here
   
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);

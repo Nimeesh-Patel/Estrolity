@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +53,7 @@
             <!-- into the cosmos -->
             <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
             <h1>Your Zodiac Sign Is:</h1>
+            <div id="sessionVariable" style="display: none;"><?php echo $_SESSION['zodiac_sign']; ?></div>
             
             <canvas id="canvas1"></canvas>
             
