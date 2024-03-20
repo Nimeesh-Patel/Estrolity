@@ -1,3 +1,4 @@
+var sessionVariable = document.getElementById("sessionVariable").textContent;
 window.addEventListener('load', function() {
     // canvas setup
     //   const textInput = document.getElementById('textInput');
@@ -174,7 +175,7 @@ window.addEventListener('load', function() {
       }
       
       let effect = new Effect(ctx, canvas.width, canvas.height);
-      var sessionVariable = document.getElementById("sessionVariable").textContent;
+      
       effect.wrapText(sessionVariable ); //Change the text here
   
       function animate() {
@@ -189,7 +190,7 @@ window.addEventListener('load', function() {
         canvas.height = window.innerHeight;
         effect = new Effect(ctx, canvas.width, canvas.height);
         // effect.wrapText(effect.textInput.value);
-        effect.wrapText("Capricon"); //Change the text here
+        effect.wrapText(sessionVariable); //Change the text here
         console.log('resize')
       });
   });
