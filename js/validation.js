@@ -43,8 +43,6 @@ function allLettersLastName() {
     if (lastName.value.match(letters)) {
         return true;
     } else {
-        // alert('First Name must have alphabet characters only');
-        // firstName.focus();
         lastNameError.innerHTML = "Last Name should be all alphabets only!";
         return false;
     }
@@ -58,23 +56,23 @@ function allLettersPOB() {
     if (pob.value.match(letters)) {
         return true;
     } else {
-        // alert('First Name must have alphabet characters only');
-        // firstName.focus();
         pobError.innerHTML = "Place of Birth should be all alphabets only!";
         return false;
     }
 }
 
-function ageCheck(ageField) {
+function ageCheck() {
+    var ageField = document.getElementById("age"); // Define ageField to select the input element
     var ageValue = parseInt(ageField.value); // Convert the value to integer for comparison
     var ageError = document.getElementById("ageError");
     ageError.innerHTML = "";
     if (ageValue <= 0 || isNaN(ageValue)) { // Check if age is a positive number and is a number
-        ageError.innerHTML = "Age should be all numbers";
+        ageError.innerHTML = "Age should be a positive number";
         return false;
     }
     return true;
 }
+
 
 // function formValidation() {
 //     var firstName = document.getElementById('user-input');
