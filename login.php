@@ -1,8 +1,9 @@
 <?php
 session_start();
-$Username = $_POST["username"];
+$E_mail_id = $_POST["username"];
 $PASSWORD = $_POST["password"];
-$hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
+// $hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
+
 
 $servername = "localhost";
 $db_username = "root";
@@ -18,59 +19,77 @@ if ($conn->connect_error) {
 }
 
 // Use prepared statement to prevent SQL injection
+// $stmt = $conn->prepare("SELECT * FROM datatable WHERE E_mail_id = ?");
+// $stmt->bind_param("s", $E_mail_id);
+// $stmt->execute();
+// $result = $stmt->get_result();
+
+// $loginQuery = "SELECT * FROM datatable WHERE E_mail_id='$E_mail_id' and pass='$PASSWORD'";
+// $authRes = mysqli_query($conn, $loginQuery);
+// $row = mysqli_fetch_array($authRes, MYSQLI_ASSOC);
+// $count = mysqli_num_rows($authRes);
+
+// if($count == 1) {
+//     $sql = "SELECT * FROM datatable WHERE E_mail_id = $E_mail_id";
+//     $result = $conn->query($sql);
+//     if ($result->num_rows > 0) 
+//     {
+//         // Fetch the row data
+//         $row = $result->fetch_assoc();
+//         // Access data from the row using column names
+//         $First_Name = $row["First_Name"]; // Replace 'column1' with the name of your column
+//         $Last_Name = $row["Last_Name"];
+//         $Date_of_birth = $row["Date_of_birth"];
+//         $Place_of_birth = $row["Place_of_birth"];
+//         $Gender = $row["Gender"];
+//         $zodiac_sign = $row["zodiac_sign"];
+//         $pass = $row["pass"];// Replace 'column2' with the name of another column
+        
+//     }
+
+//     echo "<script>alert('Login successfully . $First_Name .'); window.location.href='quiz-intro.html';</script>";
+// } else {
+//     echo "<script>alert('Password Invalid'); window.location.href='login.html';</script>";
+// }
+
+
 $stmt = $conn->prepare("SELECT * FROM datatable WHERE E_mail_id = ?");
-$stmt->bind_param("s", $Username);
+$stmt->bind_param("s", $E_mail_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$loginQuery = "SELECT * FROM datatable WHERE E_mail_id='$Username' and pass='$PASSWORD'";
-$authRes = mysqli_query($conn, $loginQuery);
-$row = mysqli_fetch_array($authRes, MYSQLI_ASSOC);
-$count = mysqli_num_rows($authRes);
+$loginQuery = "SELECT * FROM datatable WHERE E_mail_id = ? and pass = ?";
+$stmt = $conn->prepare($loginQuery);
+$stmt->bind_param("ss", $E_mail_id, $PASSWORD);
+$stmt->execute();
+$authRes = $stmt->get_result();
 
-if($count == 1) {
-    echo "<script>alert('Login successfully'); window.location.href='quiz-intro.html';</script>";
-   
-    $select = mysqli_query($conn,"SELECT * FROM datatable WHERE E_mail_id = '$Username' AND pass = '$PASSWORD' ");
-    $row = mysqli_fetch_array($select);
-    if(is_array($row))
-    {
-       $_SESSION["Username"] = $row["E_mail_id"];
-       $_SESSION["PASSWORD"] = $row["pass"];
-    }
-    else
-    {
-        echo "<script>alert('Invalid username   or password'); window.location.href='login.html';</script>";
-    }
-}   
-    if(isset($_SESSION["Username"]))
-    {
-        header("Location:index.html");
-    }
+$count = $authRes->num_rows;
 
-
-
-
-// if(isset($_POST["btn"]))
-// {
-//     $s_EMAIL = $_POST["username"];
-//     $s_PASSWORD = $_POST["password"];
-
-//     $select = mysqli_query($conn,"SELECT * FROM datatable WHERE E_mail_id = "$s_EMAIL" AND pass = "$s_PASSWORD" ");
-//     $row = mysqli_fetch_array($select);
-//     else
-//     {
-//         echo "<script>alert('Invalid username   or password'); window.location.href='login.html';</script>";
-//     }
-// }
-
-// if(isset($_POST["username"]))
-// {
-//     header("location:index.php");
-// }
-
+if ($count == 1) {
+    // Fetch the row data
+    $row = $result->fetch_assoc();
+    // Access data from the row using column names
+    $First_Name = $row["First_Name"]; // Replace 'First_Name' with the actual column name
+    $Last_Name = $row["Last_Name"];
+    $Date_of_birth = $row["Date_of_birth"];
+    $Place_of_birth = $row["Place_of_birth"];
+    $Gender = $row["Gender"];
+    $zodiac_sign = $row["zodiac_sign"];
+    $pass = $row["pass"];
+    
+    $_SESSION['E_mail_id'] = $E_mail_id;
+    $_SESSION['PASSWORD'] = $PASSWORD ;
+    $_SESSION['First_Name'] = $First_Name;
+    $_SESSION['Last_Name'] = $Last_Name;
+    $_SESSION['Date_of_birth'] = $Date_of_birth;
+    $_SESSION['Place_of_birth'] = $Place_of_birth;
+    $_SESSION['Gender'] = $Gender;
+    $_SESSION['zodiac_sign'] = $zodiac_sign;
+    echo "<script>alert('Login successfully  $First_Name '); window.location.href='quiz-intro.php';</script>";
+} else {
+    echo "<script>alert('Password Invalid'); window.location.href='login.html';</script>";
+}
 $stmt->close();
 $conn->close();
 ?>
-
-
