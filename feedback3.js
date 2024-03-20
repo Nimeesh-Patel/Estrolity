@@ -13,7 +13,7 @@ function validateEmail() {
 }
 
 function validateFeedback() {
-    var feedback = document.getElementById("feedback").value;
+    var feedback = document.getElementById("feedback").value.trim(); // Trim whitespace
     var feedbackError = document.getElementById("feedbackError");
     feedbackError.innerHTML = "";
     if (!feedback) {
@@ -22,6 +22,7 @@ function validateFeedback() {
     }
     return true;
 }
+
 
 function validateRadio() {
     var choiceError = document.getElementById("choiceError");
