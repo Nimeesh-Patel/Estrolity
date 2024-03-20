@@ -64,7 +64,7 @@ session_start();
                     </ul>
                 </div>
                     <!-- <a class="navbar-brand" href="index.html">
-                       <?php echo $_SESSION['First_Name'] ?>
+ 
                     </a> -->
             </div>
         </nav>
