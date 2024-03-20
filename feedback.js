@@ -1,36 +1,46 @@
-function formValidation() {
-    var uid = document.getElementById('email');
-    var firstName = document.getElementById('feedback');
-
-    if (ValidateEmail(uid)) {
-        if (userid_validation(firstName,3, Infinity)) {
-            window.location.reload();
-            return true;
-        }
-    }
-    return false;
-}
-function userid_validation(uid, mx, my) {
-    var uid_len = uid.value.trim().length; // trim() removes leading and trailing spaces
-    if (uid_len === 0) {
-        alert("Feedback should not be empty.");
-        uid.focus();
+function validateEmail() {
+    var email = document.getElementById("email").value;
+    var emailError = document.getElementById("emailError");
+    emailError.innerHTML = "";
+    if (!email) {
+        emailError.innerHTML = "Email is required";
         return false;
-    } else if (uid_len >= my || uid_len < mx) {
-        alert("Feedback length should be between " + mx + " to " + my + " characters.");
-        uid.focus();
+    } else if (!validateEmailFormat(email)) {
+        emailError.innerHTML = "Invalid email format";
         return false;
     }
     return true;
 }
 
-function ValidateEmail(uemail) {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (uemail.value.match(mailformat)) {
-        return true;
-    } else {
-        alert("You have entered an invalid email address!");
-        uemail.focus();
+function validateFeedback() {
+    var feedback = document.getElementById("feedback").value.trim(); // Trim whitespace
+    var feedbackError = document.getElementById("feedbackError");
+    feedbackError.innerHTML = "";
+    if (!feedback) {
+        feedbackError.innerHTML = "Feedback is required";
         return false;
     }
+    return true;
+}
+
+
+function validateRadio() {
+    var choiceError = document.getElementById("choiceError");
+    choiceError.innerHTML = "";
+    var yesChecked = document.getElementById("yes").checked;
+    var noChecked = document.getElementById("no").checked;
+    if (!yesChecked && !noChecked) {
+        choiceError.innerHTML = "Please select an option";
+        return false;
+    }
+    return true;
+}
+
+
+function validateEmailFormat(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+function validateForm() {
+    return validateEmail() && validateFeedback() && validateRadio();
 }

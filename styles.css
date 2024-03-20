@@ -24,6 +24,13 @@ body {
     background-color: #000; 
 }
 
+.zodiac-text {
+    position: relative;
+}
+
+.zodiac-text::before {
+    
+}
 
 /* cosmos css */
 /* #canvas1 {
@@ -37,7 +44,7 @@ body {
     opacity: 1;
 
 } */
-#canvas1 {
+#textCanvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -49,17 +56,6 @@ body {
    
 
 }
-/* input {
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    margin: 10px;
-    width: calc(100%);
-    background-color: none;
-} */
-/* end */
 
 .video-frame {
     max-width: 40%; /* or any other size */

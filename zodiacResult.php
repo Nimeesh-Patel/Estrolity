@@ -1,9 +1,3 @@
-<?php
-session_start();
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +63,7 @@ session_start();
             <!-- into the cosmos -->
             <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
             <h1>Your Zodiac Sign Is:</h1>
-            <h1> Welcome <?php echo $_SESSION['zodiac_sign'] ?></h1>
+            
             <canvas id="canvas1"></canvas>
             
         </section>
