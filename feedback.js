@@ -36,7 +36,11 @@ function validateRadio() {
     return true;
 }
 
+
 function validateEmailFormat(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
+}
+function validateForm() {
+    return validateEmail() && validateFeedback() && validateRadio();
 }
