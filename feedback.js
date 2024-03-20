@@ -12,6 +12,11 @@ function validateEmail() {
     return true;
 }
 
+function validateEmailFormat(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
 function validateFeedback() {
     var feedback = document.getElementById("feedback").value.trim(); // Trim whitespace
     var feedbackError = document.getElementById("feedbackError");
@@ -36,11 +41,6 @@ function validateRadio() {
     return true;
 }
 
-
-function validateEmailFormat(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
 function validateForm() {
     return validateEmail() && validateFeedback() && validateRadio();
 }
