@@ -73,6 +73,35 @@ function ageCheck() {
     return true;
 }
 
+function contactCheck() {
+    var contact = document.getElementById('contact');
+    var numbers = /^[0-9]+$/;
+    var contact_len = contact.value.length; // Corrected variable name from 'ucontact' to 'contact'
+    var contactError = document.getElementById("contactError"); // Corrected ID from 'ageError' to 'contactError'
+    if (contact.value.match(numbers)) {
+        if (contact_len != 10) {
+            contactError.innerHTML = "Contact Number should be of 10 digits";
+            return false;
+        }
+        return true;
+    } else {
+        contactError.innerHTML = 'Contact Number must have numeric characters only';
+        return false;
+    }
+}
+
+function confirm_pass(confirmPassword, passid) {
+    var confirmPasswordValue = confirmPassword.value;
+    var confirmPassword = document.getElementById('confirmPassword');
+    var passid = document.getElementById('password');
+    var passidValue = passid.value;
+    var ageError = document.getElementById("ageError");
+    if (confirmPasswordValue !== passidValue) {
+        alert('Passwords do not match');
+        return false;
+    }
+    return true;
+}
 
 // function formValidation() {
 //     var firstName = document.getElementById('user-input');
@@ -145,45 +174,6 @@ function confirm_pass(confirmPassword, passid) {
 }
 
 
-
-function allLetter1(uname) {
-    var letters = /^[A-Za-z]+$/;
-    if (uname.value.match(letters)) {
-        return true;
-    } else {
-        alert('Last Name must have alphabet characters only');
-        uname.focus();
-        return false;
-    }
-}
-
-function allLetter2(uname) {
-    var letters = /^[A-Za-z]+$/;
-    if (uname.value.match(letters)) {
-        return true;
-    } else {
-        alert('Place of birth must have alphabet characters only');
-        uname.focus();
-        return false;
-    }
-}
-
-function contactCheck(ucontact) {
-    var numbers = /^[0-9]+$/;
-    var contact_len = ucontact.value.length;
-    if (ucontact.value.match(numbers)) {
-        if (contact_len != 10) {
-            alert("Contact should have 10 numbers!");
-            ucontact.focus();
-            return false;
-        }
-        return true;
-    } else {
-        alert('Contact Number must have numeric characters only');
-        ucontact.focus();
-        return false;
-    }
-}
 
 
 
