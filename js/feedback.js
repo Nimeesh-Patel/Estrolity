@@ -10,6 +10,7 @@ function formValidation() {
     }
     return false;
 }
+
 function userid_validation(uid, mx, my) {
     var uid_len = uid.value.trim().length; // trim() removes leading and trailing spaces
     if (uid_len === 0) {
