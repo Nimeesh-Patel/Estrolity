@@ -78,6 +78,7 @@ function contactCheck() {
     var numbers = /^[0-9]+$/;
     var contact_len = contact.value.length; // Corrected variable name from 'ucontact' to 'contact'
     var contactError = document.getElementById("contactError"); // Corrected ID from 'ageError' to 'contactError'
+    contactError.innerHTML ="";
     if (contact.value.match(numbers)) {
         if (contact_len != 10) {
             contactError.innerHTML = "Contact Number should be of 10 digits";
@@ -90,18 +91,18 @@ function contactCheck() {
     }
 }
 
-function confirm_pass(confirmPassword, passid) {
-    var confirmPasswordValue = confirmPassword.value;
-    var confirmPassword = document.getElementById('confirmPassword');
-    var passid = document.getElementById('password');
-    var passidValue = passid.value;
-    var ageError = document.getElementById("ageError");
+function confirm_pass() {
+    var confirmPasswordValue = document.getElementById('confirmPassword').value;
+    var passidValue = document.getElementById('password').value;
+    var confirmError = document.getElementById("confirmError");
+    confirmError.innerHTML = ""; // Ensure to clear previous error messages
     if (confirmPasswordValue !== passidValue) {
-        alert('Passwords do not match');
+        confirmError.innerHTML = 'Passwords do not match';
         return false;
     }
     return true;
 }
+
 
 // function formValidation() {
 //     var firstName = document.getElementById('user-input');

@@ -99,11 +99,12 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required onblur="passid_validation()">
+                <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required onblur="confirm_pass()">
+                <div id="confirmError" class="text-danger"></div>
             </div>
             <div onload="generate()">
                 <div id="user-input" class="inline">
