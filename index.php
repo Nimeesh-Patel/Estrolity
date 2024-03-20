@@ -145,7 +145,6 @@ session_start();
                 <a href="register.html" class="btn">Compare Your Personality With Your Zodiac Sign </a>
             </div>
         </div>
-        <h1> Welcome </h1>
     </main>
     
     <footer class="text-center py-4">

@@ -20,7 +20,7 @@ function validateEmailFormat(email) {
     return re.test(email);
 }
 
-function allLettersFisrtName() {
+function allLettersFirstName() {
     var firstName = document.getElementById('firstName');
     var letters = /^[A-Za-z]+$/;
     var firstNameError = document.getElementById("firstNameError");
@@ -50,6 +50,31 @@ function allLettersLastName() {
     }
 }
 
+function allLettersPOB() {
+    var pob = document.getElementById('placeOfBirth');
+    var letters = /^[A-Za-z]+$/;
+    var pobError = document.getElementById("pobError");
+    pobError.innerHTML = "";
+    if (pob.value.match(letters)) {
+        return true;
+    } else {
+        // alert('First Name must have alphabet characters only');
+        // firstName.focus();
+        pobError.innerHTML = "Place of Birth should be all alphabets only!";
+        return false;
+    }
+}
+
+function ageCheck(ageField) {
+    var ageValue = parseInt(ageField.value); // Convert the value to integer for comparison
+    var ageError = document.getElementById("ageError");
+    ageError.innerHTML = "";
+    if (ageValue <= 0 || isNaN(ageValue)) { // Check if age is a positive number and is a number
+        ageError.innerHTML = "Age should be all numbers";
+        return false;
+    }
+    return true;
+}
 
 // function formValidation() {
 //     var firstName = document.getElementById('user-input');
@@ -162,15 +187,7 @@ function contactCheck(ucontact) {
     }
 }
 
-function ageCheck(ageField) {
-    var ageValue = parseInt(ageField.value); // Convert the value to integer for comparison
-    if (ageValue <= 0 || isNaN(ageValue)) { // Check if age is a positive number and is a number
-        alert('Age should be a positive number!');
-        ageField.focus();
-        return false;
-    }
-    return true;
-}
+
 
 // function ValidateEmail(uemail) {
 //     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

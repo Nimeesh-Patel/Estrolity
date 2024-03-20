@@ -59,17 +59,18 @@
             </div>
             <div class="form-group">
                 <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" required onblur="allLetterFirstName()">
+                <input type="text" id="firstName" name="firstName" required onblur="allLettersFirstName()">
                 <div id="firstNameError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required onblur="allLetterLastName()">
+                <input type="text" id="lastName" name="lastName" required onblur="allLettersLastName()">
                 <div id="lastNameError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="placeOfBirth">Place of Birth:</label>
-                <input type="text" id="placeOfBirth" name="placeOfBirth" required onblur="allLetter2()">
+                <input type="text" id="placeOfBirth" name="placeOfBirth" required onblur="allLettersPOB()">
+                <div id="pobError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="dob">Date Of Birth:</label>
@@ -78,6 +79,7 @@
             <div class="form-group">
                 <label for="age">Age:</label>
                 <input type="number" id="age" name="age" required onblur="ageCheck()">
+                <div id="ageError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
