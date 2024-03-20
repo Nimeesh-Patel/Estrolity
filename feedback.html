@@ -54,7 +54,7 @@
         <section class="login-section">
             <div class="container">
                 <h1>Feedback</h1>
-                <form id="Form" action="feedback.php" method="POST">
+                <form id="Form" action="feedback.php" method="POST" onsubmit="return validateForm()">
                     <div style="text-align: center;align-items: centre;" class="form-group">
                         <label for="username">Email:</label>
                         <input style="width: 700px;" type="text" id="email" name="email" onblur="validateEmail()">
@@ -82,7 +82,7 @@
                     <div class="assist-links">
                         <a href="index.html">Back to Home</a> |
                     </div> 
-                </form>
+                </form> 
             </div>
         </section>
     </main>
@@ -92,7 +92,7 @@
             <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
         </div>
     </footer>
-    <script src="feedback3.js"></script>
+    <script src="feedback.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
