@@ -53,11 +53,11 @@ session_start();
                         <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
                         <?php
-                        if (!isset[$E_mail_id]) {
-                            echo <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                        if (isset('$E_mail_id')) {
+                            echo 'register';
                         }
                         else {
-                            echo $_SESSION['First_Name']
+                            echo $_SESSION['First_Name'];
                         }
                         ?>
                         <!-- <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li> -->
