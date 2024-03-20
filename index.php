@@ -39,7 +39,7 @@ session_start();
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="logo1ed.png" alt="Astrology Logo" height="50">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +55,9 @@ session_start();
                         <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                     </ul>
                 </div>
+                <a class="navbar-brand" href="index.html">
+                    <?php echo $_SESSION['First_Name'] ?>
+                </a>
             </div>
         </nav>
     </header>
@@ -71,7 +74,7 @@ session_start();
         <section id="home" class="welcome-section">
             <!-- into the cosmos -->
             <!-- end -->
-            <h1 style="font-family: 'Krooner', sans-serif; font-size: 6rem; color: #fff; margin-bottom: 20px;">Welcome to</h1>
+            <h1 style="font-family: 'Krooner', sans-serif; font-size: 6rem; color: #fff; margin-bottom: 20px;">Welcome to Estrolity</h1>
             <p style="font-size: 1.25rem; color: #ccc; max-width: 800px; margin: 0 auto; margin-bottom: 15px; ">Your personal guide to the stars and self-discovery.</p>
             <a href="register.html" class="btn btn-primary" style="margin-top: 20px;">Explore Now</a>
         </section>
@@ -141,7 +144,7 @@ session_start();
                 <a href="register.html" class="btn">Compare Your Personality With Your Zodiac Sign </a>
             </div>
         </div>
-        <h1> Welcome <?php echo $_SESSION['First_Name'] ?></h1>
+        <h1> Welcome </h1>
     </main>
     
     <footer class="text-center py-4">
