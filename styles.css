@@ -24,6 +24,39 @@ body {
     background-color: #000; 
 }
 
+.zodiac-text {
+    position: relative;
+}
+
+.zodiac-text::before {
+    
+}
+
+/* cosmos css */
+/* #canvas1 {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    font-family: 'Bangers', cursive;
+    background: black;
+    opacity: 1;
+
+} */
+#textCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 700px;
+    z-index: 1;
+    font-family: 'Bangers', cursive;
+    mix-blend-mode: multiply;
+   
+
+}
+
 .video-frame {
     max-width: 40%; /* or any other size */
     margin: auto; /* center the video if the container is full width */
@@ -67,8 +100,8 @@ body {
 }
 
 #cursorCircle {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: #ffffff; /* Custom color */
     z-index: 10000;

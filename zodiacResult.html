@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Introduction - Astrology and Personality Traits</title>
+    <title>Estrolity</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+
+    <style>
+        * {
+            cursor: default !important;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,32 +31,30 @@
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
     <canvas id="starfield"></canvas>
-    <div id="cursorDot"></div>
-    <div id="cursorCircle"></div>
-    <script src="js/script.js"></script>
-    <script src="js/cursor.js"></script>
+    
+    
 
     <main class="container">
-        <section class="intro-text" style="padding: 0px;">
-            <div class="container">
-                <h1>Psychology With Spirituality</h1>
-                <p style="line-height: 40px">
-                    Embark on a transformative journey where psychology meets spirituality. Our platform explores the symbiotic relationship between the mind and the spirit, offering a holistic path to healing and growth. We delve into how psychological principles can be applied within spiritual practices to foster a deeper sense of peace, fulfillment, and interconnectedness. Discover how blending these disciplines can lead to a more balanced, joyful, and meaningful life.
-                </p>
-            </div>
+        <section id="home" class="welcome-section" style="padding-top: 20px;">
+            <!-- into the cosmos -->
+            <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
+            <h1 style="padding-left: 0px; margin-left: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Your <span class="zodiac-text">Zodiac</span> Sign Is:</h1>
+            <canvas id="textCanvas"></canvas>
         </section>
-    </main>
 
-</body>
-</html>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="js/text.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+    </html>
