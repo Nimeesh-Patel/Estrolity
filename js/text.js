@@ -1,7 +1,7 @@
 window.addEventListener('load', function() {
     // canvas setup
     //   const textInput = document.getElementById('textInput');
-      const canvas = document.getElementById('textCanvas');
+      const canvas = document.getElementById('canvas1');
       const ctx = canvas.getContext('2d', {
         willReadFrequently: true
       });

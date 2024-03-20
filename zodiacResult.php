@@ -47,10 +47,16 @@
         <section id="home" class="welcome-section" style="padding-top: 20px;">
             <!-- into the cosmos -->
             <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
-            <h1 style="padding-left: 0px; margin-left: 0px; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Your <span class="zodiac-text">Zodiac</span> Sign Is:</h1>
-            <canvas id="textCanvas"></canvas>
+            <h1>Your Zodiac Sign Is:</h1>
+            
+            <canvas id="canvas1"></canvas>
+            
         </section>
 
+        <!-- <footer class="text-center py-4">
+            <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
+        </footer> -->
+        
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

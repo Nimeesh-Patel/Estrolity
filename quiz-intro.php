@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,6 +97,8 @@
                 <!-- Testimonials content -->
             </div>
         </section>
+        <h1> Welcome <?php echo $_SESSION['First_Name'] ?></h1>
+        
     </main>
     
     <footer>
@@ -102,5 +108,6 @@
     </footer>
     
     <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
 </body>
 </html>

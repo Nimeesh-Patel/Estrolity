@@ -1,4 +1,5 @@
 <?php
+session_start();
 $E_mail_id = $_POST["username"];
 $First_Name = $_POST["firstName"];
 $Last_Name = $_POST["lastName"];
@@ -58,9 +59,10 @@ if (($birthMonth == 3 && $birthDay >= 21) || ($birthMonth == 4 && $birthDay <= 1
 if (mysqli_num_rows($result_check_email) > 0) {
     echo "<script>alert('Email already exists. Please use a different email.'); window.location.href='register.html';</script>";
 } else {
+    $_SESSION['First_Name'] = $First_Name;
     $sql = "INSERT INTO datatable (E_mail_id, First_Name, Last_Name, Date_of_birth, Age, Place_of_birth, Gender, pass, zodiac_sign) VALUES ('$E_mail_id', '$First_Name', '$Last_Name', '$Date_of_birth', '$Age', '$Place_of_birth', '$Gender', '$PASSWORD', '$zodiacSign')";
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Record inserted successfully'); window.location.href='register.html';</script>";
+        echo "<script>alert('Record inserted successfully Welcome $First_Name'); window.location.href='index.php';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
