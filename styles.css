@@ -56,17 +56,6 @@ body {
    
 
 }
-/* input {
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    margin: 10px;
-    width: calc(100%);
-    background-color: none;
-} */
-/* end */
 
 .video-frame {
     max-width: 40%; /* or any other size */
