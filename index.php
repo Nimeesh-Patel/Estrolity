@@ -36,7 +36,7 @@ session_start();
     </style>
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
@@ -47,7 +47,7 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
                         <?php
