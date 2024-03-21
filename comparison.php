@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+$c1 = $_SESSION['z1'] ==  $_SESSION['r1'] ? 1 : 0;
+$c2 = $_SESSION['z2'] ==  $_SESSION['r2'] ? 1 : 0;
+$c3 = $_SESSION['z3'] ==  $_SESSION['r3'] ? 1 : 0;
+$c4 = $_SESSION['z4'] ==  $_SESSION['r4'] ? 1 : 0;
+
+$percentage = (($c1 + $c2 + $c3 + $c4)/4) *100;
+$_SESSION['percentage'] = $percentage;
+
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +45,25 @@ session_start();
         h2 {
             color: #fff;
         }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #222;
+        }
+        th, td {
+            border: 1px solid #555;
+            padding: 8px;
+            text-align: left;
+            color: #ddd; /* Light grey text color for readability */
+        }
+        th {
+            background-color: #333; /* Darker shade for headers */
+            color: #fff; /* White text color for headers */
+        }
+        tr:hover {
+            background-color: #555; /* Highlight rows on hover for better interaction */
+        }
     </style>
 </head>
 <body>
@@ -59,6 +87,7 @@ session_start();
                             // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            // is result calculated
                             if (isset($_SESSION['z1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
@@ -87,12 +116,42 @@ session_start();
 
     <main class="container">
         <section id="home" class="welcome-section" style="padding-top: 20px">
-            <h1> You are:</h1>
-            <h2> <?php echo $_SESSION['r1']?></h1>
-            <h2> <?php echo $_SESSION['r2']?></h1>
-            <h2> <?php echo $_SESSION['r3']?></h1>
-            <h2> <?php echo $_SESSION['r4']?></h1>
-            <a href="comparison.php" class="btn btn-primary" style="margin-top: 40px">View Correlation</a>
+            <h1>Zodiac Vs Personality:</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Zodiac</th>
+                        <th>Personality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Introvert / Extrovert</td>
+                        <td><?php echo $_SESSION['z1']?></td>
+                        <td><?php echo $_SESSION['r1']?></td>
+                    </tr>
+                    <tr>
+                        <td>Thinker / Feeler</td>
+                        <td><?php echo $_SESSION['z2']?></td>
+                        <td><?php echo $_SESSION['r2']?></td>
+                    </tr>
+                    <tr>
+                        <td>Agreeable / Determined</td>
+                        <td><?php echo $_SESSION['z3']?></td>
+                        <td><?php echo $_SESSION['r3']?></td>
+                    </tr>
+                    <tr>
+                        <td>Organized / Carefree</td>
+                        <td><?php echo $_SESSION['z4']?></td>
+                        <td><?php echo $_SESSION['r4']?></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            
+            <h2>Correlation Percenage: <?php echo $_SESSION['percentage']?>%</h2>
+
         </section>
     </main>
     
