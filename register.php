@@ -109,7 +109,7 @@ session_start();
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required onblur="confirmpass()">
                  <div id="confirmError" class="text-danger" onreload = "destroy()";>
-                <?php if (!empty($_SESSION['confirmPasswordError'])) echo $_SESSION['confirmPasswordError']; ?>
+                <?php  echo $_SESSION['confirmPasswordError']; ?>
             </div>
             </div>
             <div onload="generate()">
