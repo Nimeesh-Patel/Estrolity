@@ -24,13 +24,50 @@ session_start();
         div.inline {
             color: #ccc; 
         }
+        /* Captcha Container Styles */
+        div#user-input, div#image, div.inline {
+            display: inline-block; /* Aligns items inline */
+            margin: 10px; /* Adds some spacing around elements */
+            vertical-align: middle; /* Aligns items vertically */
+        }
+
+        /* Captcha Text Input Styles */
+        input#submit {
+            padding: 8px 15px;
+            border: 1px solid #ddd; /* Light grey border */
+            border-radius: 4px; /* Rounded corners */
+            font-size: 16px; /* Larger text for easy reading */
+        }
+
+        /* Refresh Icon Container - Adjust as needed based on actual icon size */
+        div.inline {
+            cursor: pointer; /* Indicates the icon is clickable */
+            font-size: 24px; /* Size of the refresh icon */
+        }
+
+        /* Captcha Image Container Styles */
+        div#image {
+            width: 120px; /* Adjust based on actual captcha image size */
+            height: 40px; /* Adjust based on actual captcha image size */
+            background-color: #fff; /* Placeholder color, replace with actual captcha image */
+            border: 1px solid #ddd; /* Light grey border */
+            border-radius: 4px; /* Rounded corners */
+        }
+
+        /* Style for the key paragraph */
+        p#key {
+            margin-top: 15px;
+            color: #666; /* Dark grey color */
+            font-size: 14px;
+        }
+
     </style>
 </head>
 <body onload="generate()">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="logo1ed.png" alt="Astrology Logo" height="50">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,13 +75,26 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                        <?php
+                        // Check if user is logged in
+                        if (isset($_SESSION['First_Name'])) {
+                            // Display user's first name
+                            echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            if (isset($_SESSION['z1'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
+                            }
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                        } else {
+                            // Show the Register link
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -134,7 +184,7 @@ session_start();
                 <p id="key"></p>
             </div>
             <!-- <button type="submit" class="btn">Register</button> -->
-                <a href="login.html" style="margin-left: 230px;">Already have an account?</a>
+                <a href="login.html" style="margin-left: 180px;">Already have an account?</a>
         </form>
         
     </div>
