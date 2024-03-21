@@ -1,5 +1,44 @@
 <?php
 session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "project"; 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepared statement to prevent SQL Injection
+if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")) {
+    // Bind the session variable to the parameter as a string
+    $stmt->bind_param("s", $_SESSION['E_mail_id']);
+
+    // Execute the query
+    $stmt->execute();
+
+    // Bind result variables
+    $stmt->bind_result($f, $r1, $r2, $r3, $r4);
+
+    // Fetch values
+    if ($stmt->fetch()) {
+        $_SESSION['r1'] = $r1;
+        $_SESSION['r2'] = $r2;
+        $_SESSION['r3'] = $r3;
+        $_SESSION['r4'] = $r4;
+    }
+
+    // Close statement
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +95,7 @@ session_start();
                             // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
-                            if (isset($_SESSION['z1'])) {
+                            if (isset($_SESSION['r1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
                             echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
@@ -91,6 +130,9 @@ session_start();
             <a
                 <?php
                 if (isset($_SESSION['First_Name'])) {
+                    if (isset($_SESSION['r1'])) {
+                        echo 'href="zodiacResult.php"';
+                    }
                     echo 'href="quiz-intro.php"';
                 } else {
                     echo 'href="register.php"';
@@ -179,4 +221,3 @@ session_start();
     <script src="js/text.js"></script>
 </body>
 </html>
-
