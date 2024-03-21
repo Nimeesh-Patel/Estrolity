@@ -108,7 +108,9 @@ session_start();
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required onblur="confirmpass()">
-                <div id="confirmError" class="text-danger"><?php if (!empty($_SESSION['confirmPasswordError'])) echo $_SESSION['confirmPasswordError']; ?></div>
+                 <div id="confirmError" class="text-danger" onreload = "destroy()";>
+                <?php if (!empty($_SESSION['confirmPasswordError'])) echo $_SESSION['confirmPasswordError']; ?>
+            </div>
             </div>
             <div onload="generate()">
                 <div id="user-input" class="inline">
@@ -136,6 +138,13 @@ session_start();
         </form>
         
     </div>
+
+    <?php
+    function destory()
+    {
+        session_destroy();
+    } 
+    ?>
     
     <script src="js/script.js"></script>
     <script src="js/cursor.js"></script>

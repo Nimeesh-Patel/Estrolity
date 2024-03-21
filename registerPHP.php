@@ -1,18 +1,24 @@
 <?php
 session_start();
 
-function confirmpass() {
-    if ($_POST["password"] != $_POST["confirmPassword"]) {
-        $_SESSION['confirmPasswordError'] = 'Passwords do not match';
-    } else {
-        $_SESSION['confirmPasswordError'] = ''; // Reset the error message if passwords match
-    }
+function validatePasswordConfirmation($password, $confirmPassword) {
+    return $password === $confirmPassword;
+}
+$_SESSION['confirmPasswordError'] = "";
+// Other functions and code remain unchanged
+
+if (!validatePasswordConfirmation($_POST["password"], $_POST["confirmPassword"])) {
+    $_SESSION['confirmPasswordError'] = "Passwords do not match";
+    header("Location: register.php");
+    exit;
+    
+}
+else
+{
+    $_SESSION['confirmPasswordError'] = "";
 }
 
-// Call the confirmpass() function when the confirmation password field loses focus
-if (isset($_POST["confirmPassword"])) {
-    confirmpass();
-}
+
 
 
 $E_mail_id = $_POST["username"];
