@@ -36,7 +36,7 @@ session_start();
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
@@ -49,19 +49,27 @@ session_start();
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-
+                        <?php
+                        // Check if user is logged in
+                        if (isset($_SESSION['First_Name'])) {
+                            // Display user's first name
+                            echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                        } else {
+                            // Show the Register link
+                            echo '<li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
-                    <a class="navbar-brand" href="index.html">
-                        <?php echo $_SESSION['First_Name']; ?>
-                    </a>
             </div>
         </nav>
     </header>
+
     <canvas id="starfield"></canvas>
 
     <div id="cursorDot">
