@@ -50,7 +50,7 @@ if (isset($_POST['socialInteraction8'])) {
     $conn->close();
 
     // Optionally, clear session variables after storing data
-    session_unset();
-    session_destroy();
+    // session_unset();
+    // session_destroy();
 }
 ?>
