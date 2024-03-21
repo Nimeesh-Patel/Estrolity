@@ -18,9 +18,6 @@ else
     $_SESSION['confirmPasswordError'] = "";
 }
 
-
-
-
 $E_mail_id = $_POST["username"];
 $First_Name = $_POST["firstName"];
 $Last_Name = $_POST["lastName"];
@@ -83,12 +80,11 @@ if (mysqli_num_rows($result_check_email) > 0) {
     $_SESSION['First_Name'] = $First_Name;
     $_SESSION['E_mail_id'] = $E_mail_id;
     $_SESSION['PASSWORD'] = $PASSWORD ;
-    $_SESSION['First_Name'] = $First_Name;
     $_SESSION['Last_Name'] = $Last_Name;
     $_SESSION['Date_of_birth'] = $Date_of_birth;
     $_SESSION['Place_of_birth'] = $Place_of_birth;
     $_SESSION['Gender'] = $Gender;
-    $_SESSION['zodiac_sign'] = $zodiac_sign;
+    $_SESSION['zodiac_sign'] = $zodiacSign;
     $sql = "INSERT INTO datatable (E_mail_id, First_Name, Last_Name, Date_of_birth, Age, Place_of_birth, Gender, pass, zodiac_sign) VALUES ('$E_mail_id', '$First_Name', '$Last_Name', '$Date_of_birth', '$Age', '$Place_of_birth', '$Gender', '$PASSWORD', '$zodiacSign')";
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Record inserted successfully Welcome $First_Name'); window.location.href='index.php';</script>";
