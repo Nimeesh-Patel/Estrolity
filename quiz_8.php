@@ -86,6 +86,7 @@ if (isset($_SESSION['flash_message'])) {
                     $_SESSION['flash_message'] = 'Please choose an option for question 8!';
                     header('Location: quiz_8.php');
                     exit();
+                    
                 }
             }
             ?>
