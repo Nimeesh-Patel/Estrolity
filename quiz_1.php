@@ -74,7 +74,7 @@ if (isset($_SESSION['flash_message'])) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['socialInteraction1'])) {
                 $_SESSION['socialInteraction1'] = $_POST['socialInteraction1'];
-                header('Location: quiz_2.html'); // Redirect to the next quiz page
+                header('Location: quiz_2.php'); // Redirect to the next quiz page
                 exit();
             } else {
                 // Store the flash message and redirect back to the quiz_1.php
