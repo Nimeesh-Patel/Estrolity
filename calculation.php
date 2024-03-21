@@ -34,9 +34,11 @@ $stmt->bind_param("sssss",
 );
 
 $_SESSION['r1'] = $r1;
-$_SESSION['r2'] = $r1;
-$_SESSION['r3'] = $r1;
-$_SESSION['r4'] = $r1;
+$_SESSION['r2'] = $r2;
+$_SESSION['r3'] = $r3;
+$_SESSION['r4'] = $r4;
+
+
 
 if ($stmt->execute()) {
     

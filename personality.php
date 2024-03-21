@@ -33,6 +33,9 @@ session_start();
             padding-top: 200px;
             padding-bottom: 300px;
         }
+        h2 {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -80,7 +83,11 @@ session_start();
     </div>
 
     <main class="container">
-        
+    <h1> You are:</h1>
+    <h2> <?php echo $_SESSION['r1']?></h1>
+    <h2> <?php echo $_SESSION['r2']?></h1>
+    <h2> <?php echo $_SESSION['r3']?></h1>
+    <h2> <?php echo $_SESSION['r4']?></h1>
     </main>
     
     <footer class="text-center py-4">

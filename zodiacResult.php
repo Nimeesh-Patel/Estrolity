@@ -71,14 +71,13 @@ session_start();
             <!-- into the cosmos -->
             <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
             <a href="personality.php" class="btn btn-primary">View Personality</a>
-            <h1 style="margin-bottom: 700px, margin-top = 50px;">Your Zodiac Sign Is:</h1>
+            <h1 style="margin-bottom: 700px; margin-top: 50px;">Your Zodiac Sign Is:</h1>
             <div id="sessionVariable" style="display: none;"><?php echo $_SESSION['zodiac_sign']; ?></div>
             
-            <canvas id="canvas1" style = "margin-top = 50px"></canvas>
-            
-            
-
+            <canvas id="canvas1" style="margin-top: 50px;"></canvas>
         </section>
+    </main>
+
 
         <!-- <footer class="text-center py-4">
             <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
