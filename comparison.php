@@ -59,6 +59,9 @@ session_start();
                             // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            if (isset($_SESSION['z1'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
+                            }
                             echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
