@@ -75,7 +75,7 @@ if (($birthMonth == 3 && $birthDay >= 21) || ($birthMonth == 4 && $birthDay <= 1
 }
 
 if (mysqli_num_rows($result_check_email) > 0) {
-    echo "<script>alert('Email already exists. Please use a different email.'); window.location.href='register.html';</script>";
+    echo "<script>alert('Email already exists. Please use a different email.'); window.location.href='register.php';</script>";
 } else {
     $_SESSION['First_Name'] = $First_Name;
     $_SESSION['E_mail_id'] = $E_mail_id;
