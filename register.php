@@ -1,4 +1,11 @@
 <?php
+function confirmpass()
+{
+    if ($_POST["password"] !== $_POST["confirmPassword"]) {
+    echo "<script>alert('Passwords do not match'); window.location.href='register.html';</script>";
+    exit;
+}
+}
 session_start();
 $E_mail_id = $_POST["username"];
 $First_Name = $_POST["firstName"];
