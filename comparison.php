@@ -150,7 +150,7 @@ $_SESSION['percentage'] = $percentage;
                 </tbody>
             </table>
             
-            <h2>Correlation Percenage: <?php echo $_SESSION['percentage']?>%</h2>
+            <h2 style="margin-top = 30px">Correlation Percenage: <?php echo $_SESSION['percentage']?>%</h2>
 
         </section>
     </main>

@@ -88,7 +88,15 @@ session_start();
             <!-- end -->
             <h1 style="font-family: 'Krooner', sans-serif; font-size: 6rem; color: #fff; margin-bottom: 20px;">Welcome to Estrolity</h1>
             <p style="font-size: 1.25rem; color: #ccc; max-width: 800px; margin: 0 auto; margin-bottom: 15px; ">Your personal guide to the stars and self-discovery.</p>
-            <a href="register.html" class="btn btn-primary" style="margin-top: 20px;">Explore Now</a>
+            <a
+                <?php
+                if (isset($_SESSION['First_Name'])) {
+                    echo 'href="quiz-intro.php"';
+                } else {
+                    echo 'href="register.php"';
+                }
+                ?>
+                class="btn btn-primary" style="margin-top: 20px;">Explore Now</a>
         </section>
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
