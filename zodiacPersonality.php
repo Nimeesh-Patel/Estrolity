@@ -84,18 +84,15 @@ session_start();
 
     <main class="container">
         <section id="home" class="welcome-section" style="padding-top: 20px">
-            <h1> You are:</h1>
-            <h2> <?php echo $_SESSION['r1']?></h1>
-            <h2> <?php echo $_SESSION['r2']?></h1>
-            <h2> <?php echo $_SESSION['r3']?></h1>
-            <h2> <?php echo $_SESSION['r4']?></h1>
-            <a href="comparison.php" class="btn btn-primary" style="margin-top: 40px">View Correlation</a>
+            <h1> <?php echo $_SESSION['zodiac_sign']?> Personality:</h1>
+            <h2> <?php echo $_SESSION['z1']?></h1>
+            <h2> <?php echo $_SESSION['z2']?></h1>
+            <h2> <?php echo $_SESSION['z3']?></h1>
+            <h2> <?php echo $_SESSION['z4']?></h1>
+            <a href="personality.php" class="btn btn-primary" style="margin-top: 40px">View Personality</a>
         </section>
     </main>
     
-    <footer class="text-center py-4">
-        <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
-    </footer>
     
     <script src="js/script.js"></script>
     <script src="js/cursor.js"></script>

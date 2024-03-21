@@ -45,7 +45,7 @@ body {
 
 } */
 
-#canvas1 {
+/* #canvas1 {
     position: fixed;
     top: 0;
     left: 0;
@@ -54,6 +54,17 @@ body {
     z-index: -1;
     font-family: 'Bangers', cursive;
     mix-blend-mode: multiply;   
+} */
+
+#canvas1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 700px; /* Example height: Adjust as needed to be larger than the viewport for vertical scrolling */
+    z-index: -1;
+    font-family: 'Bangers', cursive;
+    mix-blend-mode: multiply;
 }
 
 .video-frame {

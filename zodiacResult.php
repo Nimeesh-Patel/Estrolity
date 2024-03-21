@@ -110,11 +110,11 @@ $conn->close();
         <section id="home" class="welcome-section" style="padding-top: 20px;">
             <!-- into the cosmos -->
             <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
-            <a href="personality.php" class="btn btn-primary">View Personality</a>
-            <h1 style="margin-bottom: 700px; margin-top: 50px;">Your Zodiac Sign Is:</h1>
+            <h1 style="margin-bottom: 300px; margin-top: 50px;">Your Zodiac Sign Is:</h1>
             <div id="sessionVariable" style="display: none;"><?php echo $_SESSION['zodiac_sign']; ?></div>
             
             <canvas id="canvas1" style="margin-top: 50px;"></canvas>
+            <a href="zodiacPersonality.php" class="btn btn-primary">View Personality</a>
         </section>
     </main>
 

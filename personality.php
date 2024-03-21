@@ -83,16 +83,14 @@ session_start();
     </div>
 
     <main class="container">
-    <h1> You are:</h1>
-    <h2> <?php echo $_SESSION['r1']?></h1>
-    <h2> <?php echo $_SESSION['r2']?></h1>
-    <h2> <?php echo $_SESSION['r3']?></h1>
-    <h2> <?php echo $_SESSION['r4']?></h1>
-    <h1> Zodiac Sign Personality:</h1>
-    <h2> <?php echo $_SESSION['z1']?></h1>
-    <h2> <?php echo $_SESSION['z2']?></h1>
-    <h2> <?php echo $_SESSION['z3']?></h1>
-    <h2> <?php echo $_SESSION['z4']?></h1>
+        <section id="home" class="welcome-section" style="padding-top: 20px">
+            <h1> You are:</h1>
+            <h2> <?php echo $_SESSION['r1']?></h1>
+            <h2> <?php echo $_SESSION['r2']?></h1>
+            <h2> <?php echo $_SESSION['r3']?></h1>
+            <h2> <?php echo $_SESSION['r4']?></h1>
+            <a href="comparison.php" class="btn btn-primary" style="margin-top: 40px">View Correlation</a>
+        </section>
     </main>
     
     <footer class="text-center py-4">
