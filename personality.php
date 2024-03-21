@@ -88,6 +88,11 @@ session_start();
     <h2> <?php echo $_SESSION['r2']?></h1>
     <h2> <?php echo $_SESSION['r3']?></h1>
     <h2> <?php echo $_SESSION['r4']?></h1>
+    <h1> Zodiac Sign Personality:</h1>
+    <h2> <?php echo $_SESSION['z1']?></h1>
+    <h2> <?php echo $_SESSION['z2']?></h1>
+    <h2> <?php echo $_SESSION['z3']?></h1>
+    <h2> <?php echo $_SESSION['z4']?></h1>
     </main>
     
     <footer class="text-center py-4">

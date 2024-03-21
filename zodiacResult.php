@@ -1,6 +1,46 @@
 <?php
 session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "project"; 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepared statement to prevent SQL Injection
+if ($stmt = $conn->prepare("SELECT * FROM zodiac_attributes WHERE ZodiacSign = ?")) {
+    // Bind the session variable to the parameter as a string
+    $stmt->bind_param("s", $_SESSION['zodiac_sign']);
+
+    // Execute the query
+    $stmt->execute();
+
+    // Bind result variables
+    $stmt->bind_result($e, $z1, $z2, $z3, $z4);
+
+    // Fetch values
+    if ($stmt->fetch()) {
+        $_SESSION['z1'] = $z1;
+        $_SESSION['z2'] = $z2;
+        $_SESSION['z3'] = $z3;
+        $_SESSION['z4'] = $z4;
+    }
+
+    // Close statement
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
 ?>
+
 
 
 <!DOCTYPE html>

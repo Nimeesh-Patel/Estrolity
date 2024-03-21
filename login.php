@@ -4,7 +4,6 @@ $E_mail_id = $_POST["username"];
 $PASSWORD = $_POST["password"];
 // $hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
 
-
 $servername = "localhost";
 $db_username = "root";
 $db_password = "";
