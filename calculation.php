@@ -12,19 +12,16 @@ $r3 = $q3 < 4 ? 'Agreeable' : 'Determined';
 $r4 = $q4 < 4 ? 'Organized' : 'Carefree';
 
 $servername = "localhost";
-$username = "root"; // Adjust as per your database username
-$password = ""; // Adjust as per your database password
-$dbname = "project"; // Database name where you want to store quiz results
+$username = "root";
+$password = ""; 
+$dbname = "project"; 
 
-// Create database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check database connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Prepare INSERT query to save quiz results
 $stmt = $conn->prepare("INSERT INTO user_personality (E_mail_id, IntrovertExtrovert, ThinkerFeeler, AgreeableDetermined, OrganizedCarefree) VALUES (?, ?, ?, ?, ?)");
 
 // Bind parameters from session variables
@@ -36,11 +33,14 @@ $stmt->bind_param("sssss",
     $r4
 );
 
-// Execute the prepared statement
+$_SESSION['r1'] = $r1;
+$_SESSION['r2'] = $r1;
+$_SESSION['r3'] = $r1;
+$_SESSION['r4'] = $r1;
+
 if ($stmt->execute()) {
-    // Redirect to results page or show a message
     
-    header("Location: zodiacResult.php"); // Adjust as per your results page
+    header("Location: zodiacResult.php");
     exit();
 } else {
     echo "Error: " . $stmt->error;

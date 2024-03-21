@@ -19,6 +19,24 @@ session_start();
         * {
             cursor: default !important;
         }
+        .btn {
+            background-color: #4b3f72;
+            color: #fff;
+            padding: 12px 17px;
+            border: none;
+            border-radius: 1em;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn:hover {
+            background-color: #3a2d56;
+            transform: translateY(-2px);
+        }
+        .welcome-section{
+            padding-top: 200px;
+            padding-bottom: 300px;
+        }
     </style>
 </head>
 <body>
@@ -52,11 +70,14 @@ session_start();
         <section id="home" class="welcome-section" style="padding-top: 20px;">
             <!-- into the cosmos -->
             <!-- <input type="text" id="textInput" placeholder="Type something..." value='Zodiac'> -->
-            <h1>Your Zodiac Sign Is:</h1>
+            <a href="personality.php" class="btn btn-primary">View Personality</a>
+            <h1 style="margin-bottom: 700px, margin-top = 50px;">Your Zodiac Sign Is:</h1>
             <div id="sessionVariable" style="display: none;"><?php echo $_SESSION['zodiac_sign']; ?></div>
             
-            <canvas id="canvas1"></canvas>
+            <canvas id="canvas1" style = "margin-top = 50px"></canvas>
             
+            
+
         </section>
 
         <!-- <footer class="text-center py-4">
