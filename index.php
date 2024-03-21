@@ -48,7 +48,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
                         <?php
                         // Check if user is logged in
@@ -63,7 +63,7 @@ session_start();
                             echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
                             // Show the Register link
-                            echo '<li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
                         }
                         ?>

@@ -45,7 +45,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
                         <?php
                         // Check if user is logged in
@@ -53,6 +53,9 @@ session_start();
                             // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            if (isset($_SESSION['z1'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
+                            }
                             echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
