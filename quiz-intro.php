@@ -95,7 +95,7 @@ session_start();
         
         <section class="start-quiz">
             <div class="container">
-                <a href="quiz_1.html">
+                <a href="quiz_1.php">
                     <button class="btn">Start Quiz</button>
                 </a>
             </div>
