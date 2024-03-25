@@ -76,8 +76,8 @@ function ageCheck() {
 function contactCheck() {
     var contact = document.getElementById('contact');
     var numbers = /^[0-9]+$/;
-    var contact_len = contact.value.length; // Corrected variable name from 'ucontact' to 'contact'
-    var contactError = document.getElementById("contactError"); // Corrected ID from 'ageError' to 'contactError'
+    var contact_len = contact.value.length;
+    var contactError = document.getElementById("contactError");
     contactError.innerHTML ="";
     if (contact.value.match(numbers)) {
         if (contact_len != 10) {

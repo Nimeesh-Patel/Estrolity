@@ -5,13 +5,11 @@ function validatePasswordConfirmation($password, $confirmPassword) {
     return $password === $confirmPassword;
 }
 $_SESSION['confirmPasswordError'] = "";
-// Other functions and code remain unchanged
 
 if (!validatePasswordConfirmation($_POST["password"], $_POST["confirmPassword"])) {
     $_SESSION['confirmPasswordError'] = "Passwords do not match";
     header("Location: register.php");
     exit;
-    
 }
 else
 {
