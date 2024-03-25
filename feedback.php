@@ -18,7 +18,8 @@ if (empty($feedback)) {
     die("Feedback cannot be empty");
 }
 
-       
+       $hashed_feedback = password_hash($feedback, PASSWORD_DEFAULT);
+
        $email=$_POST["email"];
        $choice=$_POST["choice"];
        $feedback=$_POST["feedback"];
@@ -28,17 +29,19 @@ if (empty($feedback)) {
         $password = "";
         $database = "project";
 
-        $conn = mysqli_connect($servername, $username, $password, $database);
+        $conn = mysqli_connect($servername, $username, $password,$database);
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "INSERT INTO feedback values('$email','$choice','$feedback')";
+        $sql = "INSERT INTO feedback values('$email','$choice','$hashed_feedback')";
         if(mysqli_query($conn,$sql)){
-        echo " record Inserted successfully ";
+            echo '<script>alert("Feedback received. Thank you!");</script>';
         }
         else{
         echo "error :",mysqli_error($conn);
         }
         mysqli_close($conn);
+        header("Location: index.php");
+        exit; 
 ?>
 
