@@ -2,7 +2,7 @@
 session_start();
 $E_mail_id = $_POST["username"];
 $PASSWORD = $_POST["password"];
-// $hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
+//$hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
 
 $servername = "localhost";
 $db_username = "root";
@@ -68,6 +68,8 @@ $count = $authRes->num_rows;
 if ($count == 1) {
     // Fetch the row data
     $row = $result->fetch_assoc();
+    $stored_hash = $row["pass"];
+    if (password_verify($PASSWORD, $stored_hash)) {
     // Access data from the row using column names
     $First_Name = $row["First_Name"]; // Replace 'First_Name' with the actual column name
     $Last_Name = $row["Last_Name"];
@@ -88,6 +90,7 @@ if ($count == 1) {
     echo "<script>alert('Login successfully  $First_Name '); window.location.href='quiz-intro.php';</script>";
 } else {
     echo "<script>alert('Password Invalid'); window.location.href='login.html';</script>";
+}
 }
 $stmt->close();
 $conn->close();
