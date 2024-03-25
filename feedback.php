@@ -35,11 +35,13 @@ if (empty($feedback)) {
         }
         $sql = "INSERT INTO feedback values('$email','$choice','$hashed_feedback')";
         if(mysqli_query($conn,$sql)){
-        echo " record Inserted successfully ";
+            echo '<script>alert("Feedback received. Thank you!");</script>';
         }
         else{
         echo "error :",mysqli_error($conn);
         }
         mysqli_close($conn);
+        header("Location: index.php");
+        exit; 
 ?>
 
