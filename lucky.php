@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,7 +124,7 @@
     }
 
     var currentDate = new Date();
-    var enteredDate = new Date(birthdate);
+    var enteredDate = new Date($_SESSION['Date_of_birth']);
     var age = Math.floor((currentDate - enteredDate) / (1000 * 60 * 60 * 24 * 365.25));
 
     if (age < 0) {

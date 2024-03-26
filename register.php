@@ -23,40 +23,35 @@ session_start();
         div.inline {
             color: #ccc; 
         }
-        /* Captcha Container Styles */
         div#user-input, div#image, div.inline {
-            display: inline-block; /* Aligns items inline */
-            margin: 10px; /* Adds some spacing around elements */
-            vertical-align: middle; /* Aligns items vertically */
+            display: inline-block;
+            margin: 10px;
+            vertical-align: middle;
         }
 
-        /* Captcha Text Input Styles */
         input#submit {
             padding: 8px 15px;
-            border: 1px solid #ddd; /* Light grey border */
-            border-radius: 4px; /* Rounded corners */
-            font-size: 16px; /* Larger text for easy reading */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
 
-        /* Refresh Icon Container - Adjust as needed based on actual icon size */
         div.inline {
-            cursor: pointer; /* Indicates the icon is clickable */
-            font-size: 24px; /* Size of the refresh icon */
+            cursor: pointer;
+            font-size: 24px;
         }
 
-        /* Captcha Image Container Styles */
         div#image {
-            width: 120px; /* Adjust based on actual captcha image size */
-            height: 40px; /* Adjust based on actual captcha image size */
-            background-color: #fff; /* Placeholder color, replace with actual captcha image */
-            border: 1px solid #ddd; /* Light grey border */
-            border-radius: 4px; /* Rounded corners */
+            width: 120px;
+            height: 40px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
-        /* Style for the key paragraph */
         p#key {
             margin-top: 15px;
-            color: #666; /* Dark grey color */
+            color: #666;
             font-size: 14px;
         }
 
