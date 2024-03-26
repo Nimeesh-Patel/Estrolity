@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 ?>
 
 <!DOCTYPE html>
@@ -75,20 +76,18 @@ session_start();
     </nav>
 </header>
 
-<div id="container">
-  <h2>Find Your Lucky Color and Number</h2>
-  <p>Enter your birthday:</p>
-  <!-- <input type="date" id="birthdate"> -->
-  <br><br>
-  <button id="submit">Find Out</button>
-  <div id="result" style="display:none;">
-    <h3>Your lucky color is:</h3>
-    <p id="luckyColor"></p>
-    <h3>Your lucky number is:</h3>
-    <p id="luckyNumber"></p>
-    <p>Reason: <span id="reason"></span></p>
+  <div id="container">
+    <h2>Find Your Lucky Color and Number</h2>
+    <p>Your birthday: <span id="birthdateDisplay"></span></p>
+    <button id="submit">Submit</button>
+    <div id="result" style="display:none;">
+      <h3>Your lucky color is:</h3>
+      <p id="luckyColor"></p>
+      <h3>Your lucky number is:</h3>
+      <p id="luckyNumber"></p>
+      <p>Reason: <span id="reason"></span></p>
+    </div>
   </div>
-</div>
 <main class="video-demo-container">
   <section class="intro-text" style="padding: 0px;">
       <div class="container">
@@ -112,24 +111,27 @@ session_start();
       </div>
   </section>
 
-<script>
-  document.getElementById('submit').addEventListener('click', function() {
-    var birthdate = document.getElementById('birthdate').value;
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var birthdate = "<?php echo $_SESSION['Date_of_birth']; ?>"; // Use the PHP session variable
+    document.getElementById('birthdateDisplay').innerText = birthdate;
 
-    // Check if birthdate is empty
-    if (!birthdate) {
-      alert("Please enter your birthdate.");
-      return;
-    }
-
+    // Assuming birthdate format is 'YYYY-MM-DD'
+    var enteredDate = new Date(birthdate);
     var currentDate = new Date();
-    var enteredDate = new Date($_SESSION['Date_of_birth']);
-    var age = Math.floor((currentDate - enteredDate) / (1000 * 60 * 60 * 24 * 365.25));
-
-    if (age < 0) {
-      alert("Please enter a valid date!");
-      return;
+    var age = currentDate.getFullYear() - enteredDate.getFullYear();
+    var m = currentDate.getMonth() - enteredDate.getMonth();
+    if (m < 0 || (m === 0 && currentDate.getDate() < enteredDate.getDate())) {
+        age--;
     }
+
+    // Check if age calculation is needed before proceeding with the lucky color and number generation
+    if (age >= 0) {
+        document.getElementById('submit').click(); // Automatically trigger the calculation
+    } else {
+        alert("Please enter a valid date!");
+    }
+});
 
     var colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "white", "black"];
     var reasons = [
