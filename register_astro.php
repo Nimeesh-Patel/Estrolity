@@ -17,6 +17,7 @@ $username = "root";
 $password = ""; 
 $dbname = "project"; 
 // Create connection
+try{
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
@@ -38,6 +39,15 @@ if (mysqli_num_rows($result_check_email) > 0) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
+}
 
-mysqli_close($conn);
+catch(Exception $e){
+    echo "Error: Database not found " . $e->getMessage() . " ";
+}
+finally {
+    // Close connection
+    if (isset($conn)) {
+        $conn->close();
+    }
+}
 ?>

@@ -78,7 +78,7 @@ session_start();
 
   <div id="container">
     <h2>Find Your Lucky Color and Number</h2>
-    <p>Your birthday: <span id="birthdateDisplay"></span></p>
+    <p>Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>
     <button id="submit">Submit</button>
     <div id="result" style="display:none;">
       <h3>Your lucky color is:</h3>
