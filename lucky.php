@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-
+$birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -112,87 +111,86 @@ session_start();
   </section>
 
   <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var birthdate = "<?php echo $_SESSION['Date_of_birth']; ?>"; // Use the PHP session variable
-    document.getElementById('birthdateDisplay').innerText = birthdate;
+ document.addEventListener('DOMContentLoaded', function() {
+    // Directly use the PHP session variable
+    var birthdate = "<?php echo $birthdate; ?>";
+    if (birthdate) {
+        // Assuming birthdate format is 'YYYY-MM-DD'
+        var enteredDate = new Date(birthdate);
+        var currentDate = new Date();
+        var age = currentDate.getFullYear() - enteredDate.getFullYear();
+        var m = currentDate.getMonth() - enteredDate.getMonth();
+        if (m < 0 || (m === 0 && currentDate.getDate() < enteredDate.getDate())) {
+            age--;
+        }
 
-    // Assuming birthdate format is 'YYYY-MM-DD'
-    var enteredDate = new Date(birthdate);
-    var currentDate = new Date();
-    var age = currentDate.getFullYear() - enteredDate.getFullYear();
-    var m = currentDate.getMonth() - enteredDate.getMonth();
-    if (m < 0 || (m === 0 && currentDate.getDate() < enteredDate.getDate())) {
-        age--;
-    }
+        var colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "white", "black"];
+        var reasons = [
+          "Passion, energy, action, and love.",
+          "Calmness, stability, trust, and wisdom.",
+          "Growth, harmony, renewal, and nature.",
+          "Happiness, optimism, enlightenment, and creativity.",
+          "Enthusiasm, warmth, and vitality.",
+          "Royalty, luxury, spirituality, and mystery.",
+          "Love, romance, and femininity.",
+          "Purity, innocence, and cleanliness.",
+          "Mystery, sophistication, and power."
+        ];
+        var luckyNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        
+        // Generate hash from the birthdate to get a deterministic but seemingly random result
+        var hash = hashCode(birthdate);
 
-    // Check if age calculation is needed before proceeding with the lucky color and number generation
-    if (age >= 0) {
-        document.getElementById('submit').click(); // Automatically trigger the calculation
+        // Use modulo operation to get a deterministic index
+        var colorIndex = Math.abs(hash) % colors.length;
+        var numberIndex = Math.abs(hash) % luckyNumbers.length;
+        
+        var randomColor = colors[colorIndex];
+        var randomNumber = luckyNumbers[numberIndex];
+        var reason = reasons[colorIndex];
+        
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('luckyColor').innerText = randomColor;
+        document.getElementById('luckyNumber').innerText = randomNumber;
+        document.getElementById('reason').innerText = reason;
+
+        // Optional: Adjust container background and text color based on the lucky color
+        var container = document.getElementById('container');
+        container.style.backgroundColor = getPastelColor(randomColor);
+        container.style.color = randomColor === 'white' || randomColor === 'black' ? 'white' : 'black';
     } else {
-        alert("Please enter a valid date!");
+        alert("Birthdate is not set in the session. Please log in or set the birthdate.");
     }
 });
 
-    var colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "white", "black"];
-    var reasons = [
-      "Passion, energy, action, and love.",
-      "Calmness, stability, trust, and wisdom.",
-      "Growth, harmony, renewal, and nature.",
-      "Happiness, optimism, enlightenment, and creativity.",
-      "Enthusiasm, warmth, and vitality.",
-      "Royalty, luxury, spirituality, and mystery.",
-      "Love, romance, and femininity.",
-      "Purity, innocence, and cleanliness.",
-      "Mystery, sophistication, and power."
-    ];
-    var luckyNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    
-    // Generate hash from the input (birthdate)
-    var hash = hashCode(birthdate);
+// Function to generate a hash code from a string
+function hashCode(str) {
+    var hash = 0, i, chr;
+    if (str.length === 0) return hash;
+    for (i = 0; i < str.length; i++) {
+        chr   = str.charCodeAt(i);
+        hash  = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+}
 
-    // Use modulo operation to get a deterministic index
-    var colorIndex = Math.abs(hash) % colors.length;
-    var numberIndex = Math.abs(hash) % luckyNumbers.length;
-    
-    var randomColor = colors[colorIndex];
-    var randomNumber = luckyNumbers[numberIndex];
-    var reason = reasons[colorIndex];
-    
-    document.getElementById('result').style.display = 'block';
-    document.getElementById('luckyColor').innerText = randomColor;
-    document.getElementById('luckyNumber').innerText = randomNumber;
-    document.getElementById('reason').innerText = reason;
-
-    // Change container color and text color
-    var container = document.getElementById('container');
-    container.style.backgroundColor = getPastelColor(randomColor);
-    container.style.color = randomColor === 'white' || randomColor === 'black' ? 'black' : 'white';
-    
-    // Disable input after submission
-    document.getElementById('birthdate').disabled = true;
-    document.getElementById('submit').disabled = true;
-  });
-
-  // Function to generate hash code
-  function hashCode(s) {
-    return s.split('').reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
-  }
-
-  // Function to get pastel color
-  function getPastelColor(color) {
+// Function to get a pastel color based on the primary color
+function getPastelColor(color) {
     var pastelColors = {
-      "red": "#ffb3ba",
-      "blue": "#bae1ff",
-      "green": "#baffc9",
-      "yellow": "#ffffba",
-      "orange": "#ffd8b1",
-      "purple": "#e2baff",
-      "pink": "#ffc0cb",
-      "white": "#ffffff",
-      "black": "#9e9e9e"
+        "red": "#ffb3ba",
+        "blue": "#bae1ff",
+        "green": "#baffc9",
+        "yellow": "#ffffba",
+        "orange": "#ffd8b1",
+        "purple": "#e2baff",
+        "pink": "#ffc0cb",
+        "white": "#ffffff",
+        "black": "#eeeeee" // Adjusted for visibility
     };
-    return pastelColors[color];
-  }
+    return pastelColors[color] || "#ffffff"; // Default to white if the color is not found
+}
+
 </script>
 <footer>
   <div class="container">
