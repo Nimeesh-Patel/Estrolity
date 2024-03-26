@@ -92,7 +92,7 @@ if (isset($_SESSION['flash_message'])) {
                     // Here, you could calculate the results based on all answers stored in session
                     // For now, just redirect to a results page or a PHP script to calculate and display results
                     
-                    header('Location: calculation.php'); // Redirect to the results page
+                    header('Location: lucky.php'); // Redirect to the results page
                     exit();
                 } else {
                     // Store the flash message and redirect back to quiz_8.php

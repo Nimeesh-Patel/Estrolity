@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -78,10 +77,10 @@ session_start();
 
 <div id="container">
   <h2>Find Your Lucky Color and Number</h2>
-  <p>Enter your birthday:</p>
+  <!-- <p>Enter your birthday:</p>
   <input type="date" id="birthdate">
   <br><br>
-  <button id="submit">Submit</button>
+  <button id="submit">Submit</button> -->
   <div id="result" style="display:none;">
     <h3>Your lucky color is:</h3>
     <p id="luckyColor"></p>
