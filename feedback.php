@@ -13,10 +13,10 @@ if ($choice !== "yes" && $choice !== "no") {
 
 // Validate feedback
 $feedback = $_POST['feedback'];
-echo "Feedback received: " . $feedback; // Debugging statement
-if (empty($feedback)) {
-    die("Feedback cannot be empty");
-}
+// echo "Feedback received: " . $feedback; // Debugging statement
+// if (empty($feedback)) {
+//     die("Feedback cannot be empty");
+// }
 
        $hashed_feedback = password_hash($feedback, PASSWORD_DEFAULT);
 
@@ -29,19 +29,24 @@ if (empty($feedback)) {
         $password = "";
         $database = "project";
 
+        try{
         $conn = mysqli_connect($servername, $username, $password,$database);
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
         $sql = "INSERT INTO feedback values('$email','$choice','$hashed_feedback')";
         if(mysqli_query($conn,$sql)){
-            echo '<script>alert("Feedback received. Thank you!");</script>';
+            echo "<script>alert('Feedback submitted'); window.location.href='index.php';</script>";
         }
-        else{
-        echo "error :",mysqli_error($conn);
         }
-        mysqli_close($conn);
-        header("Location: index.php");
-        exit; 
+        catch(Exception $e){
+            echo "Error: Database not found " . $e->getMessage() . " ";
+        }
+        finally {
+            // Close connection
+            if (isset($conn)) {
+                $conn->close();
+            }
+        }
 ?>
 
