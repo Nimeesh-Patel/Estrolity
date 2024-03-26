@@ -71,7 +71,7 @@ session_start();
     </header>
 
     <div class="container">
-        <h1>Welcome, <?php echo $_SESSION['firstName'];?>!</h1>
+        <h1>Welcome, <?php echo $_SESSION['a_firstName'];?>!</h1>
         <p>Thank you for registering as an astrologer. We're thrilled to welcome you to our team of skilled professionals. At our astrology center, we strive to provide our clients with personalized and accurate readings to guide them on their life's journey.</p>
         <p>As a valued member of our team, you'll have access to cutting-edge tools and resources to enhance your practice and offer the best possible service to our clients.</p>
         <p>If you ever have any questions, need support, or want to share your insights with fellow astrologers, our dedicated team is here to assist you every step of the way.</p>
