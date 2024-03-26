@@ -112,7 +112,7 @@ session_start();
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required onblur="allLettersLastName()">
+                <input type="text" id="lastName" name="lastName" required onblur="allLettersFirstName()">
                 <div id="lastNameError" class="text-danger"></div>
             </div>
             <div class="form-group">

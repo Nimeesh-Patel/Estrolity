@@ -70,52 +70,62 @@
 
     <div class="registration-container">
         <h2 style="color: #ccc;">Register as Astrologer</h2>
-        <form name="registrationForm" action="register_astro.php" method="POST" > <!-- Update action with your backend endpoint -->
+        <form name="registrationForm" action="register_astro.php" method="POST" onsubmit="return validateForm()" > <!-- Update action with your backend endpoint -->
             <div class="form-group">
                 <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="firstName" name="firstName" required onblur="allLettersFirstName()" >
+                <div id="firstNameError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required>
+                <input type="text" id="lastName" name="lastName" required onblur="allLettersLastName()">
+                <div id="lastNameError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="qualification">Qualification:</label>
-                <input type="text" id="qualification" name="qualification" required>
+                <input type="text" id="qualification" name="qualification"required onblur="validateQualification()" >
+                <div id="qualificationError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="experience">Year of Experience:</label>
-                <input type="number" id="experience" name="experience" required>
+                <input type="number" id="experience" name="experience" required onblur="validateExperience()">
+                <div id="experienceError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required>
+                <input type="text" id="contact" name="contact" required onblur="contactCheck()">
+                <div id="contactError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
+                <input type="text" id="address" name="address" required onblur="validateAddress()">
+                <div id="addressError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="expertise">Expertise:</label>
-                <input type="text" id="expertise" name="expertise" required>
+                <input type="text" id="expertise" name="expertise" required onblur="validateExpertise()">
+                <div id="expertiseError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required onblur="validateEmail()">
+                <div id="emailError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required onblur="validatePassword()">
+                <div id="passwordError" class="text-danger"></div>
             </div>
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <input type="password" id="confirmPassword" name="confirmPassword"  required onblur="validateConfirmPassword()" >
+                <div id="confirmPasswordError" class="text-danger"></div>
             </div>
             <button id="registerBtn" class="btn btn-primary">Register</button>
             <a href="login.html" style="margin-left: 230px;">Already have an account?</a>
         </form>
     </div>
-    
+    <script src="astrovalid.js"></script>
     <script src="js/script.js"></script>
     <script src="js/cursor.js"></script>
 </body>
