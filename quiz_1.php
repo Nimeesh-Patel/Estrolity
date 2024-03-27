@@ -16,7 +16,7 @@ if (isset($_SESSION['flash_message'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="quiz.css">
 </head>
-<body style="background-color:black;">
+<body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">

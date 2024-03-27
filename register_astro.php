@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Retrieve form data
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
@@ -32,7 +33,7 @@ $result_check_email = mysqli_query($conn, $sql_check_email);
 if (mysqli_num_rows($result_check_email) > 0) {
     echo "<script>alert('Email already exists. Please use a different email.'); window.location.href='register_astro.html';</script>";
 } else {
-    $_SESSION['firstName'] = $firstName;
+    $_SESSION['a_firstName'] = $firstName;
     $_SESSION['lastName'] = $lastName;
     $_SESSION['qualification'] = $qualification ;
     $_SESSION['experience'] = $experience;
