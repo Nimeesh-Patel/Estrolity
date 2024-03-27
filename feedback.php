@@ -2,21 +2,20 @@
 
 $email = $_POST['email'];
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Invalid email format"); // Changed: Added email validation
+    die("Invalid email format"); 
 }
 
 // Validate choice
 $choice = $_POST['choice'];
 if ($choice !== "yes" && $choice !== "no") {
-    die("Invalid choice"); // Changed: Added validation for choice
+    die("Invalid choice"); 
 }
 
-// Validate feedback
 $feedback = $_POST['feedback'];
-// echo "Feedback received: " . $feedback; // Debugging statement
-// if (empty($feedback)) {
-//     die("Feedback cannot be empty");
-// }
+ echo "Feedback received: " . $feedback; 
+ if (empty($feedback)) {
+  die("Feedback cannot be empty");
+}
 
        $hashed_feedback = password_hash($feedback, PASSWORD_DEFAULT);
 
