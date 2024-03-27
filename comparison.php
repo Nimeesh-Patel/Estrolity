@@ -151,6 +151,8 @@ $_SESSION['percentage'] = $percentage;
             </table>
             
             <h2 style="margin-top = 30px">Correlation Percenage: <?php echo $_SESSION['percentage']?>%</h2>
+            
+            <a href="feedback.html" class="btn btn-primary" style="margin-top: 20px;">Explore Now</a>
 
         </section>
     </main>

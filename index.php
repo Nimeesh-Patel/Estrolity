@@ -90,9 +90,7 @@ $conn->close();
                         <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
                         <?php
-                        // Check if user is logged in
                         if (isset($_SESSION['First_Name'])) {
-                            // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
                             if (isset($_SESSION['r1'])) {

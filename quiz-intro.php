@@ -103,13 +103,7 @@ session_start();
                 <button class="btn">Astrology Motivation</button>
             </a>
         </section>
-        
-        <!-- Optional Testimonials Section -->
-        <section class="testimonials">
-            <div class="container">
-                <!-- Testimonials content -->
-            </div>
-        </section>
+
         <h1> Welcome <?php echo $_SESSION['First_Name'] ?></h1>
         
     </main>
