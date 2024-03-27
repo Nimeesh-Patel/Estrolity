@@ -58,7 +58,7 @@ session_start();
     </style>
 </head>
 <body onload="generate()">
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
@@ -78,7 +78,7 @@ session_start();
                             // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
-                            if (isset($_SESSION['z1'])) {
+                            if (isset($_SESSION['r1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
                             echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
