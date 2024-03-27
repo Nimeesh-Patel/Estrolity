@@ -17,7 +17,7 @@ if (isset($_SESSION['flash_message'])) {
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.php">

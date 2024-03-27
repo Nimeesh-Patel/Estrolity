@@ -79,12 +79,12 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
     <h2>Find Your Lucky Color and Number</h2>
     <p>Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>
     
-    <div id="result" style="display:none;">
+    <div id="result" style="display:none;color:black;">
       <h3>Your lucky color is:</h3>
-      <p id="luckyColor"></p>
+      <p id="luckyColor" style="color: black;">></p>
       <h3>Your lucky number is:</h3>
-      <p id="luckyNumber"></p>
-      <p>Reason: <span id="reason"></span></p>
+      <p id="luckyNumber" style="color: black;">></p>
+      <p>Reason: <span id="reason" style="color: black;">></span></p>
       <a href="calculation.php">
       <button id="submit">Next</button>
       </a>
