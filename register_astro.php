@@ -11,6 +11,7 @@ $expertise = $_POST['expertise'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $confirmPassword = $_POST['confirmPassword'];
+$hash = password_hash($PASSWORD,PASSWORD_DEFAULT);
 
 // Database credentials
 $servername = "localhost";
@@ -41,7 +42,7 @@ if (mysqli_num_rows($result_check_email) > 0) {
     $_SESSION['address'] = $address;
     $_SESSION['email'] = $email;
     $_SESSION['expertise '] = $expertise ;
-    $sql = "INSERT INTO registrationform (email,firstName,lastName,qualification,experience,contact,addr, expertise,pass,confirmPassword ) VALUES ('$email', '$firstName', '$lastName', '$qualification', '$experience', '$contact', '$address', '$expertise', '$password','$confirmPassword')";
+    $sql = "INSERT INTO registrationform (email,firstName,lastName,qualification,experience,contact,addr, expertise,pass,confirmPassword ) VALUES ('$email', '$firstName', '$lastName', '$qualification', '$experience', '$contact', '$address', '$expertise', '$hash','$confirmPassword')";
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Record inserted successfully Welcome $firstName'); window.location.href='welcome.php';</script>";
     } else {
