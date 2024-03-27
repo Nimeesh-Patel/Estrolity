@@ -14,18 +14,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Prepared statement to prevent SQL Injection
 if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")) {
-    // Bind the session variable to the parameter as a string
     $stmt->bind_param("s", $_SESSION['E_mail_id']);
 
-    // Execute the query
     $stmt->execute();
 
-    // Bind result variables
     $stmt->bind_result($f, $r1, $r2, $r3, $r4);
 
-    // Fetch values
     if ($stmt->fetch()) {
         $_SESSION['r1'] = $r1;
         $_SESSION['r2'] = $r2;
@@ -33,7 +28,6 @@ if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")
         $_SESSION['r4'] = $r4;
     }
 
-    // Close statement
     $stmt->close();
 }
 
