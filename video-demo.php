@@ -62,6 +62,7 @@
                 <video controls style="width: 100%; height: auto;">
                     <source src="videoDemo.mp4" type="video/mp4">
                     <track label="English" kind="subtitles" srclang="en" src="ademo.vtt" default>
+                    <track label="Marathi" kind="subtitles" srclang="mr" src="ademo2.vtt" default>
                 </video>
             </div>            
             <div>

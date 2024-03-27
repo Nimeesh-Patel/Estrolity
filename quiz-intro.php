@@ -84,6 +84,7 @@ session_start();
                 <video controls style="max-width: 100%; height: auto;">
                     <source src="quiz-intro-video.mp4" type="video/mp4">
                     <track label="English" kind="subtitles" scrlang="en" src="ademo.vtt" default>
+                    <track label="Marathi" kind="subtitles" srclang="mr" src="ademo2.vtt" default>
                 </video>
             </div>
             <div>

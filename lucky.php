@@ -76,7 +76,7 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
 </header>
 
   <div id="container">
-    <h2>Find Your Lucky Color and Number</h2>
+    <h2 style="color: black;">Find Your Lucky Color and Number</h2>
     <p>Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>
     
     <div id="result" style="display:none;color:black;">
