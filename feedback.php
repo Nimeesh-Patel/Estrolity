@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $database = "valid";
+        $database = "project";
 
         try{
         $conn = mysqli_connect($servername, $username, $password,$database);
