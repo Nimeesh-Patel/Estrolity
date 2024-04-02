@@ -54,42 +54,35 @@
         <section class="login-section">
             <div class="container">
                 <h1>Feedback</h1>
-                <div class="error">
-  </div>
-                <form id="Form" action="feedback2.php" method="POST" onsubmit="return validateForm()">
+                <form id="Form" action="feedback.php" method="POST" onsubmit="return validateForm()">
                     <div style="text-align: center;align-items: centre;" class="form-group">
                         <label for="username">Email:</label>
-                        <input style="width: 700px;" type="text" id="email" name="email"  onblur="validateEmail()">
+                        <input style="width: 700px;" type="text" id="email" name="email" onblur="validateEmail()">
                         <div id="emailError" class="text-danger"></div>
                     </div>
-                    <div style="text-align: center;align-items: centre;" class="form-group">
-                        <label for="username">Rate us out of 5:</label>
-                        <input style="width: 700px;" type="number" id="rating" name="rate"  onblur="validateRating()">
-                        <div id="ratingError" class="text-danger"></div>
-                    </div>
-                    
+                    <!-- Yes or no -->
+                    <div class="radio-group"> 
+                        <text style="color: white;font-family: open-sans;">Did you like Estrolity?</text>
+                        <br>
+                        <input type="radio"
+                               name="choice" value="yes" id="yes" onclick="validateRadio()"> 
+                        <label style="color: white;"  for="yes">Yes</label> 
+          
+                        <input  type="radio"  
+                               name="choice" value="no" id="no" onclick="validateRadio()"> 
+                        <label style="color: white;"  for="no" >No</label> 
+                        <div id="choiceError" class="text-danger"></div>
+                    </div> 
                     <div style="text-align: center;align-items: centre;" class="form-group">
                         <label for="text">Feedback:</label>
                         <textarea style="width: 700px;height: 170px;" type="text" id="feedback" name="feedback" contenteditable="true" onblur="validateFeedback()">
                         </textarea>
                         <div id="feedbackError" class="text-danger"></div>
                     </div>
-                    <div style="text-align: center;align-items: centre;" class="form-group">
-                        <label for="text">Any Suggestion for improvement ?</label>
-                        <textarea style="width: 700px;height: 170px;" type="text" id="improve" name="improve" contenteditable="true" onblur="validateImprove()">
-                        </textarea>
-                        <div id="improveError" class="text-danger"></div>
-                        <div style="text-align: center;align-items: centre;" class="form-group">
-                            <label for="username">Contact Number :</label>
-                            <input style="width: 700px;" type="number" id="contact" name="contact" onblur="validateContact()">
-                            <div id="contactError" class="text-danger"></div>
-                        </div>
-                    <div style="text-align: center;align-items: center;">
-                    <button class="btn" type="submit" value="submit" >Submit</button>
+                    <button style="margin: 20px;width: 140px;border-radius: 5px;height: 32px;" type="submit" value="submit" >Submit</button>
                     <div class="assist-links">
                         <a href="index.html">Back to Home</a> |
                     </div> 
-                </div> 
                 </form> 
             </div>
         </section>
@@ -100,7 +93,7 @@
             <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
         </div>
     </footer>
-    <script src="feedback2.js"></script>
+    <!-- //<script src="feedback.js"></script> -->
     <script src="js/script.js"></script>
     <script src="js/cursor.js"></script>
 </body>
