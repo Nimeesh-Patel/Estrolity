@@ -1,23 +1,41 @@
 <?php
 session_start();
-$email = $_SESSION['email'];
-// Database connection parameters
-$servername = "localhost"; // Change this if your database is hosted elsewhere
-$username = "root";
-$password = "";
-$database = "project";
+// $email = $_SESSION['email'];
+// // Database connection parameters
+// $servername = "localhost"; // Change this if your database is hosted elsewhere
+// $username = "root";
+// $password = "";
+// $database = "project";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $database);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 
-// Query to fetch data from the database
-$sql = "SELECT * FROM registerationform WHERE email = ?"; // Replace 'your_table_name' with the actual name of your table
-$result = $conn->query($sql);
+// // Query to fetch data from the database
+// $stmt = $conn->prepare("SELECT * FROM registrationform WHERE email = ?");
+// $stmt->bind_param("s", $email);
+// $stmt->execute();
+// $result = $stmt->get_result();
+//  // Check if there are rows returned from the query
+//  if ($result->num_rows == 1) {
+//     // Output data of each row
+//         $row = $result->fetch_assoc();
+//         echo "<p>Email: " . $row["email"]. "<br>";
+//         echo "First Name: " . $row["firstName"]. "<br>";
+//         echo "Last Name: " . $row["lastName"]. "<br>";
+//         echo "Qualification: " . $row["qualification"]. "<br>";
+//         echo "Experience: " . $row["experience"]. "<br>";
+//         echo "Contact: " . $row["contact"]. "<br>";
+//         echo "Address: " . $row["addr"]. "<br>";
+//         echo "Expertise: " . $row["expertise"]. "</p>";
+    
+// } else {
+//     echo "0 results"; // Output if no rows are returned
+// }
 
 ?>
 
@@ -89,23 +107,45 @@ $result = $conn->query($sql);
     <div class="container">
         <h1>Welcome, <?php echo $_SESSION['a_firstName'];?>!</h1>
         <?php
-         // Check if there are rows returned from the query
-         if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<p>Email: " . $row["email"]. "<br>";
-                echo "First Name: " . $row["firstName"]. "<br>";
-                echo "Last Name: " . $row["lastName"]. "<br>";
-                echo "Qualification: " . $row["qualification"]. "<br>";
-                echo "Experience: " . $row["experience"]. "<br>";
-                echo "Contact: " . $row["contact"]. "<br>";
-                echo "Address: " . $row["addr"]. "<br>";
-                echo "Expertise: " . $row["expertise"]. "</p>";
-            }
-        } else {
-            echo "0 results"; // Output if no rows are returned
-        }
-         ?>
+// session_start();
+$email = $_SESSION['email'];
+// Database connection parameters
+$servername = "localhost"; // Change this if your database is hosted elsewhere
+$username = "root";
+$password = "";
+$database = "project";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query to fetch data from the database
+$stmt = $conn->prepare("SELECT * FROM registrationform WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+ // Check if there are rows returned from the query
+ if ($result->num_rows == 1) {
+    // Output data of each row
+        $row = $result->fetch_assoc();
+        echo "<p>Email: " . $row["email"]. "<br>";
+        echo "First Name: " . $row["firstName"]. "<br>";
+        echo "Last Name: " . $row["lastName"]. "<br>";
+        echo "Qualification: " . $row["qualification"]. "<br>";
+        echo "Experience: " . $row["experience"]. "<br>";
+        echo "Contact: " . $row["contact"]. "<br>";
+        echo "Address: " . $row["addr"]. "<br>";
+        echo "Expertise: " . $row["expertise"]. "</p>";
+    
+} else {
+    echo "0 results"; // Output if no rows are returned
+}
+
+?>
         <p>Thank you for registering as an astrologer. We're thrilled to welcome you to our team of skilled professionals. At our astrology center, we strive to provide our clients with personalized and accurate readings to guide them on their life's journey.</p>
         <p>As a valued member of our team, you'll have access to cutting-edge tools and resources to enhance your practice and offer the best possible service to our clients.</p>
         <p>If you ever have any questions, need support, or want to share your insights with fellow astrologers, our dedicated team is here to assist you every step of the way.</p>
