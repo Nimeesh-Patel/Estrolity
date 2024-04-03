@@ -34,13 +34,13 @@ $result_check_email = mysqli_query($conn, $sql_check_email);
 if (mysqli_num_rows($result_check_email) > 0) {
     echo "<script>alert('Email already exists. Please use a different email.'); window.location.href='register_astro.html';</script>";
 } else {
+    $_SESSION['email'] = $email;
     $_SESSION['a_firstName'] = $firstName;
     $_SESSION['lastName'] = $lastName;
     $_SESSION['qualification'] = $qualification ;
     $_SESSION['experience'] = $experience;
     $_SESSION['contact'] = $contact;
     $_SESSION['address'] = $address;
-    $_SESSION['email'] = $email;
     $_SESSION['expertise '] = $expertise ;
     $sql = "INSERT INTO registrationform (email,firstName,lastName,qualification,experience,contact,addr, expertise,pass,confirmPassword ) VALUES ('$email', '$firstName', '$lastName', '$qualification', '$experience', '$contact', '$address', '$expertise', '$hash','$confirmPassword')";
     if (mysqli_query($conn, $sql)) {
