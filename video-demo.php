@@ -31,7 +31,7 @@
                             if (isset($_SESSION['r1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
-                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
                             // Show the Register link
@@ -74,7 +74,7 @@
         
         <section class="cta-section">
             <div class="container">
-                <a href="register.html" class="btn btn-primary">Start Your Journery</a>
+                <a href="register.php" class="btn btn-primary">Start Your Journery</a>
             </div>
         </section>
         

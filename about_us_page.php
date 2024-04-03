@@ -1,3 +1,40 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "project"; 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")) {
+    $stmt->bind_param("s", $_SESSION['E_mail_id']);
+
+    $stmt->execute();
+
+    $stmt->bind_result($f, $r1, $r2, $r3, $r4);
+
+    if ($stmt->fetch()) {
+        $_SESSION['r1'] = $r1;
+        $_SESSION['r2'] = $r2;
+        $_SESSION['r3'] = $r3;
+        $_SESSION['r4'] = $r4;
+    }
+
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +125,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="logo1ed.png" alt="Astrology Logo" height="50">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,14 +135,27 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
+                        <?php
+                        if (isset($_SESSION['First_Name'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            if (isset($_SESSION['r1'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
+                            }
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                        } else {
+                            // Show the Register link
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
     <main class="container">
         <h1 style="font-size: 2.5rem;">Astrologers Near You</h1>
         <div id="map" style="width: 1000px; height: 500px; align-items: center; margin-left: 250px; z-index: -1;"></div>

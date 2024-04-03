@@ -32,7 +32,7 @@ if (isset($_SESSION['flash_message'])) {
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
                         <?php
                         // Check if user is logged in
                         if (isset($_SESSION['First_Name'])) {

@@ -28,9 +28,46 @@
     "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
             crossorigin="anonymous">
     <style>
+                #image.inline {
+            color: #ccc;
+        }
+        div.inline {
+            color: #ccc; 
+        }
+        div#user-input, div#image, div.inline {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: middle;
+        }
+
+        input#submit {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        div.inline {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        div#image {
+            width: 120px;
+            height: 40px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        p#key {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
         .error-message {
-    color: red; /* Change the color of error messages to red */
-}
+            color: red; /* Change the color of error messages to red */
+        }
 
         .btn {
             background-color: #4b3f72;
@@ -78,7 +115,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
                         <li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 
                     </ul>
@@ -129,8 +166,8 @@
 
                     </div>
                     <div class="assist-links">
-                        <a href="forgot-password.html">Forgot Password?</a> |
-                        <a href="register.html">Create Account</a>
+                        
+                        <a href="register.php">Create Account</a>
                     </div>
                     
                 </form>
