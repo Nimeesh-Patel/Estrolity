@@ -28,9 +28,46 @@
     "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
             crossorigin="anonymous">
     <style>
+                #image.inline {
+            color: #ccc;
+        }
+        div.inline {
+            color: #ccc; 
+        }
+        div#user-input, div#image, div.inline {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: middle;
+        }
+
+        input#submit {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        div.inline {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        div#image {
+            width: 120px;
+            height: 40px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        p#key {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
         .error-message {
-    color: red; /* Change the color of error messages to red */
-}
+            color: red; /* Change the color of error messages to red */
+        }
 
         .btn {
             background-color: #4b3f72;
