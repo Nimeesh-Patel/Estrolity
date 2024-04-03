@@ -18,21 +18,23 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
     font-family: Arial, sans-serif;
   }
   #container {
-    margin: 100px auto;
-    width: 400px;
-    padding: 20px;
+    margin: 70px auto;
+    width: 200px;
+    padding: 10px;
     background-color: #313131; /* Pastel blue */
     border-radius: 10px;
     text-align: center;
     transition: background-color 0.5s ease; /* Smooth transition */
   }
   #submit {
+    text-align:center;
     padding: 10px 20px;
-    background-color: #444;
+    background-color: #4b3f72;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    margin:40px;
   }
   #submit:active {
     background-color: #666;
@@ -46,6 +48,31 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
             border: none;
             z-index: -1; 
         }
+  #birthdate{
+    color:white;
+    font-family:serif;
+    text-align:center;
+    font-size:18px;
+  }
+  #title{
+    text-align:center;
+    font-size:52px;
+    margin-top:70px;
+    font-family:serif;
+  }
+  #luckyNumber{
+    color:white;
+    font-size:48px;
+    text-align:center;
+    font-family:serif;
+  }
+  .block{
+    display: inline-block;
+    width:600px;
+    margin-left:70px;
+    margin-right:70px;
+
+  }
 </style>
 </head>
 <body>
@@ -74,22 +101,27 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
         </div>
     </nav>
 </header>
-
+<div class="block">
+ <h2 id="title"> Your Lucky Color</h2>
+ <p id="birthdate">Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>
   <div id="container">
-    <h2 style="color: black;">Find Your Lucky Color and Number</h2>
-    <p>Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>
-    
     <div id="result" style="display:none;color:black;">
-      <h3>Your lucky color is:</h3>
       <p id="luckyColor" style="color: black;">></p>
-      <h3>Your lucky number is:</h3>
-      <p id="luckyNumber" style="color: black;">></p>
-      <p>Reason: <span id="reason" style="color: black;">></span></p>
-      <a href="calculation.php">
-      <button id="submit">Next</button>
+      
       </a>
-    </div>
+</div>
+</div>
   </div>
+  <div class="block">
+  <h3 id="title">Your lucky number</h3>
+      <p id="luckyNumber">></p>
+      <p id="birthdate">Reason: <span id="reason">></span></p>
+      <a href="calculation.php">
+</div>
+        <div style="text-align:center">
+      <button id="submit">Next</button>
+      <div>
+  
 <main class="video-demo-container">
   <section class="intro-text" style="padding: 0px;">
       <div class="container">
