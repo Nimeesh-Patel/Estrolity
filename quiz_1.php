@@ -30,7 +30,7 @@ if (isset($_SESSION['flash_message'])) {
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
                         <?php
                         // Check if user is logged in
                         if (isset($_SESSION['First_Name'])) {
@@ -79,7 +79,7 @@ if (isset($_SESSION['flash_message'])) {
             <div class="progress-container">
                 <div class="progress-bar" id="quizProgress" style="width: 0%;"></div>
             </div>
-            <button type="submit" class="btn btn-next"  href="quiz_2.html" style="margin-left: 400px; margin-top: 20px;">Next</button>
+            <button type="submit" class="btn btn-next"   style="margin-left: 400px; margin-top: 20px;">Next</button>
 
         </form>
         <?php

@@ -31,12 +31,12 @@
                             if (isset($_SESSION['r1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
-                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>';
                             echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
                             // Show the Register link
                             echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
                         }
                         ?>
                     </ul>

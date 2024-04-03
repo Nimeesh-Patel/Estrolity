@@ -74,6 +74,7 @@ $conn->close();
             <div class="container">
                 <a class="navbar-brand" href="index.php">
                     <img src="logo1ed.png" alt="Astrology Logo" height="50">
+
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -82,7 +83,7 @@ $conn->close();
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
                         <?php
                         if (isset($_SESSION['First_Name'])) {
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
@@ -195,7 +196,7 @@ $conn->close();
             </div>
 
             <div class="next">
-                <a href="register.html" class="btn">Compare Your Personality With Your Zodiac Sign </a>
+                <a href="register.php" class="btn">Compare Your Personality With Your Zodiac Sign </a>
             </div>
         </div>
     </main>
