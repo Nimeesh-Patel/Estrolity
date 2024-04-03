@@ -105,7 +105,6 @@ session_start();
             </a>
         </section>
 
-        <h1> Welcome <?php echo $_SESSION['First_Name'] ?></h1>
         
     </main>
     

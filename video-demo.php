@@ -36,7 +36,7 @@
                         } else {
                             // Show the Register link
                             echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>';
                         }
                         ?>
                     </ul>
@@ -74,7 +74,7 @@
         
         <section class="cta-section">
             <div class="container">
-                <a href="register.html" class="btn btn-primary">Start Your Journery</a>
+                <a href="register.php" class="btn btn-primary">Start Your Journery</a>
             </div>
         </section>
         
