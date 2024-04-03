@@ -1,138 +1,107 @@
-<?php
-$errors = array();
-
-// Function to sanitize and validate email format
-function validateEmailFormat($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
-}
-
-// Function to trim whitespace and validate feedback
-function validateFeedback($feedback) {
-    $feedback = trim($feedback);
-    $wordCount = str_word_count($feedback);
-
-    if (empty($feedback)) {
-        return "Feedback is required";
-    } elseif ($wordCount > 10) {
-        return "Feedback cannot exceed 10 words";
-    }
-
-    return "";
-}
-
-// Function to trim whitespace and validate improve
-function validateImprove($improve) {
-    $improve = trim($improve);
-    $wordCount = str_word_count($improve);
-
-    if (empty($improve)) {
-        return "Field is required";
-    } elseif ($wordCount > 10) {
-        return "Field cannot exceed 10 words";
-    }
-
-    return "";
-}
-
-// Function to validate contact number
-function validateContact($contact) {
-    if (!is_numeric($contact)) {
-        return "Contact Number must have numeric characters only";
-    } elseif (strlen($contact) != 10) {
-        return "Contact Number should be of 10 digits";
-    }
-    return "";
-}
-
-// Function to validate rating
-function validateRating($rating) {
-    $rating = trim($rating);
-    if (!is_numeric($rating)) {
-        return "Rating is required";
-    } elseif ($rating < 0 || $rating > 5) {
-        return "Rating must be between 0 and 5";
-    }
-    return "";
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $feedback = $_POST["feedback"];
-    $improve = $_POST["improve"];
-    $contact = $_POST["contact"];
-    $rating = $_POST["rating"];
-
-    // Validate email
-    if (!validateEmailFormat($email)) {
-        $errors["email"] = "Invalid email format";
-    }
-
-    // Validate feedback
-    $feedbackError = validateFeedback($feedback);
-    if (!empty($feedbackError)) {
-        $errors["feedback"] = $feedbackError;
-    }
-
-    // Validate improve
-    $improveError = validateImprove($improve);
-    if (!empty($improveError)) {
-        $errors["improve"] = $improveError;
-    }
-
-    // Validate contact
-    $contactError = validateContact($contact);
-    if (!empty($contactError)) {
-        $errors["contact"] = $contactError;
-    }
-
-    // Validate rating
-    $ratingError = validateRating($rating);
-    if (!empty($ratingError)) {
-        $errors["rating"] = $ratingError;
-    }
-
-    // If there are no errors and all fields are filled, process the form
-    if (empty($errors) && !empty($email) && !empty($feedback) && !empty($improve) && !empty($contact) && !empty($rating)) {
-        // Process the form submission
-        // Insert data into database
-        // Redirect or do further processing
-    }
-}
-
-
-
-
-       $hashed_feedback = password_hash($feedback, PASSWORD_DEFAULT);
-
-       $email=$_POST["email"];
-       $rate=$_POST["rating"];
-       $feedback=$_POST["feedback"];
-       $improve=$_POST["improve"];
-       $contact=$_POST["contact"];
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "project";
-
-        try{
-        $conn = mysqli_connect($servername, $username, $password,$database);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Astrology and Personality Traits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
         }
-        $sql = "INSERT INTO feedback values('$email','$rating','$hashed_feedback','$improve','$contact')";
-        if(mysqli_query($conn,$sql)){
-            echo "<script>alert('Feedback submitted'); window.location.href='index.php';</script>";
+        iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: -1; 
         }
-        }
-        catch(Exception $e){
-            echo "Error: Database not found " . $e->getMessage() . " ";
-        }
-        finally {
-            // Close connection
-            if (isset($conn)) {
-                $conn->close();
-            }
-        }
-?> 
+    </style>
+</head>
+<body>
+    <iframe src="canvas.html"></iframe>
+    <div id="cursorDot"></div>
+    <div id="cursorCircle"></div>
 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <section class="login-section">
+            <div class="container">
+                <h1>Feedback</h1>
+                <div class="error">
+  </div>
+                <form id="Form" action="feedbackPHP.php" method="POST" onsubmit="return validateForm()">
+                    <div style="text-align: center;align-items: centre;" class="form-group">
+                        <label for="username">Email:</label>
+                        <input style="width: 700px;" type="text" id="email" name="email"  onblur="validateEmail()">
+                        <div id="emailError" class="text-danger"></div>
+                    </div>
+                    <div style="text-align: center;align-items: centre;" class="form-group">
+                        <label for="username">Rate us out of 5:</label>
+                        <input style="width: 700px;" type="number" id="rating" name="rate"  onblur="validateRating()">
+                        <div id="ratingError" class="text-danger"></div>
+                    </div>
+                    
+                    <div style="text-align: center;align-items: centre;" class="form-group">
+                        <label for="text">Feedback:</label>
+                        <textarea style="width: 700px;height: 170px;" type="text" id="feedback" name="feedback" contenteditable="true" onblur="validateFeedback()">
+                        </textarea>
+                        <div id="feedbackError" class="text-danger"></div>
+                    </div>
+                    <div style="text-align: center;align-items: centre;" class="form-group">
+                        <label for="text">Any Suggestion for improvement ?</label>
+                        <textarea style="width: 700px;height: 170px;" type="text" id="improve" name="improve" contenteditable="true" onblur="validateImprove()">
+                        </textarea>
+                        <div id="improveError" class="text-danger"></div>
+                        <div style="text-align: center;align-items: centre;" class="form-group">
+                            <label for="username">Contact Number :</label>
+                            <input style="width: 700px;" type="number" id="contact" name="contact" onblur="validateContact()">
+                            <div id="contactError" class="text-danger"></div>
+                        </div>
+                    <div style="text-align: center;align-items: center;">
+                    <button class="btn" type="submit" value="submit" >Submit</button>
+                    <div class="assist-links">
+                        <a href="index.php">Back to Home</a> |
+                    </div> 
+                </div> 
+                </form> 
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="feedback.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
+</body>
+</html>

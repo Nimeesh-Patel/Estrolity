@@ -196,7 +196,7 @@ $conn->close();
             </div>
             </div>
             <div>
-                <a href="register_astro.html" id="registerBtn">Register as Astrologer</a>
+                <a href="register_astro.php" id="registerBtn">Register as Astrologer</a>
             </div>
         </section>
     </main>

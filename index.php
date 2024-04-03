@@ -87,12 +87,12 @@ $conn->close();
                         <?php
                         if (isset($_SESSION['First_Name'])) {
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>';
                             if (isset($_SESSION['r1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
                             echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_info.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
                             // Show the Register link
                             echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
