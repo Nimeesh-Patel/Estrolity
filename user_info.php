@@ -33,10 +33,7 @@ $result = $stmt->get_result();
         // echo "Gender: " . $row["Gender"]. "<br>";
         // echo "zodiac_sign: " . $row["zodiac_sign"]. "</p>";
     
-} else {
-    echo "0 results"; // Output if no rows are returned
 }
-
 ?>
 
 

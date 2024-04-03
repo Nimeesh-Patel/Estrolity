@@ -67,7 +67,7 @@
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
                             echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_info.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
                             // Show the Register link
                             echo '<li class="nav-item"><a class="nav-link" href="register_astro.php">Register</a></li>';
@@ -134,7 +134,7 @@
                 <div id="confirmPasswordError" class="text-danger"></div>
             </div>
             <button id="registerBtn" class="btn btn-primary">Register</button>
-            <!-- <a href="login.html" style="margin-left: 230px;">Already have an account?</a> -->
+            <a href="login_astro.html" style="margin-left: 230px;">Already have an account?</a>
         </form>
     </div>
     <script src="astrovalid.js"></script>
