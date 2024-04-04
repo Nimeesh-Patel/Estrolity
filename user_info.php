@@ -35,24 +35,20 @@ $result = $stmt->get_result();
     
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #1f1f1f; /* Dark background color */
-            color: #ffffff; /* White text color */
+            background-color: #1f1f1f;
+            color: #ffffff;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
             height: 100vh;
         }
 
@@ -61,7 +57,7 @@ $result = $stmt->get_result();
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
-            width: 400px;
+            /* width: 400px; */
             text-align: center;
         }
 
@@ -95,6 +91,47 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
+                        <?php
+                        if (isset($_SESSION['First_Name'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>';
+                            if (isset($_SESSION['r1'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
+                            }
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_info.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                        } else {
+                            // Show the Register link
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="cursorDot">
+        <img src="cursorSvg.svg" id="cursorSvg" style="width: 100%; height: 100%; display: none; padding: 1.5px 1.5px;">
+        <img src="glassSvg.svg" id="glassSvg" style="width: 100%; height: 100%; display: none; padding: 1.5px 1.5px;">
+    </div>
+    <div id="cursorCircle">
+    </div>
     <div class="container">
         <h1>User Profile</h1>
         <?php
@@ -144,11 +181,15 @@ $result = $stmt->get_result();
             <div class="field">
                 <label>Zodiac Sign:</label> <?php echo $row["zodiac_sign"]; ?>
             </div>
+            <a href="deletion.php" class="btn btn-primary" style="margin-top: 20px;">Delete Account</a>
+            
             <?php
         } else {
             echo "<p>0 results</p>";
         }
         ?>
     </div>
+    <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
 </body>
 </html>

@@ -115,7 +115,7 @@ try {
         }
     } else {
         // Email does not exist, display alert message
-        echo "<script>alert('Email not found'); window.location.href='login.html';</script>";
+        echo "<script>alert('Email not found'); window.location.href='login_astro.html';</script>";
         exit();
     }
 } catch (Exception $e) {

@@ -134,7 +134,7 @@
                 <div id="confirmPasswordError" class="text-danger"></div>
             </div>
             <button id="registerBtn" class="btn btn-primary">Register</button>
-            <a href="login_astro.html" style="margin-left: 230px;">Already have an account?</a>
+            <!-- <a href="login_astro.html" style="margin-left: 230px;">Already have an account?</a> -->
         </form>
     </div>
     <script src="astrovalid.js"></script>
