@@ -61,7 +61,7 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 700px; /* Example height: Adjust as needed to be larger than the viewport for vertical scrolling */
+    height: 700px; 
     z-index: -1;
     font-family: 'Bangers', cursive;
     mix-blend-mode: multiply;
@@ -82,8 +82,6 @@ body {
     height: auto; /* maintains aspect ratio */
 }
 
-
-/* Starfield Canvas */
 #starfield {
     position: fixed;
     top: 0;
@@ -242,7 +240,7 @@ select {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: #ccc; /* Lighter color for readability */
+    color: #ccc; 
     font-size: 1rem;
 }
 .form-group textarea,
