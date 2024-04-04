@@ -11,6 +11,7 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
 <title>Astrology Website</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="styles.css">
+
 <style>
   body {
     background-color: black;
@@ -80,27 +81,40 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
   <div id="cursorDot"></div>
   <div id="cursorCircle"></div>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo1ed.png" alt="Astrology Logo" height="50">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="video-demo.html">Demo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="quiz-intro.html">Quiz</a></li>
-                    <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about_us_page.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="logo1ed.png" alt="Astrology Logo" height="50">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="video-demo.php">Demo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about_us_page.php">Contact</a></li>
+                        <?php
+                        if (isset($_SESSION['First_Name'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>';
+                            if (isset($_SESSION['r1'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
+                            }
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_info.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                        } else {
+                            // Show the Register link
+                            echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 <div class="block">
  <h2 id="title"> Your Lucky Color</h2>
  <p id="birthdate">Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>

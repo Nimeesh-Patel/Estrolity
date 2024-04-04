@@ -126,7 +126,7 @@ session_start();
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
             ?>
-                <form id="loginForm" action="login.php" method="POST" onsubmit="return formValidation()">
+                <form id="loginForm" action="deletionPHP.php" method="POST" onsubmit="return formValidation()">
                     <div class="form-group">
                         <label for="username">Email:</label>
                         <input type="text" id="username" name="username" onblur="validateEmailField()">
@@ -152,9 +152,10 @@ session_start();
                         
                         <a href="register.php">Create Account</a>
                     </div> -->
-                    
+                    <input class="btn" type="submit" id="btn" style="color: #ccc;" />
                 </form>
-            <a type = onSubmit class="btn btn-primary" style="margin-top: 20px;">Confrim</a>
+            <!-- <a type = "submit" class="btn btn-primary" style="margin-top: 20px;">Confrim</a> -->
+
             <?php
         } else {
             echo "<p>0 results</p>";
