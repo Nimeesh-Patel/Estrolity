@@ -19,13 +19,9 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
     font-family: Arial, sans-serif;
   }
   #container {
-    margin: 70px auto;
-    width: 200px;
-    padding: 10px;
-    background-color: #313131; /* Pastel blue */
     border-radius: 10px;
     text-align: center;
-    transition: background-color 0.5s ease; /* Smooth transition */
+    transition: color 0.5s ease; /* Smooth transition */
   }
   #submit {
     text-align:center;
@@ -63,6 +59,11 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
   }
   #luckyNumber{
     color:white;
+    font-size:48px;
+    text-align:center;
+    font-family:serif;
+  }
+  #luckyColor{
     font-size:48px;
     text-align:center;
     font-family:serif;
@@ -119,8 +120,8 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
  <h2 id="title"> Your Lucky Color</h2>
  <p id="birthdate">Your birthday: <span id="birthdateDisplay"><?php echo $_SESSION['Date_of_birth'];?></span></p>
   <div id="container">
-    <div id="result" style="display:none;color:black;">
-      <p id="luckyColor" style="color: black;">></p>
+    <div id="result">
+      <p id="luckyColor" >></p>
       
       </a>
 </div>
@@ -173,7 +174,7 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
             age--;
         }
 
-        var colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "white", "black"];
+        var colors = ["Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink", "White"];
         var reasons = [
           "Passion, energy, action, and love.",
           "Calmness, stability, trust, and wisdom.",
@@ -183,7 +184,6 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
           "Royalty, luxury, spirituality, and mystery.",
           "Love, romance, and femininity.",
           "Purity, innocence, and cleanliness.",
-          "Mystery, sophistication, and power."
         ];
         var luckyNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         
@@ -204,9 +204,9 @@ $birthdate = isset($_SESSION['Date_of_birth']) ? $_SESSION['Date_of_birth'] : ''
         document.getElementById('reason').innerText = reason;
 
         // Optional: Adjust container background and text color based on the lucky color
-        var container = document.getElementById('container');
-        container.style.backgroundColor = getPastelColor(randomColor);
-        container.style.color = randomColor === 'white' || randomColor === 'black' ? 'white' : 'black';
+        var luckyColorText = document.getElementById('luckyColor');
+        luckyColorText.style.color = getPastelColor(randomColor);
+        // luckyColor.style.color = randomColor === 'white' || randomColor === 'black' ? 'white' : 'black';
     } else {
         alert("Birthdate is not set in the session. Please log in or set the birthdate.");
     }
