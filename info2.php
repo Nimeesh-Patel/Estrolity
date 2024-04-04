@@ -1,9 +1,46 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "project"; 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")) {
+    $stmt->bind_param("s", $_SESSION['E_mail_id']);
+
+    $stmt->execute();
+
+    $stmt->bind_result($f, $r1, $r2, $r3, $r4);
+
+    if ($stmt->fetch()) {
+        $_SESSION['r1'] = $r1;
+        $_SESSION['r2'] = $r2;
+        $_SESSION['r3'] = $r3;
+        $_SESSION['r4'] = $r4;
+    }
+
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Demonstration - Astrology and Personality Traits</title>
+    <title>Quiz Introduction - Astrology and Personality Traits</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -27,12 +64,13 @@
                         if (isset($_SESSION['First_Name'])) {
                             // Display user's first name
                             echo '<li class="nav-item"><a class="nav-link" href="quiz-intro.php">Quiz</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>';
-                            if (isset($_SESSION['r1'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>';
+                            // is result calculated
+                            if (isset($_SESSION['z1'])) {
                                 echo '<li class="nav-item"><a class="nav-link" href="zodiacResult.php">Result</a></li>';
                             }
-                            echo '<li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>';
-                            echo '<li class="nav-item"><a class="nav-link" href="user_profile.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="user_info.php">' . htmlspecialchars($_SESSION['First_Name']) . '</a></li>';
                         } else {
                             // Show the Register link
                             echo '<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>';
@@ -48,52 +86,19 @@
     <canvas id="starfield"></canvas>
     <div id="cursorDot"></div>
     <div id="cursorCircle"></div>
+    <script src="js/script.js"></script>
+    <script src="js/cursor.js"></script>
 
-    <main class="video-demo-container">
+    <main class="container">
         <section class="intro-text" style="padding: 0px;">
             <div class="container">
-                <h1>Platform Demonstration</h1>
-                <p>Get to know how our platform works and discover the features that make us unique.</p>
-            </div>
-        </section>
-        
-        <section class="video-section">
-            <div class="video-frame">
-                <video controls style="width: 100%; height: auto;">
-                    <source src="videoDemo.mp4" type="video/mp4">
-                    <track label="English" kind="subtitles" srclang="en" src="ademo.vtt" default>
-                    <track label="Marathi" kind="subtitles" srclang="mr" src="ademo2.vtt" default>
-                </video>
-            </div>            
-            <div>
-                <audio controls style="margin-top: 10px;">
-                    <source src="audioDemo.mp4">
-                </audio>
-            </div>
-        </section>
-        
-        <section class="cta-section">
-            <div class="container">
-                <a href="register.php" class="btn btn-primary">Start Your Journery</a>
-            </div>
-        </section>
-        
-        <!-- Additional Resources -->
-        <section class="additional-resources">
-            <div class="container">
-                <!-- Links to further reading or related articles -->
+                <h1>Astrology Secrets</h1>
+                <p style="line-height: 40px;">
+                    Unlock the mysteries of the cosmos with our comprehensive astrology resources. Our site bridges the celestial with the personal, offering you a unique glimpse into how planetary movements and alignments can influence your life journey. From detailed birth chart analyses to future forecasts, we provide the keys to understanding the astrological secrets that govern your fate, relationships, and potential.
+                </p>
             </div>
         </section>
     </main>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Astrology and Personality Traits. All rights reserved.</p>
-            <!-- Placeholder for additional footer content -->
-        </div>
-    </footer>
-    
-    <script src="js/script.js"></script>
-    <script src="js/cursor.js"></script>
+
 </body>
 </html>
