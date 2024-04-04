@@ -35,7 +35,6 @@ if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")
 $conn->close();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +111,7 @@ $conn->close();
         
         <section class="cta-section">
             <div class="container">
-                <a href="register.php" class="btn btn-primary">Start Your Journery</a>
+                <a href="index.php" class="btn btn-primary">Start Your Journery</a>
             </div>
         </section>
         
