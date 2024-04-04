@@ -106,11 +106,12 @@ try {
           
 
             // Redirect to the desired page
-            header("Location: welcome.php");
+            echo "<script>alert('Login success'); window.location.href='login_astro.html';</script>";
+            // header("Location: welcome.php");
             exit();
         } else {
             // Password is incorrect, display alert message
-            echo "<script>alert('Password is incorrect'); window.location.href='login.html';</script>";
+            echo "<script>alert('Password is incorrect'); window.location.href='login_astro.html';</script>";
             exit();
         }
     } else {

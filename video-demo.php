@@ -1,3 +1,41 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = ""; 
+$dbname = "project"; 
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($stmt = $conn->prepare("SELECT * FROM user_personality WHERE E_mail_id = ?")) {
+    $stmt->bind_param("s", $_SESSION['E_mail_id']);
+
+    $stmt->execute();
+
+    $stmt->bind_result($f, $r1, $r2, $r3, $r4);
+
+    if ($stmt->fetch()) {
+        $_SESSION['r1'] = $r1;
+        $_SESSION['r2'] = $r2;
+        $_SESSION['r3'] = $r3;
+        $_SESSION['r4'] = $r4;
+    }
+
+    $stmt->close();
+}
+
+// Close connection
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
