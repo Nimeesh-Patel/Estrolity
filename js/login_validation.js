@@ -135,7 +135,7 @@ function printmsg() {
 	else {
 		let s = document.getElementById("key")
 			.innerHTML = "not Matched";
-            alert("Captcha does not match",window.location.href='register.html');
+            alert("Captcha does not match",window.location.href='login.html');
 		generate();
         return false;
 	}
