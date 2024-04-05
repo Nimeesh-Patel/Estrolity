@@ -20,10 +20,18 @@
             border: none;
             z-index: -1; 
         }
+        #canvasasmi {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh; /* Changed from 700px to 100vh */
+            z-index: -1; /* Adjusted z-index */
+        }
     </style>
 </head>
 <body>
-    <iframe src="canvas.html"></iframe>
+    
     <div id="cursorDot"></div>
     <div id="cursorCircle"></div>
 
@@ -62,7 +70,7 @@
             </div>
         </nav>
     </header>
-
+    <canvas id="canvasasmi"></canvas>
     <main class="login-container">
         <section class="login-section">
             <div class="container">
@@ -116,5 +124,6 @@
     <script src="feedback.js"></script>
     <script src="js/script.js"></script>
     <script src="js/cursor.js"></script>
+    <script src = "js/asmijs.js"></script>
 </body>
 </html>

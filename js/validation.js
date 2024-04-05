@@ -1,6 +1,8 @@
 let captcha;
 var firstName = document.getElementById('user-input');
 
+
+
 function validateEmail() {
     var uid = document.getElementById('username').value;
     var emailError = document.getElementById("emailError");
@@ -102,6 +104,44 @@ function confirm_pass() {
     }
     return true;
 }
+
+function validate_birth_date() {
+    var bd = new Date(document.getElementById('birthDate').value);
+    var cd = new Date();
+    var dobError = document.getElementById('dobError'); // Assuming this element exists
+    
+    dobError.innerHTML = "";
+    
+    if (bd > cd) {
+        dobError.innerHTML = 'Birthdate cannot be in the future';
+        return false;
+    }
+    
+    return true;
+}
+
+function autofill_age() {
+    var bd = new Date(document.getElementById('birthDate').value);
+    var cd = new Date();
+    var age_cal = cd.getFullYear() - bd.getFullYear();
+    
+
+    if (bd > cd) {
+        document.getElementById('age').value = 0;
+        return false;
+    } else {
+
+    
+        // Adjust age if the current month is before the birth month
+        if (cd.getMonth() < bd.getMonth() || (cd.getMonth() === bd.getMonth() && cd.getDate() < bd.getDate())) {
+            age_cal--;
+        }
+
+        document.getElementById('age').value = age_cal;
+        return true;   
+    }
+}
+
 
 
 // function formValidation() {

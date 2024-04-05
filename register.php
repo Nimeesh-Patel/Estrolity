@@ -123,12 +123,13 @@ session_start();
 
             <div class="form-group">
                 <label for="dob">Date Of Birth:</label>
-                <input type="date" id="birthDate" name="birth_date" required>
+                <input type="date" id="birthDate" name="birth_date" required onblur="validate_birth_date()"> 
+                <div id="dobError" class="text-danger"></div>
             </div>
 
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required onblur="ageCheck()">
+                <input type="number" id="age" name="age" required onblur="ageCheck()" onfocus="autofill_age()">
                 <div id="ageError" class="text-danger"></div>
             </div>
 

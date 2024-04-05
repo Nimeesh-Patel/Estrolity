@@ -68,7 +68,7 @@ $conn->close();
   #submit:active {
     background-color: #666;
   }
-  iframe {
+  /* iframe {
             position: fixed;
             top: 0;
             left: 0;
@@ -76,7 +76,7 @@ $conn->close();
             height: 100%;
             border: none;
             z-index: -1; 
-        }
+        } */
   #birthdate{
     color:white;
     font-family:serif;
@@ -107,10 +107,19 @@ $conn->close();
     margin-right:70px;
 
   }
+  #canvasasmi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; /* Changed from 700px to 100vh */
+    z-index: -1; /* Adjusted z-index */
+}
+
 </style>
 </head>
 <body>
-  <iframe src="canvas.html"></iframe>
+  <canvas id="canvasasmi"></canvas>
   <div id="cursorDot"></div>
   <div id="cursorCircle"></div>
   <header>
@@ -118,7 +127,6 @@ $conn->close();
             <div class="container">
                 <a class="navbar-brand" href="index.php">
                     <img src="logo1ed.png" alt="Astrology Logo" height="50">
-
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -280,5 +288,6 @@ function getPastelColor(color) {
 </footer>
 <script src="js/script.js"></script>
 <script src="js/cursor.js"></script>
+<script src ="js/asmijs.js"></script>
 </body>
 </html>
