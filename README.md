@@ -1,6 +1,8 @@
-# Astrology and Personality Traits Project
+# Astrology and Personality Traits Project (Estrolity)
 
 Welcome to the Astrology and Personality Traits project! This project is designed to provide users with insights into their astrological signs, lucky colors, lucky numbers, and personality traits based on their birthdate and quiz results. Our interactive platform offers a unique blend of astrology and numerology to engage users in exploring more about themselves.
+
+hosted: estrolity.000.pe
 
 ## Features
 
